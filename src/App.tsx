@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Please check back later.
+          Please check back at a later time.
         </a>
       </header>
     </div>

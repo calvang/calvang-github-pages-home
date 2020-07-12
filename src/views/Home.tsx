@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-export default class Home extends Component {
+interface HomeProps {}
+interface HomeState {
+  isMenuOpen: boolean,
+}
+
+export default class Home extends Component<HomeProps, HomeState> {
+  constructor(props: HomeProps) {
+    super(props);
+    this.state = {
+      isMenuOpen: false
+    }
+  }
+
+  toggleMenu = () => {
+    const { isMenuOpen } = this.state;
+    isMenuOpen ? this.setState({ isMenuOpen: false }) 
+    : this.setState({ isMenuOpen: true });
+  }
+
   render() {
     return (
       <div className="w3-padding-large w3-black" id="main">
@@ -12,7 +30,7 @@ export default class Home extends Component {
         </header>
 
         <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-          <h2 className="w3-text-light-grey">My Name</h2>
+          <h2 className="w3-text-light-grey">whoami</h2>
           <hr className="w3-opacity" style={{ width: "200px" }} />
           <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
           ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
@@ -65,16 +83,16 @@ export default class Home extends Component {
           {/* <!-- Grid for photos --> */}
           <div className="w3-row-padding" style={{ margin: "0 -16px" }}>
             <div className="w3-half">
-              <img src="/w3images/wedding.jpg" style={{ width: "100%" }} />
-              <img src="/w3images/rocks.jpg" style={{ width: "100%" }} />
-              <img src="/w3images/sailboat.jpg" style={{ width: "100%" }} />
+              <img src="/w3images/wedding.jpg" style={{ width: "100%" }} alt="img" />
+              <img src="/w3images/rocks.jpg" style={{ width: "100%" }} alt="img" />
+              <img src="/w3images/sailboat.jpg" style={{ width: "100%" }} alt="img" />
             </div>
 
             <div className="w3-half">
-              <img src="/w3images/underwater.jpg" style={{ width: "100%" }} />
-              <img src="/w3images/chef.jpg" style={{ width: "100%" }} />
-              <img src="/w3images/wedding.jpg" style={{ width: "100%" }} />
-              <img src="/w3images/p6.jpg" style={{ width: "100%" }} />
+              <img src="/w3images/underwater.jpg" style={{ width: "100%" }} alt="img" />
+              <img src="/w3images/chef.jpg" style={{ width: "100%" }} alt="img" />
+              <img src="/w3images/wedding.jpg" style={{ width: "100%" }} alt="img" />
+              <img src="/w3images/p6.jpg" style={{ width: "100%" }} alt="img" />
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../App.css';
 
-class Project extends React.Component {
+export default class Project extends Component {
   render() {
     return (
       <div className="App">
@@ -10,5 +10,3 @@ class Project extends React.Component {
     );
   }
 }
-
-export default Project;

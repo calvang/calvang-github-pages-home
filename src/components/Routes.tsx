@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Home from '../views/Home';
 //import About from '../views/About';
 import Projects from '../views/Projects';
@@ -6,7 +6,7 @@ import Projects from '../views/Projects';
 import { Switch, Route, HashRouter } from 'react-router-dom';
 import '../App.css';
 
-class Routes extends React.Component {
+export default class Routes extends Component {
   render() {
     return (
       <HashRouter>
@@ -18,5 +18,3 @@ class Routes extends React.Component {
     );
   }
 }
-
-export default Routes;

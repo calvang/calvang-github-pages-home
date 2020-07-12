@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import '../App.css';
+import textFile from '../resources/data/home.json';
+import Portfolio from '../components/PortfolioPreview';
+import '../css/Home.css';
+import '../css/App.css';
 
 interface HomeProps {}
 interface HomeState {
-  isMenuOpen: boolean,
+  isMenuOpen: boolean
 }
 
 export default class Home extends Component<HomeProps, HomeState> {
@@ -22,83 +25,79 @@ export default class Home extends Component<HomeProps, HomeState> {
 
   render() {
     return (
-      <div className="w3-padding-large w3-black" id="main">
-        <header className="w3-container w3-padding-32 w3-center w3-black" id="home">
-          <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
-          <p>Full-stack web and desktop app developer.</p>
-          <img src="/w3images/man_smoke.jpg" alt="boy" className="w3-image" width="992" height="1108" />
+      <div className="w3-black" id="main">
+        <header className="w3-container w3-center Home-container1" id="home">
+          <div className="vertical-center">
+            <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
+            <p>Full-stack web and desktop app student developer.</p>
+          </div>
         </header>
 
-        <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+        <div className="w3-content w3-justify w3-text-grey w3-padding-large" id="about">
           <h2 className="w3-text-light-grey">whoami</h2>
           <hr className="w3-opacity" style={{ width: "200px" }} />
-          <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
+          <p>{textFile.whoami.text}</p>
           <h3 className="w3-padding-16 w3-text-light-grey">My Skills</h3>
-          <p className="w3-wide">Photography</p>
-          <div className="w3-white">
-            <div className="w3-dark-grey" style={{ height: "28px", width: "95%" }}></div>
+          <p className="w3-wide w3-large">Languages</p>
+          {/* <hr /> */}
+          <div className="w3-row w3-center w3-section w3-light-grey">
+            <div className="w3-half w3-section w3-padding">
+              <span className="w3-xlarge">Programming/Query</span><br />
+              <span className="w3-padding-large">C/C++, Java, Python, JavaScript/TypeScript, MatLab, Swift, SQL</span>
+            </div>
+            <div className="w3-half w3-section w3-padding">
+              <span className="w3-xlarge">Markup</span><br />
+              <span className="w3-padding-large">HTML, XML, YAML, CSS, LaTex, Markdown, Mermaid</span>
+            </div>
           </div>
-          <p className="w3-wide">Web Design</p>
-          <div className="w3-white">
-            <div className="w3-dark-grey" style={{ height: "28px", width: "85%" }}></div>
+          <p className="w3-wide w3-large">Frameworks</p>
+          <div className="w3-row w3-center w3-section w3-light-grey">
+            <div className="w3-third w3-section w3-padding-large">
+              <span className="w3-xlarge">Front-end</span><br />
+              <span className="w3-padding">NodeJS, React/React-Native, Angular, Bootstrap</span>
+            </div>
+            <div className="w3-third w3-section w3-padding">
+              <span className="w3-xlarge">Back-end</span><br />
+              <span className="w3-padding">Flask, JAX-RS</span>
+            </div>
+            <div className="w3-third w3-section w3-padding">
+              <span className="w3-xlarge">Databases</span><br />
+              <span className="w3-padding">SQLite, MySQL, MongoDB, DynamoDB</span>
+            </div>
           </div>
-          <p className="w3-wide">Photoshop</p>
-          <div className="w3-white">
-            <div className="w3-dark-grey" style={{ height: "28px", width: "80%" }}></div>
-          </div><br />
-          
-          <div className="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-            <div className="w3-quarter w3-section">
-              <span className="w3-xlarge">11+</span><br />
-              Partners
+          <p className="w3-wide w3-large">Infrastructures</p>
+          <div className="w3-row w3-center w3-section w3-light-grey">
+            <div className="w3-third w3-section w3-padding-large">
+              <span className="w3-xlarge">Cloud</span><br />
+              <span className="w3-padding">Amazon Web Services, Google Cloud</span>
             </div>
-            <div className="w3-quarter w3-section">
-              <span className="w3-xlarge">55+</span><br />
-              Projects Done
+            <div className="w3-third w3-section w3-padding">
+              <span className="w3-xlarge">DevOps</span><br />
+              <span className="w3-padding">Ansible, IBM Liberty</span>
             </div>
-            <div className="w3-quarter w3-section">
-              <span className="w3-xlarge">89+</span><br />
-              Happy Clients
-            </div>
-            <div className="w3-quarter w3-section">
-              <span className="w3-xlarge">150+</span><br />
-              Meetings
+            <div className="w3-third w3-section w3-padding">
+              <span className="w3-xlarge">Servers</span><br />
+              <span className="w3-padding">Apache 2, Nginx, Dyamic DNS</span>
             </div>
           </div>
 
           <button className="w3-button w3-light-grey w3-padding-large w3-section">
-            <i className="fa fa-download"></i> Download Resume
+            <i className="fa fa-download"></i> View Resume
           </button>
         
         </div>
         
         {/* <!-- Portfolio Section --> */}
-        <div className="w3-padding-64 w3-content" id="photos">
+        <div className="w3-padding-large w3-content" id="photos">
           <h2 className="w3-text-light-grey">My Photos</h2>
           <hr style={{ width: "200px" }} className="w3-opacity" />
 
-          {/* <!-- Grid for photos --> */}
-          <div className="w3-row-padding" style={{ margin: "0 -16px" }}>
-            <div className="w3-half">
-              <img src="/w3images/wedding.jpg" style={{ width: "100%" }} alt="img" />
-              <img src="/w3images/rocks.jpg" style={{ width: "100%" }} alt="img" />
-              <img src="/w3images/sailboat.jpg" style={{ width: "100%" }} alt="img" />
-            </div>
-
-            <div className="w3-half">
-              <img src="/w3images/underwater.jpg" style={{ width: "100%" }} alt="img" />
-              <img src="/w3images/chef.jpg" style={{ width: "100%" }} alt="img" />
-              <img src="/w3images/wedding.jpg" style={{ width: "100%" }} alt="img" />
-              <img src="/w3images/p6.jpg" style={{ width: "100%" }} alt="img" />
-            </div>
-          </div>
+          {/* <!-- Grid for Projects --> */}
+          <Portfolio />
         </div>
 
 
-        <div className="w3-padding-64 w3-content w3-text-grey" id="contact">
+        <div className="w3-padding-large w3-content w3-text-grey" id="contact">
           <h2 className="w3-text-light-grey">Contact Me</h2>
           <hr style={{ width: "200px" }} className="w3-opacity" />
 

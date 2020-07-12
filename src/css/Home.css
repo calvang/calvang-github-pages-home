@@ -1,0 +1,10 @@
+.Home-container1 {
+  background-image: url(../resources/images/neonMetal.jpg);
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.vertical-center {
+  padding: 20% 0;
+}

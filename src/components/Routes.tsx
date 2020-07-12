@@ -4,7 +4,7 @@ import Home from '../views/Home';
 import Projects from '../views/Projects';
 //import Contact from '../views/Contact';
 import { Switch, Route, HashRouter } from 'react-router-dom';
-import '../App.css';
+import '../css/App.css';
 
 export default class Routes extends Component {
   render() {

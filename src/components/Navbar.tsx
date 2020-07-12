@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from '../resources/logo.png';
-import '../App.css';
+import logo from '../resources/images/logo.png';
+import '../css/App.css';
 //import { isConditionalExpression } from 'typescript';
 
 interface NavbarProps {}
@@ -51,7 +51,27 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
         {isMenuOpen ?
           <div>
             {/*Navbar on large screens*/}
-            <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-hide-medium w3-center"
+            <div className="w3-top w3-small w3-hide-small w3-hide-medium w3-left">
+              <div className="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-medium">
+                <button className="w3-bar-item w3-button w3-padding"
+                  style={{ width: "100px" }}
+                  onClick={this.toggleMenu}>
+                  <i className="fa fa-bars fa-fw w3-xxlarge"></i>
+                </button>
+                {
+                  links.map((page, i) => {
+                    return (
+                      <a href={page.link} className="w3-bar-item w3-button"
+                        style={{ fontSize: "calc(5px + 2vmin)", verticalAlign: "center", width:"22.5%" }}>
+                        <i className={page.icon + " w3-xlarge"} ></i>
+                        {" " + page.label}
+                      </a>
+                    )
+                  })
+                }
+              </div>
+            </div> 
+            {/* <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-hide-medium w3-hide-large w3-center"
               style={{ width: "auto", background: "#222" }}>
               <button className="w3-bar-item w3-button w3-hover-black" 
                   onClick={this.toggleMenu}>
@@ -69,14 +89,14 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
                   })
                 }
               </div>
-            </nav> 
+            </nav>  */}
             {/*Navbar on medium screens*/}
             <div className="w3-top w3-small w3-hide-small w3-hide-large w3-left">
               <div className="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-medium">
                 <button className="w3-bar-item w3-button w3-padding"
-                  style={{ width: "10%" }}
+                  
                   onClick={this.toggleMenu}>
-                  <img src={logo} style={{ left: "5%", height: "auto", width: "50%", zoom: "100%" }} alt="logo" />
+                  <i className="fa fa-bars fa-fw w3-xlarge"></i>
                 </button>
                 {
                   links.map((page, i) => {
@@ -111,7 +131,7 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
             </div>
           </div> :
           <div>
-            <nav className="w3-top w3-black w3-hide-small w3-opacity w3-hover-opacity-off"
+            <nav className="w3-top w3-black w3-hide-small w3-hide-medium w3-opacity w3-hover-opacity-off"
               style={{ width: "100px" }}
               id="mySidebar">
               <div className="w3-bar-block w3-center">
@@ -121,13 +141,15 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
                 </button> 
               </div>
             </nav>
-            <nav className="w3-top w3-black w3-hide-large w3-hide-medium w3-opacity w3-hover-opacity-off"
-              style={{ width: "100px" }}
+            <nav className="w3-top w3-black w3-hide-large w3-opacity w3-hover-opacity-off"
+              style={{ width: "auto" }}
               id="mySidebar">
+              <div className="w3-bar-block w3-center">
                 <button className="w3-bar-item w3-button w3-padding"
                   onClick={this.toggleMenu}>
                   <i className="fa fa-bars fa-fw w3-xlarge"></i>
                 </button> 
+              </div>
             </nav>
           </div>
         }

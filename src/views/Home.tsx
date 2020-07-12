@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import textFile from '../resources/data/home.json';
 import Portfolio from '../components/PortfolioPreview';
+import homeData from '../resources/data/home.json';
 import '../css/Home.css';
 import '../css/App.css';
 
@@ -36,48 +36,48 @@ export default class Home extends Component<HomeProps, HomeState> {
         <div className="w3-content w3-justify w3-text-grey w3-padding-large" id="about">
           <h2 className="w3-text-light-grey">whoami</h2>
           <hr className="w3-opacity" style={{ width: "200px" }} />
-          <p>{textFile.whoami.text}</p>
+          <p>{homeData.whoami.text}</p>
           <h3 className="w3-padding-16 w3-text-light-grey">My Skills</h3>
           <p className="w3-wide w3-large">Languages</p>
           {/* <hr /> */}
           <div className="w3-row w3-center w3-section w3-light-grey">
             <div className="w3-half w3-section w3-padding">
               <span className="w3-xlarge">Programming/Query</span><br />
-              <span className="w3-padding-large">C/C++, Java, Python, JavaScript/TypeScript, MatLab, Swift, SQL</span>
+              <span className="w3-padding-large">{homeData.skills.languages.programming}</span>
             </div>
             <div className="w3-half w3-section w3-padding">
               <span className="w3-xlarge">Markup</span><br />
-              <span className="w3-padding-large">HTML, XML, YAML, CSS, LaTex, Markdown, Mermaid</span>
+              <span className="w3-padding-large">{homeData.skills.languages.markup}</span>
             </div>
           </div>
           <p className="w3-wide w3-large">Frameworks</p>
           <div className="w3-row w3-center w3-section w3-light-grey">
             <div className="w3-third w3-section w3-padding-large">
-              <span className="w3-xlarge">Front-end</span><br />
-              <span className="w3-padding">NodeJS, React/React-Native, Angular, Bootstrap</span>
+              <span className="w3-xlarge">Frontend</span><br />
+              <span className="w3-padding">{homeData.skills.frameworks.frontend}</span>
             </div>
             <div className="w3-third w3-section w3-padding">
-              <span className="w3-xlarge">Back-end</span><br />
-              <span className="w3-padding">Flask, JAX-RS</span>
+              <span className="w3-xlarge">Backend</span><br />
+              <span className="w3-padding">{homeData.skills.frameworks.backend}</span>
             </div>
             <div className="w3-third w3-section w3-padding">
               <span className="w3-xlarge">Databases</span><br />
-              <span className="w3-padding">SQLite, MySQL, MongoDB, DynamoDB</span>
+              <span className="w3-padding">{homeData.skills.frameworks.databases}</span>
             </div>
           </div>
           <p className="w3-wide w3-large">Infrastructures</p>
           <div className="w3-row w3-center w3-section w3-light-grey">
             <div className="w3-third w3-section w3-padding-large">
               <span className="w3-xlarge">Cloud</span><br />
-              <span className="w3-padding">Amazon Web Services, Google Cloud</span>
+              <span className="w3-padding">{homeData.skills.infrastructures.cloud}</span>
             </div>
             <div className="w3-third w3-section w3-padding">
-              <span className="w3-xlarge">DevOps</span><br />
-              <span className="w3-padding">Ansible, IBM Liberty</span>
+              <span className="w3-xlarge">Application Deployment</span><br />
+              <span className="w3-padding">{homeData.skills.infrastructures.deployment}</span>
             </div>
             <div className="w3-third w3-section w3-padding">
               <span className="w3-xlarge">Servers</span><br />
-              <span className="w3-padding">Apache 2, Nginx, Dyamic DNS</span>
+              <span className="w3-padding">{homeData.skills.infrastructures.servers}</span>
             </div>
           </div>
 

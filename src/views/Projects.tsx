@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProjectData from '../resources/data/projects.json'
+import projectData from '../resources/data/projects.json'
 import '../css/App.css';
 
 export default class Project extends Component {

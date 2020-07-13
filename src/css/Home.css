@@ -1,10 +1,66 @@
-.Home-container1 {
-  background-image: url(../resources/images/neonMetal.jpg);
-  height: 0;
-  padding-bottom: 56.25%;
-  position: relative;
+@media only screen and (max-width: 800px) {
+  .Home-container1 {
+    background-image: 
+      linear-gradient(
+        rgba(0, 0, 80, 0.1), 
+        rgba(0, 20, 20, 0.1)
+      ),
+      url(../resources/images/neonMetal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1;
+    padding-bottom: 56.25%;
+    position: relative;
+  }
+
+  .Home-container2 {
+    background-image: 
+      linear-gradient(
+        rgba(0, 0, 80, 0.7), 
+        rgba(0, 20, 20, 0.4)
+      ),
+      url(../resources/images/darkGlass.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .Home-container1 {
+    background-image: 
+      linear-gradient(
+        rgba(0, 0, 80, 0.1), 
+        rgba(0, 20, 20, 0.1)
+      ),
+      url(../resources/images/neonMetal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+  }
+  
+  .Home-container2 {
+    background-image: 
+      linear-gradient(
+        rgba(0, 0, 20, 0.9), 
+        rgba(0, 20, 20, 0.9)
+      ),
+      url(../resources/images/darkGlass.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1;
+    position: relative;
+  }
 }
 
 .vertical-center {
   padding: 20% 0;
+}
+
+.w3-darkest-gray {
+  background-color: #262626;
+  color: white;
 }

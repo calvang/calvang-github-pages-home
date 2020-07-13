@@ -17,5 +17,6 @@
       "deployment": "Ansible, IBM Websphere Liberty, DynDNS",
       "servers": "Apache 2, Nginx"
     }
-  }
+  },
+  "resume": "my-resume"
 }

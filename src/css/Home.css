@@ -2,22 +2,22 @@
   .Home-container1 {
     background-image: 
       linear-gradient(
-        rgba(0, 0, 80, 0.1), 
+        rgba(50, 0, 80, 0.1), 
         rgba(0, 20, 20, 0.1)
       ),
       url(../resources/images/neonMetal.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 1;
-    padding-bottom: 56.25%;
+    padding-bottom: 9.25%;
     position: relative;
   }
 
   .Home-container2 {
     background-image: 
       linear-gradient(
-        rgba(0, 0, 80, 0.7), 
-        rgba(0, 20, 20, 0.4)
+        rgba(0, 0, 20, 0.9), 
+        rgba(0, 20, 20, 0.9)
       ),
       url(../resources/images/darkGlass.jpg);
     background-repeat: no-repeat;
@@ -31,7 +31,7 @@
   .Home-container1 {
     background-image: 
       linear-gradient(
-        rgba(0, 0, 80, 0.1), 
+        rgba(50, 0, 80, 0.1), 
         rgba(0, 20, 20, 0.1)
       ),
       url(../resources/images/neonMetal.jpg);
@@ -54,6 +54,41 @@
     height: 1;
     position: relative;
   }
+
+  .Home-container3 {
+    background-image: 
+      linear-gradient(
+        rgba(255, 255, 255, 0.92), 
+        rgba(255, 255, 255, 0.92)
+      ),
+      url(../resources/images/whiterock.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1;
+    position: relative;
+  }
+}
+
+.scroll-nav {
+  width: 30px;
+  position: fixed;
+  z-index: 1;
+  top: 40%;
+  right: 5px;
+  overflow: hidden;
+  border-radius: 15px;
+  align-items: center;
+}
+
+.scroll-dot {
+  width: auto;
+  right: 7px;
+  position: relative;
+  top: auto;
+}
+
+.plain-link {
+  text-decoration: none;
 }
 
 .vertical-center {
@@ -63,4 +98,13 @@
 .w3-darkest-gray {
   background-color: #262626;
   color: white;
+}
+
+.w3-darkest-teal {
+  background-color: #006666;
+  color: white;
+}
+
+.w3-text-darkest-teal {
+  color: #006666;
 }

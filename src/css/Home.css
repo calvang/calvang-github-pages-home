@@ -25,6 +25,27 @@
     height: 1;
     position: relative;
   }
+
+  .scroll-nav {
+    height: 72px;
+    width: 13px;
+    position: fixed;
+    z-index: 1;
+    top: 40%;
+    right: 3px;
+    overflow: hidden;
+    border-radius: 15px;
+    align-items: center;
+  }
+  
+  .scroll-dot {
+    height: 18px;
+    width: auto;
+    right: 13px;
+    position: relative;
+    top: -7px;
+    font-size: 8px;
+  }
 }
 
 @media only screen and (min-width: 801px) {
@@ -67,24 +88,27 @@
     height: 1;
     position: relative;
   }
-}
 
-.scroll-nav {
-  width: 30px;
-  position: fixed;
-  z-index: 1;
-  top: 40%;
-  right: 5px;
-  overflow: hidden;
-  border-radius: 15px;
-  align-items: center;
-}
-
-.scroll-dot {
-  width: auto;
-  right: 7px;
-  position: relative;
-  top: auto;
+  .scroll-nav {
+    height: 113px;
+    width: 18px;
+    position: fixed;
+    z-index: 1;
+    top: 40%;
+    right: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+    align-items: center;
+  }
+  
+  .scroll-dot {
+    height: 30px;
+    width: auto;
+    right: 12px;
+    position: relative;
+    top: -5px;
+    font-size: 12px;
+  }
 }
 
 .plain-link {

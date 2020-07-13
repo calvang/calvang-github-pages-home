@@ -35,16 +35,16 @@ export default class Home extends Component<HomeProps, HomeState> {
     return (
       <>
         <div style={{ verticalAlign:"center" }}>
-        {/*DottedScroll on large screens*/}
+        {/*dotted scroll on large screens*/}
           <div className="scroll-nav w3-small">
-            <div className="w3-black w3-opacity w3-hover-opacity-off w3-center w3-medium">
+            <div className="w3-black w3-opacity w3-hover-opacity-off w3-center">
               {
                 sections.map((section, i) => {
                   return (
                     <button key={i} className="w3-button scroll-dot"
                       onClick={() => this.scrollToRef(section)}
                       style={{ }}>
-                      <i className="fa fa-circle w3-medium"></i>
+                      <i className="fa fa-circle"></i>
                     </button>
                   )
                 })

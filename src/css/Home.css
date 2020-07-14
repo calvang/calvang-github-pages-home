@@ -15,8 +15,8 @@
         rgba(50, 0, 80, 0.1), 
         rgba(0, 20, 20, 0.1)
       ),
-      url(../resources/images/neonMetal.webp),
-      url(../resources/images/neonMetal.jpg);
+      url(../resources/images/neonMetal.webp);
+      /* url(../resources/images/neonMetal.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 1;
@@ -30,8 +30,8 @@
         rgba(0, 0, 50, 0.7), 
         rgba(0, 50, 20, 0.7)
       ),
-      url(../resources/images/darkGlass.webp),
-      url(../resources/images/darkGlass.jpg);
+      url(../resources/images/darkGlass.webp);
+      /* url(../resources/images/darkGlass.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 1;
@@ -67,8 +67,8 @@
         rgba(50, 0, 80, 0.1), 
         rgba(20, 100, 20, 0.1)
       ),
-      url(../resources/images/neonMetal.webp),
-      url(../resources/images/neonMetal.jpg);
+      url(../resources/images/neonMetal.webp);
+      /* url(../resources/images/neonMetal.jpg); */
     background-repeat: no-repeat;
     background-size: contain;
     height: 0;
@@ -82,14 +82,14 @@
         rgba(0, 0, 50, 0.7), 
         rgba(0, 50, 20, 0.7)
       ),
-      url(../resources/images/darkGlass.jpg);
+      url(../resources/images/darkGlass.webp);
     background-repeat: no-repeat;
     background-size: cover;
     height: 1;
     position: relative;
   }
 
-  .Home-container3 {
+  /* .Home-container3 {
     background-image: 
       linear-gradient(
         rgba(255, 255, 255, 0.92), 
@@ -100,7 +100,7 @@
     background-size: cover;
     height: 1;
     position: relative;
-  }
+  } */
 
   .scroll-nav {
     height: 113px;

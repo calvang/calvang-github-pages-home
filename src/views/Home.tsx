@@ -4,11 +4,15 @@ import homeData from '../resources/data/home.json';
 import codesandbox from '../resources/images/codesandbox.png';
 import '../css/Home.css';
 import '../css/App.css';
+import { createElementAccess, createImportSpecifier } from 'typescript';
 
 interface HomeProps {}
 interface HomeState {
-  isMenuOpen: boolean
-  sections: any[]
+  isMenuOpen: boolean,
+  autoscroll: boolean,
+  sections: any[],
+  currentSection: number,
+  scrollPeriod: number
 }
 
 export default class Home extends Component<HomeProps, HomeState> {
@@ -22,12 +26,52 @@ export default class Home extends Component<HomeProps, HomeState> {
     }
     this.state = {
       isMenuOpen: false,
-      sections: refs
+      autoscroll: true,
+      sections: refs,
+      currentSection: 0,
+      scrollPeriod: 10000
     }
   }
 
-  scrollToRef = (ref: any) => {
+  scrollToRef = (ref: any, section: number) => {
+    const { currentSection } = this.state;
+    if (currentSection !== section) {
+      this.setState({ currentSection: section });
+    }
     window.scrollTo(0, ref.current.offsetTop)
+  }
+
+  autoscrollSections = () => {
+    const { autoscroll, sections, currentSection, scrollPeriod } = this.state;
+    let section = currentSection;
+    if (currentSection < 3)
+      section = currentSection + 1;
+    else
+      section = 0 
+    this.scrollToRef(sections[section], section);
+    setTimeout(() => {
+      if (autoscroll) {
+        if (section === 2 || section === 3)
+          setTimeout(() => {
+            this.autoscrollSections();
+          }, scrollPeriod * 2);
+        else
+          this.autoscrollSections();
+      }
+    }, scrollPeriod);
+  }
+
+  componentDidMount() {
+    const { autoscroll, sections, scrollPeriod } = this.state;
+    console.log(window.innerWidth)
+    if (window.innerWidth < 601)
+      this.setState({ autoscroll: false });
+    this.scrollToRef(sections[0], 0);
+    setTimeout(() => {
+      console.log(autoscroll)
+      if (autoscroll)
+        this.autoscrollSections();
+    }, scrollPeriod);
   }
 
   render() {
@@ -42,7 +86,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                 sections.map((section, i) => {
                   return (
                     <button key={i} className="w3-button scroll-dot"
-                      onClick={() => this.scrollToRef(section)}
+                      onClick={() => this.scrollToRef(section, i)}
                       style={{ }}>
                       <i className="fa fa-circle"></i>
                     </button>
@@ -76,8 +120,6 @@ export default class Home extends Component<HomeProps, HomeState> {
                   </td>
                   <td className="w3-mobile w3-white w3-card w3-padding"
                     style={{ width: "270px", verticalAlign:"top" }}>
-                    {/* <h2 className="w3-text-black">My Info</h2>
-                    <hr className="w3-opacity" style={{ width: "200px", borderTop: "1px solid black" }} /> */}
                     <p><a rel="noopener noreferrer" target="_blank" href="https://www.google.com/maps/place/Cincinnati,+OH/"
                       className="plain-link">
                       <i className="fa fa-map-marker fa-fw w3-text-darkest-teal w3-xxlarge w3-hover-opacity w3-margin-right"
@@ -103,7 +145,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           </div>
 
           {/* skills section */}
-          <div className="w3-container w3-justify w3-text-grey w3-padding-large w3-black Home-container2 parallax-scroll"
+          <div className="w3-container w3-justify w3-text-light-grey w3-padding-large w3-black Home-container2 parallax-scroll"
             id={homeData[2].id} ref={sections[2]}>
             <table className="w3-content"
               style={{ marginTop:"64px", marginBottom:"64px", borderCollapse:"separate", borderSpacing:"15px 0" }}>

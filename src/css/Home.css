@@ -121,6 +121,12 @@
   }
 }
 
+@media only screen and (min-width: 1000px) {
+  .Home-container1 {
+    background-size: cover;
+  }
+}
+
 .plain-link {
   text-decoration: none;
 }

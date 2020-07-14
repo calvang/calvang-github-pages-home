@@ -54,7 +54,7 @@ export default class Home extends Component<HomeProps, HomeState> {
         </div>
         <div className="w3-black App-font" id="main">
           {/* title page */}
-          <header className="w3-container w3-center Home-container1" id={homeData[0].id} ref={sections[0]}>
+          <header className="w3-container w3-center Home-container1 parallax-scroll" id={homeData[0].id} ref={sections[0]}>
             <div className="vertical-center">
               <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
               <p>Full-stack and desktop student developer.</p>
@@ -103,7 +103,8 @@ export default class Home extends Component<HomeProps, HomeState> {
           </div>
 
           {/* skills section */}
-          <div className="w3-container w3-justify w3-text-grey w3-padding-large w3-black Home-container2" id={homeData[2].id} ref={sections[2]}>
+          <div className="w3-container w3-justify w3-text-grey w3-padding-large w3-black Home-container2 parallax-scroll"
+            id={homeData[2].id} ref={sections[2]}>
             <table className="w3-content"
               style={{ marginTop:"64px", marginBottom:"64px", borderCollapse:"separate", borderSpacing:"15px 0" }}>
               <tbody>
@@ -175,34 +176,13 @@ export default class Home extends Component<HomeProps, HomeState> {
             </div>
           </div>
 
-
-          <div className="w3-padding-large w3-content w3-text-grey" id="contact">
-            <h2 className="w3-text-light-grey">Contact Me</h2>
-            <hr style={{ width: "200px" }} className="w3-opacity" />
-
-            <div className="w3-section">
-              <p><i className="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-              <p><i className="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-              <p><i className="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-            </div><br />
-            <p>Let's get in touch. Send me a message:</p>
-
-            <form action="/action_page.php" target="_blank">
-              <p><input className="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name" /></p>
-              <p><input className="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email" /></p>
-              <p><input className="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject" /></p>
-              <p><input className="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message" /></p>
-              <p>
-                <button className="w3-button w3-light-grey w3-padding-large" type="submit">
-                  <i className="fa fa-paper-plane"></i> SEND MESSAGE
-                </button>
-              </p>
-            </form>
-
-          </div>
-          {/* media icons */}
-          <footer className="w3-bar w3-container w3-content w3-white w3-card w3-text-black">
-              <div className="w3-bar-item" style={{ width:"46px" }}>
+          {/* contact section with media icons */}
+          <div className="w3-bar w3-container w3-white w3-center w3-text-black">
+            <div className="w3-content" >  
+              <div className="w3-bar-item" style={{ fontSize:"calc(5px + 2vmin)" }}>
+                Visit me on:
+              </div>
+              <div className="w3-bar-item" style={{ width: "46px" }}>
                 <a rel="noopener noreferrer" target="_blank" href="https://github.com/calvang">
                   <i className="fa fa-github w3-xxlarge w3-hover-opacity"></i>
                 </a>
@@ -224,7 +204,11 @@ export default class Home extends Component<HomeProps, HomeState> {
                   <i className="fa fa-codepen w3-xxlarge w3-hover-opacity"></i>
                 </a>
               </div>
-            </footer>
+            </div>
+          </div>
+          <footer>
+
+          </footer>
         </div>
       </>
     );

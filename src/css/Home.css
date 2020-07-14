@@ -1,3 +1,13 @@
+.parallax-scroll {
+  background-attachment: fixed;
+}
+
+@media only screen and (max-device-width: 1366px) {
+  .parallax-scroll {
+    background-attachment: scroll
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .Home-container1 {
     background-image: 
@@ -16,8 +26,8 @@
   .Home-container2 {
     background-image: 
       linear-gradient(
-        rgba(0, 0, 20, 0.9), 
-        rgba(0, 20, 20, 0.9)
+        rgba(0, 0, 50, 0.7), 
+        rgba(0, 50, 20, 0.7)
       ),
       url(../resources/images/darkGlass.jpg);
     background-repeat: no-repeat;
@@ -53,11 +63,11 @@
     background-image: 
       linear-gradient(
         rgba(50, 0, 80, 0.1), 
-        rgba(0, 20, 20, 0.1)
+        rgba(20, 100, 20, 0.1)
       ),
       url(../resources/images/neonMetal.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     height: 0;
     padding-bottom: 56.25%;
     position: relative;
@@ -66,8 +76,8 @@
   .Home-container2 {
     background-image: 
       linear-gradient(
-        rgba(0, 0, 20, 0.9), 
-        rgba(0, 20, 20, 0.9)
+        rgba(0, 0, 50, 0.7), 
+        rgba(0, 50, 20, 0.7)
       ),
       url(../resources/images/darkGlass.jpg);
     background-repeat: no-repeat;

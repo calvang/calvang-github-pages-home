@@ -1,4 +1,38 @@
-.profile {
+@media only screen and (max-width: 800px) {
+  .Project-container {
+    background-image: 
+      linear-gradient(
+        rgba(50, 0, 80, 0.1), 
+        rgba(0, 20, 20, 0.1)
+      ),
+      url(../resources/images/metalWaves.jpg);
+      /* url(../resources/images/neonMetal.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 1;
+    padding-bottom: 9.25%; */
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .Project-container {
+    background-image: 
+      linear-gradient(
+        rgba(50, 0, 80, 0.1), 
+        rgba(20, 100, 20, 0.1)
+      ),
+      url(../resources/images/metalWaves.jpg);
+      /* url(../resources/images/neonMetal.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 0;
+    padding-bottom: 56.25%; */
+    position: relative;
+  }
+}
+
+/* .profile {
   overflow: hidden
 }
 
@@ -11,4 +45,4 @@
   shape-margin: 20px;
   background: black url(../images/eiffel.jpg) center top no-repeat;
   background-size:cover;
-}
+} */

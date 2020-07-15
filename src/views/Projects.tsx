@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/Projects.css'
 import '../css/Home.css';
 import '../css/App.css';
 
@@ -35,9 +36,9 @@ export default class Project extends Component<ProjectProps, ProjectState> {
   render() {
     const { projects } = this.state;
     return (
-      <div className="w3-black App-font" id="main">
+      <div className="App-font w3-container Project-container parallax-scroll" id="main">
         {/* title page */}
-        <header className="w3-container w3-center Home-container1 parallax-scroll">
+        <header className="w3-content w3-center">
           <div className="vertical-center">
             <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
             <p>Full-stack and desktop student developer.</p>
@@ -45,10 +46,10 @@ export default class Project extends Component<ProjectProps, ProjectState> {
         </header>
 
         {/* whoami section */}
-        <div className="w3-container w3-justify w3-text-dark-grey w3-light-grey"
+        <div className="w3-justify w3-text-dark-grey"
           style={{ height:"auto" }}>
           <table className="w3-content"
-            style={{ marginTop:"64px", marginBottom:"64px", borderCollapse:"separate", borderSpacing:"15px 0" }}>
+            style={{ marginTop:"64px", marginBottom:"64px", borderCollapse:"separate", borderSpacing:"80px 0" }}>
             <tbody>
               {
                 projects.map((project, i) => {

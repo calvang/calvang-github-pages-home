@@ -1,7 +1,6 @@
-import React, { Component, createRef } from 'react';
+import React, {Component, createRef } from 'react';
 import Portfolio from '../components/PortfolioPreview';
 import homeData from '../resources/data/home.json';
-import '../css/Home.css';
 import '../css/App.css';
 
 interface HomeProps {}
@@ -11,9 +10,12 @@ interface HomeState {
   sections: any[],
   currentSection: number,
   scrollPeriod: number,
+  timeouts: any[]
   //url: string,
   //homeData: any[]
 }
+
+var timeouts: any[];
 
 export default class Home extends Component<HomeProps, HomeState> {
   constructor(props: HomeProps) {
@@ -30,9 +32,11 @@ export default class Home extends Component<HomeProps, HomeState> {
       sections: refs,
       currentSection: 0,
       scrollPeriod: 10000,
+      timeouts: []
       //url: '/api/',
       //homeData: []
     }
+    timeouts = []
   }
 
   scrollToRef = (ref: any, section: number) => {
@@ -44,46 +48,53 @@ export default class Home extends Component<HomeProps, HomeState> {
   }
 
   autoscrollSections = () => {
-    const { autoscroll, sections, currentSection, scrollPeriod } = this.state;
+    const { autoscroll, sections, currentSection, scrollPeriod, timeouts } = this.state;
     let section = currentSection;
     if (currentSection < 3)
       section = currentSection + 1;
     else
-      section = 0 
+      section = 0
     this.scrollToRef(sections[section], section);
-    setTimeout(() => {
+    var timeout1 = timeouts.push(setTimeout(() => {
       if (autoscroll) {
-        if (section === 2 || section === 3)
-          setTimeout(() => {
+        if (section === 2 || section === 3) {
+          var timeout2 = setTimeout(() => {
             this.autoscrollSections();
           }, scrollPeriod * 2);
+          this.setState({
+            timeouts: [...timeouts, timeout2]
+          });
+        }
         else
           this.autoscrollSections();
       }
-    }, scrollPeriod);
+    }, scrollPeriod));
+    this.setState({
+      timeouts: [...timeouts, timeout1]
+    });
   }
 
   // retrieveData() {
-  //   const { url } = this.state;
-  //   fetch(url, { credentials: 'same-origin' })
-  //     .then((response) => {
-  //       if (!response.ok) throw Error (response.statusText);
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       var refs: any[] = [];
-  //       for (let key in data.sections) {
-  //         const newRef: any = createRef();
-  //         console.log("Checking if section", key, "loaded");
-  //         refs.push(newRef)
-  //       }
-  //       this.setState({
-  //         homeData: data.sections,
-  //         sections: refs
-  //       })
-  //       console.log(data.sections)
-  //     })
-  //     .catch((error) => console.log(error));
+    // const { url } = this.state;
+    // fetch(url, { credentials: 'same-origin' })
+    //   .then((response) => {
+    //     if (!response.ok) throw Error (response.statusText);
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     var refs: any[] = [];
+    //     for (let key in data.sections) {
+    //       const newRef: any = createRef();
+    //       console.log("Checking if section", key, "loaded");
+    //       refs.push(newRef)
+    //     }
+    //     this.setState({
+    //       homeData: data.sections,
+    //       sections: refs
+    //     })
+    //     console.log(data.sections)
+    //   })
+    //   .catch((error) => console.log(error));
   // }
 
   componentDidMount() {
@@ -92,16 +103,26 @@ export default class Home extends Component<HomeProps, HomeState> {
     if (window.innerWidth < 601)
       this.setState({ autoscroll: false });
     this.scrollToRef(sections[0], 0);
-    setTimeout(() => {
+
+    var timeout3 = setTimeout(() => {
       console.log(autoscroll)
       if (autoscroll)
         this.autoscrollSections();
     }, scrollPeriod);
+    this.setState({
+      timeouts: [...timeouts, timeout3]
+    });
+  }
+
+  componentWillUnmount() {
+    const { timeouts } = this.state;
+    while (timeouts.length) {
+      clearTimeout(timeouts.pop())
+    }
   }
 
   render() {
     const { sections } = this.state;
-    //this.retrieveData()
     return (
       <>
         <div style={{ verticalAlign:"center" }}>

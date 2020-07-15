@@ -45,13 +45,13 @@ def add_project():
                 response
                 return 
             except:
-                raise error(
+                raise BadAccess(
                     'Not Found',
                     status_code=404,
                     payload="Projects data could not be written."
                 )
     except:
-        raise error(
+        raise BadAccess(
             'Not Found',
             status_code=404,
             payload="Projects data could not be retrieved."

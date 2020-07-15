@@ -1,22 +1,25 @@
 import flask
 import json
+import os.path
 import resource_manager
 from resource_manager import app
-from resource_manager.api.index import BadAccess as error
+from resource_manager.api.index import BadAccess
 
 @resource_manager.app.route('/api/projects', methods=['GET', 'POST'])
 def projects():
     '''Retrieve projects data from json.'''
     response = dict()
     try:
-        with open('projects.json', 'r') as projects_file:
+        file_path = os.path.join(os.path.dirname(__file__), '../data/projects.json')
+        print(file_path)
+        with open(file_path, 'r') as projects_file:
             json_data = projects_file.read()
             response = json.loads(json_data)
     except:
-        raise error(
+        raise BadAccess(
             'Not Found',
             status_code=404,
-            payload="Projects data could not be retrieved."
+            content="Projects data could not be retrieved."
         )
 
     return flask.jsonify(response)

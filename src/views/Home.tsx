@@ -1,7 +1,6 @@
 import React, { Component, createRef } from 'react';
 import Portfolio from '../components/PortfolioPreview';
 import homeData from '../resources/data/home.json';
-import codesandbox from '../resources/images/codesandbox.png';
 import '../css/Home.css';
 import '../css/App.css';
 
@@ -11,7 +10,9 @@ interface HomeState {
   autoscroll: boolean,
   sections: any[],
   currentSection: number,
-  scrollPeriod: number
+  scrollPeriod: number,
+  //url: string,
+  //homeData: any[]
 }
 
 export default class Home extends Component<HomeProps, HomeState> {
@@ -28,7 +29,9 @@ export default class Home extends Component<HomeProps, HomeState> {
       autoscroll: true,
       sections: refs,
       currentSection: 0,
-      scrollPeriod: 10000
+      scrollPeriod: 10000,
+      //url: '/api/',
+      //homeData: []
     }
   }
 
@@ -60,9 +63,32 @@ export default class Home extends Component<HomeProps, HomeState> {
     }, scrollPeriod);
   }
 
+  // retrieveData() {
+  //   const { url } = this.state;
+  //   fetch(url, { credentials: 'same-origin' })
+  //     .then((response) => {
+  //       if (!response.ok) throw Error (response.statusText);
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       var refs: any[] = [];
+  //       for (let key in data.sections) {
+  //         const newRef: any = createRef();
+  //         console.log("Checking if section", key, "loaded");
+  //         refs.push(newRef)
+  //       }
+  //       this.setState({
+  //         homeData: data.sections,
+  //         sections: refs
+  //       })
+  //       console.log(data.sections)
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
+
   componentDidMount() {
     const { autoscroll, sections, scrollPeriod } = this.state;
-    console.log(window.innerWidth)
+    //console.log(window.innerWidth)
     if (window.innerWidth < 601)
       this.setState({ autoscroll: false });
     this.scrollToRef(sections[0], 0);
@@ -75,6 +101,7 @@ export default class Home extends Component<HomeProps, HomeState> {
 
   render() {
     const { sections } = this.state;
+    //this.retrieveData()
     return (
       <>
         <div style={{ verticalAlign:"center" }}>
@@ -97,7 +124,7 @@ export default class Home extends Component<HomeProps, HomeState> {
         </div>
         <div className="w3-black App-font" id="main">
           {/* title page */}
-          <header className="w3-container w3-center Home-container1 parallax-scroll" id={homeData[0].id} ref={sections[0]}>
+          <header className="w3-container w3-center Home-container1 parallax-scroll" ref={sections[0]}>
             <div className="vertical-center">
               <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
               <p>Full-stack and desktop student developer.</p>
@@ -105,7 +132,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           </header>
 
           {/* whoami section */}
-          <div className="w3-container w3-justify w3-text-dark-grey w3-light-grey" id={homeData[1].id} ref={sections[1]}
+          <div className="w3-container w3-justify w3-text-dark-grey w3-light-grey" ref={sections[1]}
             style={{ height:"auto" }}>
             <table className="w3-content"
               style={{ marginTop:"64px", marginBottom:"64px", borderCollapse:"separate", borderSpacing:"15px 0" }}>
@@ -207,7 +234,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           </div>
           
           {/* portfolio/project preview section */}
-          <div className="w3-container w3-justify w3-text-dark-grey w3-padding-large w3-light-gray" id="portfolio" ref={sections[3]}
+          <div className="w3-container w3-justify w3-text-dark-grey w3-padding-large w3-light-gray" ref={sections[3]}
             style={{ height:"auto" }}>
             {/* <div className="w3-padding-large w3-content w3-white w3-text-dark-gray" id="photos"> */}
             <div className="w3-content w3-white w3-card w3-padding" style={{ marginTop:"64px", marginBottom:"64px" }}>
@@ -216,90 +243,6 @@ export default class Home extends Component<HomeProps, HomeState> {
               <Portfolio />
             </div>
           </div>
-
-          {/* contact section with media icons */}
-          <footer className="w3-bar w3-container w3-white w3-card w3-text-black">
-            <div className="w3-content">
-              <table className="" style={{ width:"100%" }}>  
-                <tbody >
-                  <tr>
-                    <td className = "w3-media w3-left">
-                      <div className="w3-bar-item"
-                        style={{ fontSize: 23, position:"relative", top:"4px", marginRight:"-12px" }}>
-                        Visit me on:
-                      </div>
-                    </td>
-                    <td className="w3-media w3-left">
-                      <div style={{ position:"relative", top:"5px", marginLeft:"-12px" }}>
-                        <div className="w3-bar-item" style={{ width: "46px" }}>
-                          <a rel="noopener noreferrer" target="_blank" href="https://github.com/calvang">
-                            <i className="fa fa-github w3-xxlarge w3-hover-opacity"></i>
-                          </a>
-                        </div>
-                        <div className="w3-bar-item" style={{ width:"44px" }}>
-                          <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/calvin-huang-9385ba165">
-                            <i className="fa fa-linkedin-square w3-xxlarge w3-hover-opacity"
-                              style={{ color: "steelblue" }}></i>
-                          </a>
-                        </div>
-                        <div className="w3-bar-item" style={{ width:"50px" }}>
-                          <a rel="noopener noreferrer" target="_blank" href="https://codesandbox.io/u/calvang">
-                            <img src={codesandbox} className="w3-hover-opacity" alt="codesandbox"
-                              style={{ width:"36px", marginBottom:"11px" }}/>
-                          </a>
-                        </div>
-                        <div className="w3-bar-item" style={{ width:"50px" }}>
-                          <a rel="noopener noreferrer" target="_blank" href="https://codepen.io/calvang">
-                            <i className="fa fa-codepen w3-xxlarge w3-hover-opacity"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="bar-item w3-hide-small w3-media w3-right"
-                      style={{ fontSize: 12, textAlign: "left", marginBottom:0}}>
-                      <p style={{ position:"relative", top:"-10px", marginBottom:"-12px" }}>
-                        <i className="fa fa-phone fa-fw w3-xlarge w3-hover-opacity w3-text-darkest-teal"
-                          style={{ position:"relative", top:"3px" }}></i>
-                        {" "} Phone: +1 (513) 693-5266
-                      </p>
-                      <p style={{ position:"relative", top:"-10px", marginBottom:"-16px" }}>
-                        <a rel="noopener noreferrer" target="_blank" href="mailto:calvang@umich.edu"
-                        className="plain-link">
-                        <i className="fa fa-envelope fa-fw w3-xlarge w3-hover-opacity w3-text-darkest-teal"
-                          style={{ position:"relative", top:"3px" }}></i>
-                         {" "} Email: calvang@umich.edu 
-                        </a>
-                      </p>
-                    </td>
-                    <td className="bar-item w3-hide-large w3-hide-medium w3-media w3-left"
-                      style={{ fontSize: 18, textAlign: "left", alignItems: "right" }}>
-                      <p style={{ position: "relative", top: "-10px" }}>
-                        <i className="fa fa-phone fa-fw w3-xlarge w3-hover-opacity w3-text-darkest-teal"
-                          style={{ position:"relative", top:"2px" }}></i>
-                        {" "} Phone: +1 (513) 693-5266
-                      </p>
-                      <p><a rel="noopener noreferrer" target="_blank" href="mailto:calvang@umich.edu"
-                      className="plain-link">
-                        <i className="fa fa-envelope fa-fw w3-xlarge w3-hover-opacity w3-text-darkest-teal"
-                          style={{ position:"relative", top:"2px" }}></i>
-                         {" "} Email: calvang@umich.edu 
-                      </a></p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </footer>
-          {/* <footer className="w3-container w3-light-gray w3-card-4">
-            <div className="w3-content, w3-center"
-              style={{ fontSize: "calc(1px + 1vmin)" }}>
-              <div className="">
-                <div className="w3-bar-item">
-                  <u>sitemap</u>
-                </div>
-              </div>
-            </div>
-          </footer> */}
         </div>
       </>
     );

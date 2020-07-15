@@ -30,14 +30,14 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
         icon: "fa fa-home"
       },
       {
-        link: "/calvang-main/#/Blog",
-        label: "ABOUT",
-        icon: "fa fa-user"
-      },
-      {
         link: "/calvang-main/#/Projects",
         label: "PROJECTS",
         icon: "fa fa-code"
+      },
+      {
+        link: "/calvang-main/#/Blog",
+        label: "BLOG",
+        icon: "fa fa-user"
       },
       {
         link: "/calvang-main/#/Contact",

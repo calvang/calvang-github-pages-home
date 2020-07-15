@@ -53,7 +53,7 @@ export default class Project extends Component<ProjectProps, ProjectState> {
               {
                 projects.map((project, i) => {
                   return (
-                    <tr style={{ height: "auto" }}>
+                    <tr key={project.name} style={{ height: "auto" }}>
                       <td className="w3-rest w3-mobile w3-white w3-card w3-margin-bottom w3-margin-right w3-padding"
                         style={{ height:"100%" }}>
                         <h3 className="w3-text-black">{project.name}</h3>

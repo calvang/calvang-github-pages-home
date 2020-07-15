@@ -58,3 +58,40 @@ def add_project():
         )
 
     return flask.jsonify({ 'text': 'Hello World2!' })
+
+@resource_manager.app.route('/api/projects/remove', methods=['DELETE'])
+def remove_project():
+    '''Add project to json data.'''
+    response = []
+    try:
+        with open('projects.json', 'r') as projects_file:
+            json_data = projects_file.read()
+            projects_data = json.loads(json_data)
+        
+        projects_data = []
+        for i, project in enumerate(projects):
+            projects_data.append(project)
+        if flask.request.method == 'POST':
+            try:
+                # write a backup of the current data
+                with open('projects_backup.json', 'w') as backup_file:
+                    backup_file.write(json.dumps(projects, indent=4))
+                # overwrite current data with new project
+                with open('projects', 'w') as outfile:
+                    outfile.write(json.dumps(projects_data, indent=4))
+                response
+                return 
+            except:
+                raise BadAccess(
+                    'Not Found',
+                    status_code=404,
+                    payload="Projects data could not be written."
+                )
+    except:
+        raise BadAccess(
+            'Not Found',
+            status_code=404,
+            payload="Projects data could not be retrieved."
+        )
+
+    return flask.jsonify({ 'text': 'Hello World2!' })

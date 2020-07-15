@@ -2,7 +2,6 @@ import flask
 import json
 import os.path
 import resource_manager
-from resource_manager import app
 from resource_manager.api.index import BadAccess
 
 @resource_manager.app.route('/api/projects', methods=['GET', 'POST'])
@@ -21,7 +20,6 @@ def projects():
             status_code=404,
             content="Projects data could not be retrieved."
         )
-
     return flask.jsonify(response)
 
 @resource_manager.app.route('/api/projects/add', methods=['POST'])

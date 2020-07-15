@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import projectData from '../resources/data/projects.json';
 import '../css/Home.css';
 import '../css/App.css';
 
@@ -59,10 +58,7 @@ export default class Project extends Component<ProjectProps, ProjectState> {
                         style={{ height:"100%" }}>
                         <h3 className="w3-text-black">{project.name}</h3>
                         <hr className="w3-opacity" style={{ width: "200px", borderTop: "1px solid black" }} />
-                        <a key={project.name} href={project.link} className="w3-bar-item w3-button"
-                          style={{ fontSize: "calc(5px + 2vmin)", paddingTop: "12px", width:"22.5%" }}>
-                          {" " + project.name}
-                        </a>
+                        {project.text}
                       </td>
                     </tr>
                   )

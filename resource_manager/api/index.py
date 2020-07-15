@@ -1,9 +1,25 @@
 import flask
+import json
+import os.path
 import resource_manager
 
 @resource_manager.app.route('/api/')
 def home():
-    return flask.jsonify({ 'text': 'Hello World!' })
+    '''Retrieve projects data from json.'''
+    response = dict()
+    try:
+        file_path = os.path.join(os.path.dirname(__file__), '../data/home.json')
+        print(file_path)
+        with open(file_path, 'r') as home_file:
+            json_data = home_file.read()
+            response = json.loads(json_data)
+    except:
+        raise BadAccess(
+            'Not Found',
+            status_code=404,
+            content="Home page data could not be retrieved."
+        )
+    return flask.jsonify(response)
 
 class BadAccess(Exception):
     """Exception class for bad access."""

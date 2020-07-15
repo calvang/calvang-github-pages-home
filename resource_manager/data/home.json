@@ -1,0 +1,34 @@
+{
+  "sections": [
+    {
+      "id": "hero"
+    },
+    {
+      "id": "whoami",
+      "text": "A 3rd-year student studying Computer Science at the University of Michigan College of Engineering. Full-stack student developer interested in exploring bleeding-edge web technologies and server automation. Experienced in web systems, database management, and desktop and mobile app development." 
+    },
+    {
+      "id": "skills",
+      "data": {
+        "languages": {
+          "programming": "C/C++, Java, Python, JavaScript/TypeScript, MatLab, Swift, SQL",
+          "markup": "HTML, XML, YAML, CSS, LaTex, Markdown, Mermaid"
+        },
+        "frameworks": {
+          "frontend": "NodeJS, React/React-Native, Angular, Bootstrap",
+          "backend": "Flask, JAX-RS",
+          "databases": "SQLite, MySQL, MongoDB, DynamoDB"
+        },
+        "infrastructures": {
+          "cloud": "Amazon Web Services, Google Cloud",
+          "deployment": "Ansible, IBM Websphere Liberty, DynDNS",
+          "servers": "Apache 2, Nginx"
+        }
+      },
+      "resume": "https://calvang.github.io/my-resume"
+    },
+    {
+      "id": "portfolio"
+    }
+  ]
+}

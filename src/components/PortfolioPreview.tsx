@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import projectData from '../resources/data/projects.json';
 import '../css/App.css';
 
 export default class Portfolio extends Component {

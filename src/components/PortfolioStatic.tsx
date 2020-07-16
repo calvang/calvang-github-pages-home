@@ -3,52 +3,55 @@ import codesandbox from '../resources/images/codesandbox.png';
 import '../css/Projects.css';
 import '../css/Home.css';
 import '../css/App.css';
-import api from '../api.json';
+import projectData from '../resources/data/projects.json';
 
-interface PortfolioProps {}
-interface PortfolioState {
+interface PortfolioStaticProps {}
+interface PortfolioStaticState {
   projects: any[],
-  url: string
 }
 
-export default class Portfolio extends Component<PortfolioProps, PortfolioState> {
-  constructor(props: PortfolioProps) {
+export default class PortfolioStatic extends Component<PortfolioStaticProps, PortfolioStaticState> {
+  constructor(props: PortfolioStaticProps) {
     super(props);
     this.state = {
-      projects: [],
-      url: api.url + "projects"
+      projects: projectData.projects,
     };
   }
 
-  componentDidMount() {
-    const { url } = this.state;
-    //const headers = {}
-    fetch(url, { credentials: 'omit' })
-      .then((response) => {
-        if (!response.ok) {
-          console.log(response.statusText);
-          throw Error(response.statusText);
-        }
-        let response_json = response.json();
-        console.log(response.json);
-        return response_json;
-      })
-      .then((data) => {
-        this.setState({
-          projects: data.projects
-        })
-      })
-      .catch((error) => console.log(error));
-  }
+  // componentDidMount() {
+  //   const { url } = this.state;
+  //   //const headers = {}
+  //   fetch(url, { credentials: 'omit' })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         console.log(response.statusText);
+  //         throw Error(response.statusText);
+  //       }
+  //       let response_json = response.json();
+  //       console.log(response.json);
+  //       return response_json;
+  //     })
+  //     .then((data) => {
+  //       this.setState({
+  //         projects: data.projects
+  //       })
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
   
   render() {
     const { projects } = this.state;
     var projectProfiles: string[] = [];
+    var imageStatuses: boolean[] = []
     for (let project in projects) {
       if (projects[project].image) {
         const imagePath = process.env.PUBLIC_URL + "/project_profiles/" + projects[project].image;
         console.log(imagePath)
         projectProfiles.push(imagePath);
+        imageStatuses.push(true);
+      } else {
+        projectProfiles.push("");
+        imageStatuses.push(false);
       }
     }
 
@@ -63,7 +66,7 @@ export default class Portfolio extends Component<PortfolioProps, PortfolioState>
                 projects.map((project, i) => {
                   return (
                     <tr key={project.name} style={{ height: "auto" }}>
-                      <td className="w3-white w3-card w3-padding-large w3-hide-small"
+                      <td className="w3-white w3-card w3-padding-large w3-hide-small" colSpan={ imageStatuses[i] ?  1 : 2 }
                         style={{ height: "100%"/*, backgroundImage: `url(${projectProfiles[i]})`*/ }}>
                         {/* <div style={{ display:"inline-block" }}> */}
                         {/* <div style={{ position:"relative"}}> */}
@@ -108,16 +111,18 @@ export default class Portfolio extends Component<PortfolioProps, PortfolioState>
                           </a>
                         </div>
                       </td>
-                      <td className="w3-rest w3-white w3-card picture-frame w3-hide-small"
-                        style={{ width:"50%", height:"100%", backgroundImage: `url(${projectProfiles[i]})` }}>
-                        
-                      {/* {
+                      {
+                        'image' in project &&
+                        <td className="w3-white w3-card picture-frame w3-hide-small"
+                          style={{ width: "50%", height: "100%", backgroundImage: `url(${projectProfiles[i]})` }}>
+                          {/* {
                           
                           'image' in project &&
                           <img className="shaped" src={process.env.PUBLIC_URL + "/project_profiles/" + project.image} alt="project preview" />
                             
                           } */}
-                      </td>
+                        </td>
+                      }
                       <td className="w3-white w3-card w3-padding-large w3-hide-large w3-hide-medium"
                         style={{ height: "100%"/*, backgroundImage: `url(${projectProfiles[i]})`*/ }}>
                         {/* <div style={{ display:"inline-block" }}> */}

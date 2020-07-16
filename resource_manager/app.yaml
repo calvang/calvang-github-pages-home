@@ -1,1 +1,11 @@
 runtime: python38 # or python37 for Python 3.7
+
+handlers:
+- url: /static
+  static_dir: static
+- url: /.*
+  script: auto
+# - url: /resource_manager/api/.*
+#   static_dir: resource_manager/api
+#   http_headers:
+#     Access-Control-Allow-Origin: "*"

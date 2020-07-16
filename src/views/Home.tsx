@@ -1,5 +1,5 @@
 import React, {Component, createRef } from 'react';
-import Portfolio from '../components/Portfolio';
+import Portfolio from '../components/PortfolioStatic';
 import homeData from '../resources/data/home.json';
 import '../css/App.css';
 

@@ -33,3 +33,6 @@ __pycache__*
 
 # database
 /database
+
+# api url
+/src/api.json

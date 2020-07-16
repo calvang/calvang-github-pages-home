@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Portfolio from '../components/Portfolio';
+import Portfolio from '../components/PortfolioStatic';
 import '../css/Projects.css';
 import '../css/Home.css';
 import '../css/App.css';

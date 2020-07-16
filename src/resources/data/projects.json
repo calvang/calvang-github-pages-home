@@ -1,0 +1,35 @@
+{
+  "projects": [
+    {
+      "name": "Covid-19 Projection Heatmap",
+      "image": "covid19-heatmap.jpg",
+      "url": "https://calvang.github.io/covid19-heatmap-demo/",
+      "links": {
+        "github": "https://github.com/calvang/covid19-heatmap"
+      },
+      "text": "The goal of this project is to provide an overview of the spread of Covid-19 and a projection of its predicted case counts in the form of a interpolated heat map.  Current projections hint at a grim future in this pandemic, and it is vital that we all stay vigilant even if the cases seem to dwindle. Hopefully this visual representation can convey the importance of keeping up prevention measures to slow the spread."
+    },
+    {
+      "name": "Tubify",
+      "links": {
+        "github": "https://github.com/calvang/Tubify"
+      },
+      "text": "A simple Python application that ports a Youtube playlist to Spotify. Utilizes the Youtube and Spotify API's to access information from registered users. Future work will include porting this into Javascript and React Native to deploy a Chromium extension or Mobile Widgets"
+    },
+    {
+      "name": "Wikipedia Table Scraper",
+      "links": {
+        "github": "https://github.com/calvang/wikipedia-table-web-scraper"
+      },
+      "text": "A web scraper application using Beautiful Soup for collect data into CSV or JSON files. Designed to scrape location data for the Covid-19 Heatmap project. Can be adapted to scrape various table formats from different static sites."
+    },
+    {
+      "name": "Meal Decide",
+      "image": "meal_decider.png",
+      "links": {
+        "github": "https://github.com/calvang/Meal-Decier"
+      },
+      "text": "When you live with multiple people, deciding what to eat can be a hassle, especially if you are busy. Using this simple Chrome extension, you can poll your family and friends for meal options and preferences. The backend sharing feature is still under process."
+    }
+  ]
+}

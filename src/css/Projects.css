@@ -38,11 +38,13 @@
   position:relative;
 }
 
-.profile {
-  width: 100vh;
-  height: 100vw;
-  overflow: hidden
+/* .profile-default {
+  width: 100%;
 }
+
+.profile-no-image {
+  width: 50%;
+} */
 
 .shaped{
   float: right;

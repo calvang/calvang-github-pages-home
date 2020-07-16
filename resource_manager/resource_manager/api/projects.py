@@ -7,20 +7,22 @@ from resource_manager.api.index import BadAccess
 @resource_manager.app.route('/api/projects', methods=['GET', 'POST'])
 def projects():
     '''Retrieve projects data from json.'''
-    response = dict()
+    response_data = dict()
     try:
         file_path = os.path.join(os.path.dirname(__file__), '../data/projects.json')
         print(file_path)
         with open(file_path, 'r') as projects_file:
             json_data = projects_file.read()
-            response = json.loads(json_data)
+            response_data = json.loads(json_data)
     except:
         raise BadAccess(
             'Not Found',
             status_code=404,
             content="Projects data could not be retrieved."
         )
-    return flask.jsonify(response)
+    response = flask.jsonify(response_data)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 @resource_manager.app.route('/api/projects/add', methods=['POST'])
 def add_project():

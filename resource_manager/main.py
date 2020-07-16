@@ -3,6 +3,14 @@ import resource_manager
 
 app = resource_manager.app
 
+@app.route('/')
+def root():
+    # For the sake of example, use static information to inflate the template.
+    # This will be replaced with real information in later steps.
+    response = "Hello, a physical page has not been developed yet"
+
+    return flask.render_template('index.html', welcome=response)
+
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
     # Engine, a webserver process such as Gunicorn will serve the app. This

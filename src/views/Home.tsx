@@ -262,8 +262,8 @@ export default class Home extends Component<HomeProps, HomeState> {
               marginTop: "32px", marginBottom:"-32px" }}>
               <h2 className="w3-text-black">Project Showcase</h2>
               <hr className="w3-opacity" style={{ width: "300px", borderTop: "1px solid black" }} />
-              <Portfolio />
             </div>
+            <Portfolio />
           </div>
         </div>
       </>

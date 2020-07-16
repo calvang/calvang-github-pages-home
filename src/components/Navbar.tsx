@@ -25,22 +25,22 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
     const { isMenuOpen } = this.state;
     const links = [
       {
-        link: "/calvang-main/",
+        link: "/",
         label: "HOME",
         icon: "fa fa-home"
       },
       {
-        link: "/calvang-main/#/Projects",
+        link: "/#/Projects",
         label: "PROJECTS",
         icon: "fa fa-code"
       },
       {
-        link: "/calvang-main/#/Blog",
+        link: "/#/Blog",
         label: "BLOG",
         icon: "fa fa-user"
       },
       {
-        link: "/calvang-main/#/Contact",
+        link: "/#/Contact",
         label: "CONTACT",
         icon: "fa fa-envelope"
       }

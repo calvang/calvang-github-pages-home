@@ -24,7 +24,7 @@
       "text": "A web scraper application using Beautiful Soup for collect data into CSV or JSON files. Designed to scrape location data for the Covid-19 Heatmap project. Can be adapted to scrape various table formats from different static sites."
     },
     {
-      "name": "Meal Decide",
+      "name": "Meal Decider",
       "image": "meal_decider.png",
       "links": {
         "github": "https://github.com/calvang/Meal-Decier"

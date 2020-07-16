@@ -19,8 +19,8 @@
   .Project-container {
     background-image: 
       linear-gradient(
-        rgba(50, 0, 80, 0.1), 
-        rgba(20, 100, 20, 0.1)
+        rgba(50, 0, 80, 0.5), 
+        rgba(20, 50, 20, 0.5)
       ),
       url(../resources/images/metalWaves.jpg);
       /* url(../resources/images/neonMetal.jpg); */
@@ -32,17 +32,38 @@
   }
 }
 
-/* .profile {
+.picture-frame {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
+}
+
+.profile {
+  width: 100vh;
+  height: 100vw;
   overflow: hidden
 }
 
 .shaped{
-  float:left;
-  height:100vh;
-  width:40vw;
-  float:right;
-  shape-outside: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+  float: right;
+  position:relative;
+  max-width: 500px;
+
+  /* shape-margin: 1rem;
+  shape-outside: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%); */
+  shape-outside: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  shape-margin: 1rem;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   shape-margin: 20px;
-  background: black url(../images/eiffel.jpg) center top no-repeat;
-  background-size:cover;
-} */
+}
+
+.circle{
+  float: right;
+  height: 40vh;
+  width: calc(40vh + 40vh/4);
+  shape-outside: circle(50%);
+  shape-margin: 1rem;
+  clip-path: circle(25%);
+  shape-margin: 20px;
+} 

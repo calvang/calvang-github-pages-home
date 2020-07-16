@@ -1,61 +1,31 @@
 import React, { Component } from 'react';
-import '../css/Projects.css'
+import Portfolio from '../components/Portfolio';
+import '../css/Projects.css';
 import '../css/Home.css';
 import '../css/App.css';
 
-interface ProjectProps {}
-interface ProjectState {
-  projects: any[],
-  url: string
-}
-
-export default class Project extends Component<ProjectProps, ProjectState> {
-  constructor(props: ProjectProps) {
-    super(props);
-    this.state = {
-      projects: [],
-      url: "/api/projects"
-    };
-  }
-
-  componentDidMount() {
-    const { url } = this.state;
-    fetch(url, { credentials: 'same-origin' })
-      .then((response) => {
-        if (!response.ok) throw Error (response.statusText);
-        return response.json();
-      })
-      .then((data) => {
-        this.setState({
-          projects: data.projects
-        })
-      })
-      .catch((error) => console.log(error));
-  }
-  
+export default class Project extends Component {
   render() {
-    const { projects } = this.state;
     return (
       <div className="App-font w3-container Project-container parallax-scroll" id="main">
         {/* title page */}
         <header className="w3-content w3-center">
           <div className="vertical-center">
-            <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
-            <p>Full-stack and desktop student developer.</p>
+            <h1 className="w3-jumbo"><span className="w3-hide-small">My</span> Projects</h1>
           </div>
         </header>
-
-        {/* whoami section */}
+        <Portfolio />
+        {/* whoami section
         <div className="w3-justify w3-text-dark-grey"
           style={{ height:"auto" }}>
           <table className="w3-content"
-            style={{ marginTop:"64px", marginBottom:"64px", borderCollapse:"separate", borderSpacing:"80px 0" }}>
+            style={{ marginTop:"-20px", marginBottom:"20px", borderCollapse:"separate", borderSpacing:"15px 64px" }}>
             <tbody>
               {
                 projects.map((project, i) => {
                   return (
                     <tr key={project.name} style={{ height: "auto" }}>
-                      <td className="w3-rest w3-mobile w3-white w3-card w3-margin-bottom w3-margin-right w3-padding"
+                      <td className="w3-rest w3-mobile w3-light-grey w3-card w3-margin-bottom"
                         style={{ height:"100%" }}>
                         <h3 className="w3-text-black">{project.name}</h3>
                         <hr className="w3-opacity" style={{ width: "200px", borderTop: "1px solid black" }} />
@@ -67,7 +37,7 @@ export default class Project extends Component<ProjectProps, ProjectState> {
               }
             </tbody>
           </table> 
-        </div>
+        </div> */}
       </div>
     );
   }

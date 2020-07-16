@@ -1,5 +1,5 @@
 import React, {Component, createRef } from 'react';
-import Portfolio from '../components/PortfolioPreview';
+import Portfolio from '../components/Portfolio';
 import homeData from '../resources/data/home.json';
 import '../css/App.css';
 
@@ -258,9 +258,10 @@ export default class Home extends Component<HomeProps, HomeState> {
           <div className="w3-container w3-justify w3-text-dark-grey w3-padding-large w3-light-gray" ref={sections[3]}
             style={{ height:"auto" }}>
             {/* <div className="w3-padding-large w3-content w3-white w3-text-dark-gray" id="photos"> */}
-            <div className="w3-content w3-white w3-card w3-padding" style={{ marginTop:"64px", marginBottom:"64px" }}>
+            <div className="w3-content w3-light-grey w3-padding" style={{
+              marginTop: "32px", marginBottom:"-32px" }}>
               <h2 className="w3-text-black">Project Showcase</h2>
-              <hr className="w3-opacity" style={{ width: "200px", borderTop: "1px solid black" }} />
+              <hr className="w3-opacity" style={{ width: "300px", borderTop: "1px solid black" }} />
               <Portfolio />
             </div>
           </div>

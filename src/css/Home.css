@@ -134,6 +134,10 @@
   text-decoration: none;
 }
 
+.plain-link:hover {
+  text-decoration: underline;
+}
+
 .vertical-center {
   padding: 20% 0;
 }

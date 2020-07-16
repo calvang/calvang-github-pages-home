@@ -1,20 +1,21 @@
 {
   "projects": [
     {
-      "name": "Test Project",
-      "image": "",
+      "name": "Covid-19 Projection Heatmap",
+      "image": "covid19-heatmap.jpg",
+      "url": "https://calvang.github.io/covid19-heatmap-demo/",
       "links": {
-        "github": "https://github.com/calvang/",
-        "sandbox": "https://github.com/calvang/"
+        "github": "https://github.com/calvang/covid19-heatmap"
       },
-      "text": "Woah this is cool! For the first method, we’ll be using the polygon() function. This function takes in a set of points that form the polygon, each point defined by x and y coordinates. We're going to define a very simple polygonal shape, with 4 vertices, as shown in the image below (blue and orange discs): For the first method, we’ll be using the polygon() function. This function takes in a set of points that form the polygon, each point defined by x and y coordinates. We're going to define a very simple polygonal shape, with 4 vertices, as shown in the image below (blue and orange discs): For the first method, we’ll be using the polygon() function. This function takes in a set of points that form the polygon, each point defined by x and y coordinates. We're going to define a very simple polygonal shape, with 4 vertices, as shown in the image below (blue and orange discs): For the first method, we’ll be using the polygon() function. This function takes in a set of points that form the polygon, each point defined by x and y coordinates. We're going to define a very simple polygonal shape, with 4 vertices, as shown in the image below (blue and orange discs):"
+      "text": "The goal of this project is to provide an overview of the spread of Covid-19 and a projection of its predicted case counts in the form of a interpolated heat map.  Current projections hint at a grim future in this pandemic, and it is vital that we all stay vigilant even if the cases seem to dwindle. Hopefully this visual representation can convey the importance of keeping up prevention measures to slow the spread."
     },
     {
       "name": "Test Project 2",
       "image": "",
       "links": {
         "github": "https://github.com/calvang/",
-        "sandbox": "https://github.com/calvang/"
+        "codesandbox": "https://github.com/calvang/",
+        "codepen": "google.com"
       },
       "text": "Woah this is cool! For the first method, we’ll be using the polygon() function. This function takes in a set of points that form the polygon, each point defined by x and y coordinates. We're going to define a very simple polygonal shape, with 4 vertices, as shown in the image below (blue and orange discs): For the first method, we’ll be using the polygon() function. This function takes in a set of points that form the polygon, each point defined by x and y coordinates. We're going to define a very simple polygonal shape, with 4 vertices, as shown in the image below (blue and orange discs): For the first method, we’ll be using the polygon() function. This function takes in a set of points that form the polygon, each point defined by x and y coordinates. We're going to define a very simple polygonal shape, with 4 vertices, as shown in the image below (blue and orange discs): For the first method, we’ll be using the polygon() function. This function takes in a set of points that form the polygon, each point defined by x and y coordinates. We're going to define a very simple polygonal shape, with 4 vertices, as shown in the image below (blue and orange discs):"
     },

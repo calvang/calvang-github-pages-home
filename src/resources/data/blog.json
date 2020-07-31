@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "title": "Stackbit Beta Review",
+      "description": "Stackbit is a graphical website creation platform that using modern frameworks. Here are my thoughts on the potential of this platform as an alternative to other sites like WordPress and Squarespace.",
+      "file": "2020-07-30-Stackbit-Beta-Review.md"
+    },
+    {
+      "title": "Desktop Linux for Non-Linux Users",
+      "description": "An in-depth look at the state of desktop Linux and its accessibility to new users",
+      "file": "2020-07-27-Desktop-Linux-for-Non-Linux-Users.md"
+    },
+    {
+      "title": "Installing Wine on Ubuntu",
+      "description": "Wine is a compatibility layer for Windows programs to run on Linux. Learn how to get started with the installation process.",
+      "file": "2020-06-13-Installing-Wine-on-Ubuntu.md"
+    },
+    {
+      "title": "Managing Log Files on Ubuntu",
+      "description": "Log files can easily become oversized when you run into kernel and driver bugs. This is how you can keep them from over-consuming your disk space.",
+      "file": "2020-06-10-Managing-Log-Files-on-Ubuntu.md"
+    }
+  ]
+}

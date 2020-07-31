@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from '../views/Home';
 //import About from '../views/About';
 import Projects from '../views/Projects';
+import Blog from '../views/Blog';
 //import Contact from '../views/Contact';
 import { Switch, Route, HashRouter } from 'react-router-dom';
 import '../css/App.css';
@@ -13,6 +14,7 @@ export default class Routes extends Component {
         <Switch>
           <Route exact path='/' component={Home}></Route>
           <Route exact path='/Projects' component={Projects}></Route>
+          <Route exact path='/Blog' component={Blog}></Route>
           <Route path='/404' component={NoMatch}></Route>
           <Route component={NoMatch}></Route>
         </Switch>

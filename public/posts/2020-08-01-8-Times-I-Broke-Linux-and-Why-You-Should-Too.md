@@ -2,7 +2,7 @@
 
 *2020-08-01 by Calvin Huang*
 
-![img](images/bluescreen.png)
+![img](/public/posts/images/bluescreen.png)
 
 ## Introduction
 

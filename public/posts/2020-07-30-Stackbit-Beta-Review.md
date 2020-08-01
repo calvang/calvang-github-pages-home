@@ -2,7 +2,11 @@
 
 *2020-07-30 by Calvin Huang* 
 
-![img](images/stackbitblog.png)
+<picture>
+    <source id="s1" srcset="/posts/images/stackbitblog.png">
+    <souce id="s2" srcset="images/stackbitblog.png">
+    <img width="100%" src="images/stackbitblog.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 ## What is Stackbit?
 

@@ -2,7 +2,11 @@
 
 *2020-06-13 by Calvin Huang* 
 
-![img](images/actualwine.jpg)
+<picture>
+    <source id="s1" srcset="/posts/images/actualwine.jpg">
+    <souce id="s2" srcset="images/actualwine.jpg">
+    <img width="100%" src="images/actualwine.jpg" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 ## What is Wine?
 

@@ -2,7 +2,11 @@
 
 *2020-06-10 by Calvin Huang* 
 
-![img](images/Penguin_Admin.svg)
+<picture>
+    <source id="s1" srcset="/posts/images/Penguin_Admin.svg">
+    <souce id="s2" srcset="images/Penguin_Admin.svg">
+    <img width="100%" src="images/Penguin_Admin.svg" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Log files on Ubuntu can get bloated if left with the default configurations. You can run disk analysis tools such as QDirStat to get an overview of your log file sizes.
 

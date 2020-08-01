@@ -45,7 +45,8 @@ export default class Blog extends Component<BlogProps, BlogState> {
                         {/* <div style={{ position:"relative"}}> */}
                         <h3 className="w3-text-black">{post.title}</h3>
                         <hr className="w3-opacity" style={{ width: "33%", borderTop: "1px solid black" }} />
-                        <p><i>{post.file.substr(0,10)}</i></p>
+                        <img width="100%" src={`/posts/images/${post.thumbnail}`} alt="img" />
+                        <p><i>{post.file.substr(0, 10)}</i></p>
                         <p className="w3-padding-bottom ">
                           {post.description}
                         </p>
@@ -75,11 +76,12 @@ export default class Blog extends Component<BlogProps, BlogState> {
                         {/* <div style={{ position:"relative"}}> */}
                         <h3 className="w3-text-black">{post.title}</h3>
                         <hr className="w3-opacity" style={{ width: "100%", borderTop: "1px solid black" }} />
-                        <p><i>{post.file.substr(0,10)}</i></p>
+                        <img width="100%" src={`/posts/images/${post.thumbnail}`} alt="img" />
+                        <p><i>{post.file.substr(0, 10)}</i></p>
                         <p className="w3-padding-bottom ">
                           {post.description}
                         </p>
-                        <a className="plain-link" href={`/#/posts/${posts.length - i}`}
+                        <a className="plain-link" href={`/#/Blog/${post.file.slice(0,-3)}`}
                           style={{ marginLeft: "20px", fontSize: 18 }}>
                           <span style={{ bottom: "6px", position: "relative" }}>View post</span>
                           <i className="fa fa-angle-double-right w3-xxlarge w3-hover-opacity"

@@ -2,7 +2,11 @@
 
 *2020-07-27 by Calvin Huang* 
 
-![img](images/zorin12.1.png)
+<picture>
+    <source id="s1" srcset="/posts/images/zorin12.1.png">
+    <souce id="s2" srcset="images/zorin12.1.png">
+    <img width="100%" src="images/zorin12.1.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 ## Table of Contents
 
@@ -34,7 +38,11 @@ Many beginner users of Linux will ask about the best distributions to use, as it
 
 ### What is a distribution?
 
-![img](images/distros.webp)
+<picture>
+    <source id="s1" srcset="/posts/images/distros.webp">
+    <souce id="s2" srcset="images/distros.webp">
+    <img width="100%" src="images/distros.webp" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 A Linux distribution is an operating system built on the Linux kernel and the GNU toolkit. The reason there are multiple distributions is that different distributions have different package managers, default software packages, window managers, desktop environments, and more. Essentially, what makes a distribution is what is built around the kernel and core toolkit. Many enthusiasts will argue that all distributions are essentially the same, and while that is technically true, reliability and convenience of using different distributions vary a lot. Most distributions you will come across ultimately boil down those based on Arch Linux, Debian, or Fedora. These three serve different roles, which Arch Linux being suited for the bleeding-edge, Debian being known for its stability, and Fedora being targeted towards system admins and enterprise desktops.
 
@@ -43,6 +51,12 @@ A Linux distribution is an operating system built on the Linux kernel and the GN
 A desktop environment consists of all elements of the graphical user interface, such as icons, windows, graphical file managers, and terminal emulators; basically anything you will interact with on your typical operating system other than the command line. Desktop environments are packaged with distributions, but are interchangeable, and nothing is stopping you from having multiple installed and switching between them. Desktop environments are often responsible for the overall look and feel of a system and can be easily configured and customized. For more details of certain desktop environments that I recommend, go to the Desktop Environments section.
 
 ### Why Linux?
+
+<picture>
+    <source id="s1" srcset="/posts/images/tuxmug.jpg">
+    <souce id="s2" srcset="images/tuxmug.jpg">
+    <img width="100%" src="images/tuxmug.jpg" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 1. Linux is based on free and open-source software.
 
@@ -74,7 +88,11 @@ Despite the lack of support by the Linux Foundation for desktop Linux developmen
 
 ### Ubuntu
 
-![img](images/ubuntu20.04.png)
+<picture>
+    <source id="s1" srcset="/posts/images/ubuntu20.04.png">
+    <souce id="s2" srcset="images/ubuntu20.04.png">
+    <img width="100%" src="images/ubuntu20.04.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Ubuntu is the classic choice for beginners to Linux. With long-term support for releases and all the built-in functionality of the GNOME 3 desktop, Ubuntu provides a devent out-of-the-box experience with little customization needed. Ubuntu also provides alternative flavors, such as Kubuntu and Xubuntu, which offer difference desktop environments such as KDE and XFCE, which may cater more to users used to the Windows 10 look and feel. 
 
@@ -86,7 +104,11 @@ Canonical, the developers of Ubuntu, are also not the most transparent company, 
 
 ### Linux Mint
 
-![img](images/linuxmint18.2.png)
+<picture>
+    <source id="s1" srcset="/posts/images/linuxmint18.2.png">
+    <souce id="s2" srcset="images/linuxmint18.2.png">
+    <img width="100%" src="images/linuxmint18.2.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Linux Mint is also known as a very beginner-friendly distribution. Being based on Ubuntu, it inherits most of the same advantages, as well as also having its own very large community. However, Mint also removes much of the undesirable features that are packaged with base Ubuntu, such as snap packages and tracking.
 
@@ -96,7 +118,11 @@ Overall, many of the same things about Ubuntu could be said for Linux Mint, but 
 
 ### Pop! OS
 
-![img](images/popos20.04.png)
+<picture>
+    <source id="s1" srcset="/posts/images/popos20.04.png">
+    <souce id="s2" srcset="images/popos20.04.png">
+    <img width="100%" src="images/popos20.04.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Pop! OS is an Ubuntu-based distributions that, similar to Linux mint, comes with the advantages of Ubuntu while removing some of the disadvantages, such as tracking. Pop! OS also comes with many advantages over Ubuntu, with performance tweaks and a more convenient app store for people who don't want to use the terminal. In fact, one Youtube video showcased how a full gaming setup for Pop! OS that didn't require any use of the terminal at all!
 
@@ -108,7 +134,11 @@ In addition, System76, the developers of Pop! OS, are champions of open source d
 
 ### Manjaro
 
-![img](images/manjarognome.png)
+<picture>
+    <source id="s1" srcset="/posts/images/manjarognome.png">
+    <souce id="s2" srcset="images/manjarognome.png">
+    <img width="100%" src="images/manjarognome.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Manjaro is for users who want the benefits of bleeding-edge software while still having an easy-to-use graphical interface and stellar performance. Based on Arch Linux rather than Ubuntu/Debian, Manjaro comes on top compared to the aforementioned distributions when it comes to offering the most up-to-date versions of software packages with the `pacman` package manager. This offers an advantage for gamers, developers, and power users who want the newest features, especially with software under development such as the Proton engine for Windows games on LInux. However, this does make some packages somewhat less stable than Ubuntu (although I have personally never run into problems).
 
@@ -118,7 +148,11 @@ Similar to Ubuntu, Manjaro offers support for a vast array of software repositor
 
 ### elementary OS
 
-![img](images/elementaryluna.png)
+<picture>
+    <source id="s1" srcset="/posts/images/elementaryluna.png">
+    <souce id="s2" srcset="images/elementaryluna.png">
+    <img width="100%" src="images/elementaryluna.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 elementary OS is another Ubuntu-based distribution with the unique Pantheon desktop environment. Quite simply, elementary OS has less bloat compared to base Ubuntu and removes any built-in tracking features. Similar to Linux Mint, the design philosophy behind elementary OS is that of ease-of-use and minimalism as opposed to customization. 
 
@@ -128,7 +162,11 @@ Overall, if you're a Mac user and are looking for a distribution that doesn't ne
 
 ### Zorin OS
 
-![img](images/zorin15.png)
+<picture>
+    <source id="s1" srcset="/posts/images/zorin15.png">
+    <souce id="s2" srcset="images/zorin15.png">
+    <img width="100%" src="images/zorin15.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Zorin OS is an Ubuntu-based distribution that will make any Windows or Mac user feel at home. The current default interface uses a customized GNOME desktop that offers accessible options that allow users to make the desktop resemble either Mac OS or Windows 10, but I would say that Windows users would probably be slightly more comfortable with the look and feel.
 
@@ -138,7 +176,11 @@ Zorin offers a great experience and built-in software, offering packages from bo
 
 ### Deepin OS
 
-![img](images/deepin15.1.jpg)
+<picture>
+    <source id="s1" srcset="/posts/images/deepin15.1.jpg">
+    <souce id="s2" srcset="images/deepin15.1.jpg">
+    <img width="100%" src="images/deepin15.1.jpg" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Deepin OS is an under-appreciated gem of the desktop Linux world. The Deepin Desktop Environment (DDE) is packed full of awesome features for power-users and average users alike, and offers the best from Windows, Mac, and Linux desktops.
 
@@ -150,7 +192,11 @@ Deepin OS is also based on Debian, similar to Ubuntu, so it has access to a wide
 
 ### Ubuntu DDE
 
-![img](images/ubuntudde.png)
+<picture>
+    <source id="s1" srcset="/posts/images/ubuntudde.png">
+    <souce id="s2" srcset="images/ubuntudde.png">
+    <img width="100%" src="images/ubuntudde.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Technically a flavor of Ubuntu, Ubuntu DDE is offered separately as an unofficial Ubuntu flavor that is seeking official status. However, Ubuntu DDE is slightly more than simply the Deepin Desktop Environment installed onto a generic Ubuntu offering. The DDE desktop for this distribution is optimized for use on Ubuntu, and the desktop environment can even been installed separately on an already existing Ubuntu install through the Ubuntu DDE PPA. 
 
@@ -162,7 +208,11 @@ Ubuntu DDE is potentially better for users who want more customization and devel
 
 ### GNOME 3
 
-![img](images/gnome3.png)
+<picture>
+    <source id="s1" srcset="/posts/images/gnome3.png">
+    <souce id="s2" srcset="images/gnome3.png">
+    <img width="100%" src="images/gnome3.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 GNOME is a great, modern desktop environment full of easy customization, albeit not as many options as KDE. Many options can be access by installing the GNOME Teaks Tool, which offers advanced options and settings for any GNOME extensions you download. The website for GNOME extensions offers a Chromium extension that allows you to one-click download extensions with great convenience.
 
@@ -174,7 +224,11 @@ However, GNOME does get a lot a flak from certain parts of the community for bei
 
 ### KDE
 
-![img](images/manjarokde.png)
+<picture>
+    <source id="s1" srcset="/posts/images/manjarokde.png">
+    <souce id="s2" srcset="images/manjarokde.png">
+    <img width="100%" src="images/manjarokde.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 KDE has had some shortcomings in the past, but it is currently one of the best desktop environments out there. Windows users, especially those that used older versions of Windows, may find the default layout of this environment particularly familiar, but it can pretty easily be configured to look identical to Windows 7/10, aside from the logo. Recent developments have made KDE run incredibly smoothly and efficiently, making it capable of being lightweight despite the decent amount of pre-installed software it can be installed with.
 
@@ -190,7 +244,11 @@ KDE is also extremely configurable by default, with endless options for key mapp
 
 ### Cinnamon
 
-![img](images/cinnamon.png)
+<picture>
+    <source id="s1" srcset="/posts/images/cinnamon.png">
+    <souce id="s2" srcset="images/cinnamon.png">
+    <img width="100%" src="images/cinnamon.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 Cinnamon is a desktop environment originally developed for Linux Mint that is now offered for many distributions. It offers many of the advantages of GNOME while being incredibly fast and lightweight. It also has many customization options, although not as much as KDE. Cinnamon overall offers a much more traditional-designed desktop experience with modern features and functionality.
 
@@ -200,7 +258,11 @@ Cinnamon's default applications, called "X-Apps," are based on core GNOME applic
 
 ### DDE
 
-![img](images/deepin15.4.png)
+<picture>
+    <source id="s1" srcset="/posts/images/deepin15.4.png">
+    <souce id="s2" srcset="images/deepin15.4.png">
+    <img width="100%" src="images/deepin15.4.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 If I haven't gushed about DDE enough in sections on Deepin OS and Ubuntu DDE, I'll continue here. For the new user, DDE out-paces the competition by leagues. I'm talking absolute Linux beginners who need some familiarity to pull them into the wonderful world of desktop Linux. 
 

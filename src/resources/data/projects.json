@@ -3,7 +3,7 @@
     {
       "name": "Covid-19 Projection Heatmap",
       "image": "covid19-heatmap.jpg",
-      "url": "https://calvang.github.io/covid19-heatmap-demo/",
+      "url": "https://calvang.github.io/covid19-heatmap-demo/index.html",
       "links": {
         "github": "https://github.com/calvang/covid19-heatmap"
       },

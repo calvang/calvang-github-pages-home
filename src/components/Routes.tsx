@@ -37,7 +37,7 @@ function NoMatch() {
         {/* title page */}
         <header className="w3-content w3-center">
           <div className="vertical-center">
-            <h1 className="w3-jumbo"><span className="w3-hide-small">404 - Page Not Found</span></h1>
+            <h1 className="w3-jumbo"><span>404 - Page Not Found</span></h1>
           </div>
         </header>
     </div>

@@ -58,13 +58,13 @@ A desktop environment consists of all elements of the graphical user interface, 
     <img width="100%" src="images/tuxmug.jpg" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
 </picture>
 
-1. Linux is based on free and open-source software.
+1. **Linux is based on free and open-source software.**
 
    Free, as in both monetary value and personal freedom. The later, being more important, means freedom from proprietary restrictions on what you can or cannot do, freedom from being tracked by companies collecting your data, and freedom to choose what you want your software to be able to do.
 
    Open source software offers more security compared to most proprietary solutions, especially in terms of the operating system, where bugs are identified quickly and therefore patched quickly due to the source code for Linux distributions being available for the whole world to see. This also makes it hard for companies to add trackers or back-doors. When Canonical added trackers to Ubuntu, the backlash was quick and unanimous, forcing the company to be completely transparent about the feature and offer options for disabling it.
 
-2. Linux is more functional
+2. **Linux is more functional**
 
    While in certain use cases, such as graphic design and music mixing, Linux has a shortage of open-source solutions, the open source offerings make Linux more functional for most users.
 
@@ -72,7 +72,7 @@ A desktop environment consists of all elements of the graphical user interface, 
 
    For developers, Linux is unequivocally the best choice. Currently, KWM technology makes visualization in Linux much more capable than on other system, offering almost native speeds. Linux is also the fastest development platform, with innumerable development tools assuming that you're working on Linux. And while you can use Linux through something like WSL1/2 or the bash terminal in Mac OS, you don't get the flexibility of the graphical interfaces offered by full Linux desktops that have advanced far beyond the offerings of Windows and Mac OS.
 
-3. The community
+3. **The community**
 
    Have you ever tried to fix something in Windows or on Mac OS? It almost never works out. You end up on the official support forums or at the end of a phone line where the support team, none of whom are familiar with the actual inner workings of the operating system, try to diagnose your problem wit repetitive scripts before they give up and mark your issue as closed even though you're stuck with the same problem by the end of the fiasco.
 

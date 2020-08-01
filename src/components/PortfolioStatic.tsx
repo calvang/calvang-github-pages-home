@@ -71,7 +71,7 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                         {/* <div style={{ display:"inline-block" }}> */}
                         {/* <div style={{ position:"relative"}}> */}
                         <h3 className="w3-text-black">{project.name}</h3>
-                        <hr className="w3-opacity" style={{ width: "200px", borderTop: "1px solid black" }} />
+                        <hr className="w3-opacity" style={{ width: "33%", borderTop: "1px solid black" }} />
                         <p className="w3-padding-bottom ">
                           {project.text}
                           </p>
@@ -143,7 +143,7 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                         {/* <div style={{ display:"inline-block" }}> */}
                         {/* <div style={{ position:"relative"}}> */}
                         <h3 className="w3-text-black">{project.name}</h3>
-                        <hr className="w3-opacity" style={{ width: "200px", borderTop: "1px solid black" }} />
+                        <hr className="w3-opacity" style={{ width: "100%", borderTop: "1px solid black" }} />
                         {
                           'image' in project &&
                           <img style={{ width:"100%" }} src={projectProfiles[i]} alt="project preview" />

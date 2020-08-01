@@ -1,6 +1,16 @@
 # Installing Wine on Ubuntu
 
-Remove any previous Winehq or Wine repos from previous versions.
+*2020-06-13 by Calvin Huang* 
+
+![img](images/actualwine.jpg)
+
+## What is Wine?
+
+Wine is a Windows compatibility layer for Linux, similar to the Windows Subsystem for Linux, except reversed. Wine allows us to execute Windows programs (.exe, .msi, etc...) as easily as on Windows. Wine also supports graphical integration, so you can open up Windows applications similarly to how you would with no disturbances to your workflow. The only downside is that Wine has difficulty interfacing with some hardware, like bluetooth, sometimes and cannot run *all* Windows software. But unless you're running certain resource-intensive applications or those that use specific Windows features, Wine can usually manage just fine.
+
+## Installation
+
+Remove any previous Winehq or Wine repos from previous versions. And then run the following:
 
 ```
 sudo dpkg --add-architecture i386 
@@ -38,3 +48,4 @@ sudo apt install -f wine-stable=5.01~focal
 sudo apt install --install-recommends winehq-stable
 ```
 
+Congrats, now you can run most Windows applications natively in Linux!

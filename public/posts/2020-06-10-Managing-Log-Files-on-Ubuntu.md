@@ -1,10 +1,18 @@
 # Managing Log Files on Ubuntu
 
-Log files on Ubuntu can get bloated if left with the default configurations.
+*2020-06-10 by Calvin Huang* 
 
-You can run disk analysis tools such as QDirStat to get an overview of your log file sizes.
+![img](images/Penguin_Admin.svg)
+
+Log files on Ubuntu can get bloated if left with the default configurations. You can run disk analysis tools such as QDirStat to get an overview of your log file sizes.
 
 > Note: Although configurations can cause bloating, you should first check whether your system is generating large numbers of error messages in the log files. You can use `tail -50` <path_to_file> to check the last 50 lines of a file to see if repeated error messages are being generated. Common culprits include wifi/bluetooth drivers, BIOS settings, and Xsession errors.
+
+## Table of Contents
+- [Managing Log Files on Ubuntu](#managing-log-files-on-ubuntu)
+  - [Table of Contents](#table-of-contents)
+  - [How to change log configurations](#how-to-change-log-configurations)
+    - [How to manage journals](#how-to-manage-journals)
 
 ## How to change log configurations
 

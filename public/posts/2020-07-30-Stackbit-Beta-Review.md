@@ -1,6 +1,8 @@
 # Review: Stackbit Beta
 
-2020-07-30
+*2020-07-30 by Calvin Huang* 
+
+![img](images/stackbitblog.png)
 
 ## What is Stackbit?
 

@@ -38,12 +38,14 @@ export default class Post extends Component<PostProps, PostState> {
   }
 
   render() {
+    const { index } = this.props;
     const { markdown } = this.state;
+    const numPosts = blogData.posts.length;
     return (
-      <div className="App-font w3-container Blog-container parallax-scroll" id="main">
-        <div className="w3-justify w3-text-dark-grey"
+      <div className="App-font w3-container Blog-container blog-parallax-scroll" id="main">
+        <div className="w3-text-dark-grey"
           style={{ height:"auto" }}>
-          <table className="w3-content"
+          <table className="w3-content w3-hide-small"
             style={{ marginTop:"40px", marginBottom:"20px", borderCollapse:"separate", borderSpacing:"32px 64px" }}>
             <tbody>
               <tr>
@@ -51,6 +53,28 @@ export default class Post extends Component<PostProps, PostState> {
                 <Markdown options={{ forceBlock: true }}>
                   {markdown}
                 </Markdown>
+                </td>
+              </tr>
+              <tr>
+                <td className="w3-white w3-card w3-padding-large">
+                  <div className="fb-comments" data-href={`https://calvang.github.io/#/posts/${numPosts - index}`} data-numposts="5" data-width="100%"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="w3-content w3-hide-medium w3-hide-large"
+            style={{ marginTop:"40px", marginBottom:"20px", borderCollapse:"separate", borderSpacing:"0px 20px" }}>
+            <tbody>
+              <tr>
+                <td className="w3-white w3-card w3-padding-large">
+                <Markdown options={{ forceBlock: true }}>
+                  {markdown}
+                </Markdown>
+                </td>
+              </tr>
+              <tr>
+                <td className="w3-white w3-card w3-padding-large">
+                  <div className="fb-comments" data-href={`https://calvang.github.io/#/posts/${numPosts - index}`} data-numposts="5" data-width="100%"></div>
                 </td>
               </tr>
             </tbody>

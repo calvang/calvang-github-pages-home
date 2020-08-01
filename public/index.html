@@ -13,6 +13,9 @@
       html {
         scroll-behavior: smooth;
       }
+      .fb-comments, .fb-comments iframe[style] {
+        width: 100% !important;
+      }
     </style>
     <link media="screen" rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link media="screen" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,6 +38,8 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="YQgyrT5Q"></script>
     <div id="root"></div>
     <!--
       This HTML file is a template.

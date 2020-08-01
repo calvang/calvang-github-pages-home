@@ -57,16 +57,16 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
 
     return (
 
-        <div className="w3-justify w3-text-dark-grey"
+        <div className="w3-text-dark-grey"
           style={{ height:"auto" }}>
-          <table className="w3-content"
+          <table className="w3-content w3-hide-small"
             style={{ marginTop:"-40px", marginBottom:"20px", borderCollapse:"separate", borderSpacing:"32px 64px" }}>
             <tbody>
               {
                 projects.map((project, i) => {
                   return (
                     <tr key={project.name} style={{ height: "auto" }}>
-                      <td className="w3-white w3-card w3-padding-large w3-hide-small" colSpan={ imageStatuses[i] ?  1 : 2 }
+                      <td className="w3-white w3-card w3-padding-large" colSpan={ imageStatuses[i] ?  1 : 2 }
                         style={{ height: "100%"/*, backgroundImage: `url(${projectProfiles[i]})`*/ }}>
                         {/* <div style={{ display:"inline-block" }}> */}
                         {/* <div style={{ position:"relative"}}> */}
@@ -123,7 +123,22 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                           } */}
                         </td>
                       }
-                      <td className="w3-white w3-card w3-padding-large w3-hide-large w3-hide-medium"
+                    </tr>
+                  )
+
+                })
+              }
+            </tbody>
+          </table> 
+          {/* for mobile devices */}
+          <table className="w3-content w3-hide-large w3-hide-medium"
+            style={{ marginTop:"-40px", marginBottom:"20px", borderCollapse:"separate", borderSpacing:"0px 20px" }}>
+            <tbody>
+              {
+                projects.map((project, i) => {
+                  return (
+                    <tr key={project.name} style={{ height: "auto" }}>
+                      <td className="w3-white w3-card w3-padding-large"
                         style={{ height: "100%"/*, backgroundImage: `url(${projectProfiles[i]})`*/ }}>
                         {/* <div style={{ display:"inline-block" }}> */}
                         {/* <div style={{ position:"relative"}}> */}
@@ -164,8 +179,10 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                               <i className="fa fa-codepen w3-xxlarge w3-hover-opacity" style={{ marginLeft: "6px" }}></i>
                             </a>
                           }
+                        </div>
+                        <div>
                           <a className="plain-link" rel="noopener noreferrer" target="_blank" href={project.url}
-                            style={{ marginLeft: "20px", fontSize: 18 }}>
+                            style={{ fontSize: 18 }}>
                             <span style={{ bottom: "6px", position: "relative" }}>View project</span>
                             <i className="fa fa-angle-double-right w3-xxlarge w3-hover-opacity"
                               style={{ marginLeft: "6px" }}></i>
@@ -178,7 +195,7 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                 })
               }
             </tbody>
-          </table> 
+          </table>     
         </div>
     );
   }

@@ -19,7 +19,7 @@ export default class Routes extends Component {
           <Route exact path='/Projects' component={Projects}></Route>
           <Route exact path='/Blog' component={Blog}></Route>
           {posts.map((post, i) => 
-            <Route exact path={`/posts/${posts.length - i}`}
+            <Route key={i} exact path={`/posts/${posts.length - i}`}
               render={(props: any) => <Post {...props} index={i} />} >
             </Route>
           )}

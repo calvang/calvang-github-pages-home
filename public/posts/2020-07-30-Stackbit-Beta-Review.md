@@ -38,3 +38,5 @@ Since it is currently still in beta, it would be unfair to expect Stackbit to be
 ## Conclusion
 
 While Stackbit currently has its flaws, it is still in beta, so we have a lot to look forward to. I personally see great potential in the platform, especially since it seems to be offering a niche solution for more tech-savvy individuals to quickly deploy websites using modern frameworks. I can see many React developers using this tool to expedite their workflows, especially if Stackbit continues to add more options for templating and customization.
+
+Check out an basic Stackbit blog that I templated: https://energetic-whale-325f7.netlify.app/

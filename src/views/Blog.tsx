@@ -45,7 +45,9 @@ export default class Blog extends Component<BlogProps, BlogState> {
                         {/* <div style={{ position:"relative"}}> */}
                         <h3 className="w3-text-black">{post.title}</h3>
                         <hr className="w3-opacity" style={{ width: "33%", borderTop: "1px solid black" }} />
-                        <img width="100%" src={`/posts/images/${post.thumbnail}`} alt="img" />
+                        <a className="plain-link" href={`/#/Blog/${post.file.slice(0, -3)}`}>
+                          <img width="100%" src={`/posts/images/${post.thumbnail}`} alt="img" />  
+                        </a>
                         <p><i>{post.file.substr(0, 10)}</i></p>
                         <p className="w3-padding-bottom ">
                           {post.description}
@@ -76,7 +78,9 @@ export default class Blog extends Component<BlogProps, BlogState> {
                         {/* <div style={{ position:"relative"}}> */}
                         <h3 className="w3-text-black">{post.title}</h3>
                         <hr className="w3-opacity" style={{ width: "100%", borderTop: "1px solid black" }} />
-                        <img width="100%" src={`/posts/images/${post.thumbnail}`} alt="img" />
+                        <a className="plain-link" href={`/#/Blog/${post.file.slice(0, -3)}`}>
+                          <img width="100%" src={`/posts/images/${post.thumbnail}`} alt="img" />  
+                        </a>
                         <p><i>{post.file.substr(0, 10)}</i></p>
                         <p className="w3-padding-bottom ">
                           {post.description}

@@ -32,13 +32,13 @@ export default class Term extends Component<TermProps, TermState> {
     var startupMessages: any[] = []
     for (message in props.startup) {
       startupMessages.push(
-        <><DisplayStr path="" />{ props.startup[message] } < br /></>
+        <><DisplayStr path="~" />{ props.startup[message] } < br /></>
       );
     }
     this.state = {
       history: startupMessages,
       input: "",
-      currentDir: ""
+      currentDir: "~"
     }
   }
 
@@ -47,18 +47,37 @@ export default class Term extends Component<TermProps, TermState> {
   }
 
   handleSubmit = (event: any) => {
-    const { history, input } = this.state;
+    const { history, input, currentDir } = this.state;
     event.preventDefault();
     console.log(input);
-    var line = <><DisplayStr path="" />{input}<br /></>
+    var newHistory = history;
+    var newDir = currentDir;
+    newHistory.push(
+      <><DisplayStr path={currentDir} />{input}<br /></>
+    );
+    if (input.trim() === "cd") {
+      newDir = "~";
+    }
+    else if (input.substr(0, 2) === "cd") {
+      newDir = currentDir + "/" + input.substr(3, input.length - 3);
+      console.log("cd", newDir);
+    }
+    else if (input.trim() === "pwd") {
+      newHistory.push(<>{currentDir}<br /></>)
+      console.log("pwd", currentDir)
+    }
+    else if (input.trim() === "help") {
+      newHistory.push(<>Help has not been implemented at this time</>);
+    }
     this.setState({
-      history: [...history, line],
-      input: ""
+      history: newHistory,
+      input: "",
+      currentDir: newDir
     })
   }
 
   render() {
-    const { history, input } = this.state;
+    const { history, input, currentDir } = this.state;
     return (
       <div className="w3-padding term-body">
         {history.map((line, i) =>
@@ -69,7 +88,7 @@ export default class Term extends Component<TermProps, TermState> {
         <span>
           <form className="form-inline"
             onSubmit={ this.handleSubmit } >
-            <label className="form-label"><DisplayStr path="" /> </label>
+            <label className="form-label"><DisplayStr path={currentDir} /> </label>
             <input className="term-input" contentEditable="true" type="text"
               placeholder={this.props.placeholder} autoComplete="false" autoCorrect="false"
               onChange={this.handleChange} value={input}/>

@@ -6,7 +6,9 @@ import '../../css/Terminal.css';
 
 interface DraggableTerminalProps {
   startup: string[],
-  placeholder: string
+  placeholder: string,
+  width: number,
+  height: number
 }
 interface DraggableTerminalState {
   width: number,
@@ -17,8 +19,8 @@ export default class DraggableBlock extends Component<DraggableTerminalProps, Dr
   constructor(props: DraggableTerminalProps) {
     super(props);
     this.state = {
-      width: 500,
-      height: 300
+      width: props.width,
+      height: props.height
     }
   }
 
@@ -31,7 +33,7 @@ export default class DraggableBlock extends Component<DraggableTerminalProps, Dr
     const { width, height } = this.state;
     return (
       <Draggable handle="strong" >
-        <div className="term-resizable">
+        <div className="term-block">
           <Resizable height={height} width={width}
             onResize={this.onResize} minConstraints={[150, 100]}
             resizeHandles={["sw", "se", "nw", "ne", "w", "e", "n", "s"]}>

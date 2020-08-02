@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import homeData from '../../resources/data/home.json';
 import '../../css/Terminal.css';
 
 interface DisplayStrProps {
@@ -26,6 +27,24 @@ const DisplayStr = ({ path }: DisplayStrProps) =>
     <b style={{color:"#0080FF"}}>
       {`${path}$`}&nbsp;
     </b>
+  </>
+
+const HelpMsg = () => 
+  <>
+    Currently supported commands: <br />
+     - cd [path] (incomplete): navigate to different pages <br />
+     - pwd: print current path <br />
+     - history: print bash cmd history <br />
+     - whoami: print about blurb <br />
+     - help: print help message <br />
+     - ls (incomplete): list subpaths of current page <br />
+     - tree (incomplete): sitemap from current page <br />
+  </>
+
+const WhoAmI = () => 
+  <>
+    I am Calvin Huang <br />
+    {homeData[1].text} <br />  
   </>
 
 export default class Term extends Component<TermProps, TermState> {
@@ -66,10 +85,10 @@ export default class Term extends Component<TermProps, TermState> {
         }
         break;
       case "whoami":
-        newHistory.push(<>Calvin Huang<br /></>)
+        newHistory.push(<WhoAmI />)
         break;
       case "help":
-        newHistory.push(<>help command has not been implemented at this time<br /></>);
+        newHistory.push(<HelpMsg />);
         break;
       default:
         if (input.substr(0, 2) === "cd") {

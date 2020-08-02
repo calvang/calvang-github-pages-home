@@ -1,5 +1,6 @@
 import React, {Component, createRef } from 'react';
 import Portfolio from '../components/PortfolioStatic';
+//import ContactForm from '../components/ContactForm';
 import homeData from '../resources/data/home.json';
 import '../css/App.css';
 
@@ -255,7 +256,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           </div>
           
           {/* portfolio/project preview section */}
-          <div className="w3-container w3-justify w3-text-dark-grey w3-padding-large w3-light-gray" ref={sections[3]}
+          <div className="w3-container w3-text-dark-grey w3-padding-large w3-light-gray" ref={sections[3]}
             style={{ height:"auto" }}>
             {/* <div className="w3-padding-large w3-content w3-white w3-text-dark-gray" id="photos"> */}
             <div className="w3-content w3-light-grey w3-padding" style={{
@@ -265,6 +266,9 @@ export default class Home extends Component<HomeProps, HomeState> {
             </div>
             <Portfolio />
           </div>
+
+          {/* contact form */}
+          {/* <ContactForm /> */}
         </div>
       </>
     );

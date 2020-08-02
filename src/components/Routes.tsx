@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import Home from '../views/Home';
-//import About from '../views/About';
 import Projects from '../views/Projects';
 import Blog from '../views/Blog';
 import Post from '../views/Post';
-//import Contact from '../views/Contact';
-import { Switch, Route, HashRouter } from 'react-router-dom';
 import blogData from '../resources/data/blog.json';
 import '../css/App.css';
 

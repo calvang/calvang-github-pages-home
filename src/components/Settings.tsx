@@ -25,46 +25,42 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
 
   render() {
     const { isMenuOpen } = this.state;
-    // const links = [
-    //   {
-    //     link: "/",
-    //     label: "HOME",
-    //     icon: "fa fa-home"
-    //   },
-    //   {
-    //     link: "/#/Projects",
-    //     label: "PROJECTS",
-    //     icon: "fa fa-code"
-    //   },
-    //   {
-    //     link: "/#/Blog",
-    //     label: "BLOG",
-    //     icon: "fa fa-user"
-    //   },
-    //   {
-    //     link: "/#/Contact",
-    //     label: "CONTACT",
-    //     icon: "fa fa-envelope"
-    //   }
-    // ]
     const startupMessages: string[] = [
       "Welcome to the integrated terminal. More features will be implemented soon! Type help to learn more..."    
     ]
+    const termWidth = Math.floor(0.951 * window.innerWidth);
+    const termHeight= Math.floor(0.48 * window.innerHeight);
     return (
       <>
         {isMenuOpen ?
           <div>
-            <DraggableTerminal startup={startupMessages} placeholder={""} />
+            <DraggableTerminal startup={startupMessages} placeholder={""}
+              width={termWidth} height={termHeight} />
           </div> : ''}
           <div>
-            <nav className="w3-bottom w3-hide-small w3-opacity w3-hover-opacity-off"
+            <nav className="w3-bottom w3-opacity w3-hover-opacity-off"
               style={{ width: "auto", right: "0", borderRadius: "25px 0px 0px 0px" }}
               id="mySidebar">
               <div className="w3-bar-block w3-center">
                 <button className="w3-bar-item w3-button"
                   onClick={this.toggleMenu}>
-                  <i className="fa fa-cogs fa-fw w3-xlarge"></i>
+                  <i className="fa fa-cogs fa-fw w3-xlarge w3-hide-small"></i>
+                  {/* <i className="fa fa-cogs fa-fw w3-large w3-hide-medium w3-hide-large"></i> */}
                 </button> 
+                
+              </div>
+          </nav>
+          
+          <nav className="w3-bottom w3-opacity w3-hover-opacity-off"
+              style={{ width: "auto", right: "0", borderRadius: "25px 0px 0px 0px" }}
+              id="mySidebar">
+              <div className="w3-bar-block w3-center">
+                <button className="w3-bar-item w3-button"
+                  onClick={this.toggleMenu}>
+                  {/* <i className="fa fa-cogs fa-fw w3-xlarge w3-hide-small"></i> */}
+                  <i className="fa fa-cogs fa-fw w3-large w3-hide-medium w3-hide-large"></i>
+                </button> 
+                
               </div>
             </nav>
           </div>

@@ -5,7 +5,7 @@ import Routes from './components/Routes';
 import Footer from './components/Footer';
 import './css/App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="w3-black">
       <Navbar />
@@ -15,5 +15,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

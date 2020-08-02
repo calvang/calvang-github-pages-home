@@ -4,7 +4,6 @@ import '../css/Home.css';
 import '../css/App.css';
 import blogData from '../resources/data/blog.json';
 
-
 interface BlogProps {}
 interface BlogState {
   posts: any[],

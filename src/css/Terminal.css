@@ -1,0 +1,13 @@
+term-block {
+    width: 500px;
+    height: 300px;
+    position: fixed;
+    z-index: 2;
+    bottom: 2%;
+    left: 2%;
+    background:rgba(0, 0, 255,0.3);
+}
+
+term-header {
+    color: #000000;
+}

@@ -10,27 +10,11 @@
 
 ## Table of Contents
 
-- [Desktop Linux for Non-Linux Users](#desktop-linux-for-non-linux-users)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-    - [What is a distribution?](#what-is-a-distribution)
-    - [What is a desktop environment?](#what-is-a-desktop-environment)
-    - [Why Linux?](#why-linux)
-  - [Beginner-friendly Distributions](#beginner-friendly-distributions)
-    - [Ubuntu](#ubuntu)
-    - [Linux Mint](#linux-mint)
-    - [Pop! OS](#pop-os)
-    - [Manjaro](#manjaro)
-    - [elementary OS](#elementary-os)
-    - [Zorin OS](#zorin-os)
-    - [Deepin OS](#deepin-os)
-    - [Ubuntu DDE](#ubuntu-dde)
-  - [Recommended Desktop Environments](#recommended-desktop-environments)
-    - [GNOME 3](#gnome-3)
-    - [KDE](#kde)
-    - [Cinnamon](#cinnamon)
-    - [DDE](#dde)
-  - [TL;DR](#tldr)
+- Table of Contents
+- Introduction
+- Beginner-friendly Distributions
+- Recommended Desktop Environments
+- TL;DR
 
 ## Introduction
 

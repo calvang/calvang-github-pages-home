@@ -2,7 +2,11 @@
 
 *2020-08-01 by Calvin Huang*
 
-![img](/public/posts/images/bluescreen.png)
+<picture>
+    <source id="s1" srcset="/posts/images/bluescreen.png">
+    <souce id="s2" srcset="images/bluescreen.png">
+    <img width="100%" src="images/bluescreen.png" alt="" onerror="this.onerror=null;document.getElementById('s1').srcset=document.getElementById('s2').srcset=this.src;">
+</picture>
 
 ## Introduction
 

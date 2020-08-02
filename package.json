@@ -18,9 +18,12 @@
     "markdown-to-jsx": "^6.11.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-draggable": "^4.4.3",
+    "react-resizable": "^1.10.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2",
+    "xterm": "^4.8.1",
     "yarn": "^1.22.4"
   },
   "scripts": {

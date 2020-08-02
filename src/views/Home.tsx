@@ -153,7 +153,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           </header>
 
           {/* whoami section */}
-          <div className="w3-container w3-justify w3-text-dark-grey w3-light-grey" ref={sections[1]}
+          <div className="w3-container w3-text-dark-grey w3-light-grey" ref={sections[1]}
             style={{ height:"auto" }}>
             <table className="w3-content"
               style={{ marginTop:"64px", marginBottom:"64px", borderCollapse:"separate", borderSpacing:"15px 0" }}>

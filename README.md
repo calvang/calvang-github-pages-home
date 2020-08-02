@@ -9,6 +9,10 @@ External project data is fetched using REST API calls to a basic Flask backend t
 
 ### Features
 
+#### Integrated Terminal
+
+Draggable terminal for navigation and finding information. Currently under development.
+
 #### Progressiveness
 
 This web app is optimized for near-native performance on both desktop and mobile devices.

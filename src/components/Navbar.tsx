@@ -113,7 +113,7 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
           </div> :
           <div>
             <nav className="w3-top w3-black w3-hide-small w3-hide-medium w3-opacity w3-hover-opacity-off"
-              style={{ width: "100px", borderRadius: "0px 0px 25px 0px" }}
+              style={{ width: "100px" }}
               id="mySidebar">
               <div className="w3-bar-block w3-center">
                 <button className="w3-bar-item w3-button w3-padding"
@@ -123,7 +123,7 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
               </div>
             </nav>
             <nav className="w3-top w3-black w3-hide-large w3-hide-small w3-opacity w3-hover-opacity-off"
-              style={{ width: "auto", borderRadius: "0px 0px 25px 0px" }}
+              style={{ width: "auto" }}
               id="mySidebar">
               <div className="w3-bar-block w3-center">
                 <button className="w3-bar-item w3-button w3-padding"
@@ -133,7 +133,7 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
               </div>
             </nav>
             <nav className="w3-top w3-black w3-hide-large w3-hide-medium w3-opacity w3-hover-opacity-off"
-              style={{ width: "auto", borderRadius: "0px 0px 25px 0px" }}
+              style={{ width: "auto" }}
               id="mySidebar">
               <div className="w3-bar-block w3-center">
                 <button className="w3-bar-item w3-button"

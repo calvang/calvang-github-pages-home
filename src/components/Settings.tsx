@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import DraggableBlock from './DraggableBlock';
+import DraggableTerminal from './DraggableTerminal/DraggableTerminal';
+//import '../resources/data/terminal.json';
 import '../css/App.css';
 import '../css/Home.css';
 
@@ -46,11 +47,14 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
     //     icon: "fa fa-envelope"
     //   }
     // ]
+    const startupMessages: string[] = [
+      "Welcome to the integrated terminal. More features will be implemented soon! Type help to learn more..."    
+    ]
     return (
       <>
         {isMenuOpen ?
           <div>
-            <DraggableBlock />
+            <DraggableTerminal startup={startupMessages} placeholder={""} />
           </div> : ''}
           <div>
             <nav className="w3-bottom w3-hide-small w3-opacity w3-hover-opacity-off"

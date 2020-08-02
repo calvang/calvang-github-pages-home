@@ -46,7 +46,7 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
     for (let project in projects) {
       if (projects[project].image) {
         const imagePath = process.env.PUBLIC_URL + "/project_profiles/" + projects[project].image;
-        console.log(imagePath)
+        //console.log(imagePath)
         projectProfiles.push(imagePath);
         imageStatuses.push(true);
       } else {

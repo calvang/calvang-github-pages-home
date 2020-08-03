@@ -36,11 +36,6 @@ export class TreeNode {
     delete this.children[key];
     this.numChildren--;
   }
-
-  // find child node by key
-  find(key: string) {
-    return this.children[key];
-  }
 }
 
 export class Tree {

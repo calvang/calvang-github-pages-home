@@ -1,2 +1,19 @@
+/*
+  @author 2020-08-03 by Calvin Huang
+
+  Tree data structure with unlimited children that point back to the parent node
+  There purpose is the track DOM traversal similar to how a file system works
+
+  @constraints
+  - unlimited child nodes
+  - each child knows its parent, but not its siblings
+  - each parent knows all of its children
+*/
+
 import { Tree, TreeNode } from './Tree';
 
+function Treeify(object: Object) {
+  
+  let NewTree = new Tree();
+  return NewTree
+}

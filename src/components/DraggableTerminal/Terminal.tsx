@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { useHistory } from 'react-router-dom';
 import homeData from '../../resources/data/home.json';
+import blogData from '../../resources/data/blog.json';
+import siteData from '../../resources/data/sitemap.json';
 import '../../css/Terminal.css';
 import tux from '../../resources/images/tux.png';
 
@@ -17,7 +20,7 @@ interface TermState {
   history: any[],
   bashHistory: string[],
   input: string,
-  currentDir: string,
+  currentDir: string
 }
 
 const DisplayStr = ({ path }: DisplayStrProps) => 
@@ -91,8 +94,26 @@ const Spookyfetch = () =>
   </pre>
 
 export default class Term extends Component<TermProps, TermState> {
+  siteMap = siteData;
   constructor(props: TermProps) {
     super(props);
+
+    // add blog posts to sitemap
+    const posts = blogData.posts
+    var blogSubpaths: any[] = [];
+    for (let i = 0; i < posts.length; ++i) {
+      blogSubpaths.push({
+        name: posts[i].file.slice(0, -3),
+        path: `/#/Blog/${posts[i].file.slice(0, -3)}`
+      });
+    }
+    this.siteMap.subpaths[1] = {
+      ...this.siteMap.subpaths[1],
+      ...{ subpaths: blogSubpaths }
+    };
+    console.log(this.siteMap);
+
+    // generate welcome message
     var message;
     var startupMessages: any[] = []
     for (message in props.startup) {
@@ -109,6 +130,16 @@ export default class Term extends Component<TermProps, TermState> {
       input: "",
       currentDir: "~"
     }
+  }
+
+  navigatePath = (currentDir:string, destDir: string) => {
+    
+    // switch (destDir.trim()) {
+    //   case
+    // }
+    // jump to new page
+    let routerHistory = useHistory();
+    routerHistory.push('/')
   }
 
   handleChange = (event: any) => {
@@ -133,7 +164,7 @@ export default class Term extends Component<TermProps, TermState> {
       case "whoami":
         newHistory.push(<WhoAmI />)
         break;
-      case "Screenfetch":
+      case "screenfetch":
         newHistory.push(<Screenfetch />)
         break;
       case "neofetch":
@@ -143,7 +174,7 @@ export default class Term extends Component<TermProps, TermState> {
         newHistory.push(<Spookyfetch />)
         break;
       case "tux":
-        newHistory.push(<img src={tux} alt="tux"/>)
+        newHistory.push(<><img src={tux} alt="tux"/><br /></>)
         break;
       case "help":
         newHistory.push(<HelpMsg />);
@@ -156,7 +187,7 @@ export default class Term extends Component<TermProps, TermState> {
           newDir = newDir+ "/" + input.substr(3, input.length - 3);
         }
         else {
-          newHistory.push(<>{input}: command not found</>);
+          newHistory.push(<>{input}: command not found <br /></>);
         }
     }
     return newDir;

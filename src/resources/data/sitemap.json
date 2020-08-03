@@ -1,14 +1,18 @@
 {
-  "path": "~",
+  "name": "~",
+  "path": "/#",
   "subpaths": [
     {
-      "path": "projects"
+      "name": "Projects",
+      "path": "/#/Projects"
     },
     {
-      "path": "blog"
+      "name": "Blog",
+      "path": "/#/Blog"
     },
     {
-      "path": "contact"
+      "name": "Contact",
+      "path": "/#/Contact"
     }
   ]
 }

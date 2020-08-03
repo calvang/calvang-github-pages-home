@@ -4,6 +4,7 @@ import Home from '../views/Home';
 import Projects from '../views/Projects';
 import Blog from '../views/Blog/Blog';
 import Post from '../views/Blog/Post';
+import Settings from '../components/Settings';
 import blogData from '../resources/data/blog.json';
 import '../css/App.css';
 
@@ -24,6 +25,7 @@ export default class Routes extends Component {
           <Route path='/404' component={NoMatch}></Route>
           <Route component={NoMatch}></Route>
         </Switch>
+        <Settings />
       </HashRouter>
     );
   }

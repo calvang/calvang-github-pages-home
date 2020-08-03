@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import { useHistory } from 'react-router-dom';
-import homeData from '../../resources/data/home.json';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import * as Cmd from './Commands';
 import blogData from '../../resources/data/blog.json';
 import siteData from '../../resources/data/sitemap.json';
 import '../../css/Terminal.css';
 import tux from '../../resources/images/tux.png';
 
-interface DisplayStrProps {
-  path: string,
-}
-
-interface TermProps {
+interface TermProps extends RouteComponentProps<any> {
   startup: string[],
   placeholder: string,
   width: number,
@@ -23,88 +19,18 @@ interface TermState {
   currentDir: string
 }
 
-const DisplayStr = ({ path }: DisplayStrProps) => 
-  <>
-    <b style={{color:"lightgreen"}}>
-      calvin.github.io:
-    </b>
-    <b style={{color:"#0080FF"}}>
-      {`${path}$`}&nbsp;
-    </b>
-  </>
-
-const HelpMsg = () => 
-  <>
-    Currently supported commands: <br />
-     - cd [path] (incomplete): navigate to different pages <br />
-     - pwd: print current path <br />
-     - history: print bash cmd history <br />
-     - whoami: print about blurb <br />
-     - help: print help message <br />
-     - ls (incomplete): list subpaths of current page <br />
-     - tree (incomplete): sitemap from current page <br />
-     - sudo help: ??? <br />
-  </>
-
-const HiddenMsg = () => 
-  <>
-    Special commands: <br />
-     - neofetch | screenfetch | spookyfetch: show ascii art <br />
-     - tux: summon tux <br />
-  </>
-
-const WhoAmI = () => 
-  <>
-    I am Calvin Huang <br />
-    {homeData[1].text} <br />  
-  </>
-
-const Screenfetch = () => 
-  <pre>
-@               __                                _  __   __         __       _     <br /> 
-@   ____ ___ _ / /_  __ ___ _ ___  ___ _   ___ _ (_)/ /_ / /  __ __ / /      (_)___ <br /> 
-@  / __// _ `// /| |/ // _ `// _ \/ _ `/_ / _ `// // __// _ \/ // // _ \ _  / // _ \<br /> 
-@  \__/ \_,_//_/ |___/ \_,_//_//_/\_, /(_)\_, //_/ \__//_//_/\_,_//_.__/(_)/_/ \___/<br /> 
-@                                /___/   /___/                                      <br />
-  </pre>
-
-const Neofetch = () => 
-  <pre>
-#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/#<br />
-#                  ___                                                           __     __                __                          #<br />
-#                 /\_ \                                                      __ /\ \__ /\ \              /\ \          __             #<br />
-#    ___      __  \//\ \    __  __     __       ___       __            __  /\_\\ \ ,_\\ \ \___    __  __\ \ \____    /\_\     ___    #<br />
-#   /'___\  /'__`\  \ \ \  /\ \/\ \  /'__`\   /' _ `\   /'_ `\        /'_ `\\/\ \\ \ \/ \ \  _ `\ /\ \/\ \\ \ '__`\   \/\ \   / __`\  #<br />
-#  /\ \__/ /\ \L\.\_ \_\ \_\ \ \_/ |/\ \L\.\_ /\ \/\ \ /\ \L\ \   __ /\ \L\ \\ \ \\ \ \_ \ \ \ \ \\ \ \_\ \\ \ \L\ \ __\ \ \ /\ \L\ \ #<br />
-#  \ \____\\ \__/.\_\/\____\\ \___/ \ \__/.\_\\ \_\ \_\\ \____ \ /\_\\ \____ \\ \_\\ \__\ \ \_\ \_\\ \____/ \ \_,__//\_\\ \_\\ \____/ #<br />
-#   \/____/ \/__/\/_/\/____/ \/__/   \/__/\/_/ \/_/\/_/ \/___L\ \\/_/ \/___L\ \\/_/ \/__/  \/_/\/_/ \/___/   \/___/ \/_/ \/_/ \/___/  #<br />
-#                                                         /\____/       /\____/                                                       #<br />
-#                                                         \_/__/        \_/__/                                                        #<br />
-#                                                                                                                                     #<br />
-#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/#<br />
-  </pre>
-
-const Spookyfetch = () =>
-  <pre>
-!   ▄▄·  ▄▄▄· ▄▄▌  ▌ ▐· ▄▄▄·  ▐ ▄  ▄▄ •  ▄▄ • ▪ ▄▄▄▄▄ ▄ .▄▄• ▄▌▄▄▄▄· ▪        <br />
-!  ▐█ ▌▪▐█ ▀█ ██• ▪█·█▌▐█ ▀█ •█▌▐█▐█ ▀ ▪▐█ ▀ ▪██•██  ██▪▐██▪██▌▐█ ▀█▪██ ▪     <br />
-!  ██ ▄▄▄█▀▀█ ██▪ ▐█▐█•▄█▀▀█ ▐█▐▐▌▄█ ▀█▄▄█ ▀█▄▐█·▐█.▪██▀▐██▌▐█▌▐█▀▀█▄▐█· ▄█▀▄ <br />
-!  ▐███▌▐█ ▪▐▌▐█▌▐▌███ ▐█ ▪▐▌██▐█▌▐█▄▪▐█▐█▄▪▐█▐█▌▐█▌·██▌▐▀▐█▄█▌██▄▪▐█▐█▌▐█▌.▐▌<br />
-!  ·▀▀▀  ▀  ▀ .▀▀▀. ▀   ▀  ▀ ▀▀ █▪·▀▀▀▀▀·▀▀▀▀ ▀▀▀▀▀▀ ▀▀▀ · ▀▀▀ ·▀▀▀▀▀▀▀▀ ▀█▄▀▪<br />
-  </pre>
-
-export default class Term extends Component<TermProps, TermState> {
+class Term extends Component<TermProps, TermState> {
   siteMap = siteData;
   constructor(props: TermProps) {
     super(props);
-
+    console.log(navigator);
     // add blog posts to sitemap
     const posts = blogData.posts
     var blogSubpaths: any[] = [];
     for (let i = 0; i < posts.length; ++i) {
       blogSubpaths.push({
         name: posts[i].file.slice(0, -3),
-        path: `/#/Blog/${posts[i].file.slice(0, -3)}`
+        path: `/Blog/${posts[i].file.slice(0, -3)}`
       });
     }
     this.siteMap.subpaths[1] = {
@@ -113,14 +39,21 @@ export default class Term extends Component<TermProps, TermState> {
     };
     console.log(this.siteMap);
 
+    // get current page
+    var page: string;
+    if (window.location.href.split('#')[1] === "/")
+      page = "~"
+    else
+      page = "~" + window.location.href.split('#')[1];
+
     // generate welcome message
     var message;
     var startupMessages: any[] = []
     for (message in props.startup) {
       startupMessages.push(
         <>
-          <Screenfetch />
-          <DisplayStr path="~" />{props.startup[message]} < br />
+          <Cmd.Screenfetch />
+          <Cmd.DisplayStr path={page} />{props.startup[message]} < br />
         </>
       );
     }
@@ -128,18 +61,59 @@ export default class Term extends Component<TermProps, TermState> {
       history: startupMessages,
       bashHistory: [],
       input: "",
-      currentDir: "~"
+      currentDir: page 
     }
+  } 
+
+  // @returns true if path found in siteTree
+  findPath = (siteTree: any, path: string) => {
+    console.log(siteTree.path);
+    console.log(path)
+    if (siteTree.path === path) return siteTree;
+    else if (siteTree.subpaths) {
+      for (let i in siteTree.subpaths) {
+        this.findPath(siteTree.subpaths[i], path);
+      }
+    }
+    else return false;
   }
 
-  navigatePath = (currentDir:string, destDir: string) => {
+  listSubpaths = () => {
     
-    // switch (destDir.trim()) {
-    //   case
-    // }
+  }
+
+  // navigates to destDir
+  // @returns true if successful, false if not
+  navigatePath = (destDir: string) => {
+    const { currentDir } = this.state;
+    const { siteMap, findPath } = this;
+    var currentPath = currentDir.substr(1, currentDir.length - 1);
+    console.log(currentPath);
+    var finalPath: string = "";
+    if (destDir.trim() === "~") {
+      finalPath = "/"
+    }
+    else if (destDir.trim() === "..") {
+      // array of dirs in current path
+      var pathArr = currentPath.split('/');
+      pathArr.pop();
+      finalPath = "/";
+      for (let i = 1; i < pathArr.length; ++i) finalPath += `/${pathArr[i]}`;
+    }
+    else if (destDir.trim() === ".") {
+      return true;
+    }
+    else if (findPath(siteMap, `${currentPath}/${destDir.trim()}`) !== false) {
+      finalPath = `${currentPath}/${destDir.trim()}`;
+    }
+    else {
+      return false
+    }
     // jump to new page
-    let routerHistory = useHistory();
-    routerHistory.push('/')
+    console.log(finalPath);
+    //let routerHistory = useHistory();
+    this.props.history.push(finalPath)
+    return true;
   }
 
   handleChange = (event: any) => {
@@ -151,6 +125,7 @@ export default class Term extends Component<TermProps, TermState> {
     // handle commands
     switch(input.trim()) {
       case "cd":
+        this.navigatePath("~");
         newDir = "~";
         break;
       case "pwd":
@@ -162,29 +137,38 @@ export default class Term extends Component<TermProps, TermState> {
         }
         break;
       case "whoami":
-        newHistory.push(<WhoAmI />)
+        newHistory.push(<Cmd.WhoAmI />)
         break;
       case "screenfetch":
-        newHistory.push(<Screenfetch />)
+        newHistory.push(<Cmd.Screenfetch />)
         break;
       case "neofetch":
-          newHistory.push(<Neofetch />)
+          newHistory.push(<Cmd.Neofetch />)
         break;
       case "spookyfetch":
-        newHistory.push(<Spookyfetch />)
+        newHistory.push(<Cmd.Spookyfetch />)
         break;
       case "tux":
         newHistory.push(<><img src={tux} alt="tux"/><br /></>)
         break;
       case "help":
-        newHistory.push(<HelpMsg />);
+        newHistory.push(<Cmd.HelpMsg />);
         break;
       case "sudo help":
-        newHistory.push(<HiddenMsg />);
+        newHistory.push(<Cmd.HiddenMsg />);
         break;
       default:
         if (input.substr(0, 3) === "cd ") {
-          newDir = newDir+ "/" + input.substr(3, input.length - 3);
+          let destDir = input.substr(3, input.length - 3).trim();
+          if (this.navigatePath(destDir) !== false) {
+            console.log("destDir exists")
+            if (destDir === "~")
+              newDir = "~";
+            else if (destDir !== "." && destDir !== "..")
+              newDir += `/${destDir}`;
+          }
+          else
+            newHistory.push(<>cd: {destDir} : No such file or directory<br /></>)
         }
         else {
           newHistory.push(<>{input}: command not found <br /></>);
@@ -200,7 +184,7 @@ export default class Term extends Component<TermProps, TermState> {
     var newHistory = history;
     var newDir = currentDir;
     newHistory.push(
-      <><DisplayStr path={currentDir} />{input}<br /></>
+      <><Cmd.DisplayStr path={currentDir} />{input}<br /></>
     );
 
     newDir = this.handleCommands(newHistory, newDir, input);
@@ -231,7 +215,7 @@ export default class Term extends Component<TermProps, TermState> {
         <span style={{ display:"flex" }}>
           <form className="form-inline"
             onSubmit={ this.handleSubmit } >
-            <label className="form-label"><DisplayStr path={currentDir} /> </label>
+            <label className="form-label"><Cmd.DisplayStr path={currentDir} /> </label>
             <input className="term-input" contentEditable="true" type="text"
               style={{ flex: 1 }}
               placeholder={this.props.placeholder} autoComplete="false" autoCorrect="false"
@@ -242,3 +226,5 @@ export default class Term extends Component<TermProps, TermState> {
     );
   }
 }
+
+export default withRouter<TermProps, any>(Term);

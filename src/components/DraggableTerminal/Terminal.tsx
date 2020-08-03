@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import homeData from '../../resources/data/home.json';
 import '../../css/Terminal.css';
+import tux from '../../resources/images/tux.png';
 
 interface DisplayStrProps {
   path: string,
@@ -39,6 +40,14 @@ const HelpMsg = () =>
      - help: print help message <br />
      - ls (incomplete): list subpaths of current page <br />
      - tree (incomplete): sitemap from current page <br />
+     - sudo help: ??? <br />
+  </>
+
+const HiddenMsg = () => 
+  <>
+    Special commands: <br />
+     - neofetch | screenfetch | spookyfetch: show ascii art <br />
+     - tux: summon tux <br />
   </>
 
 const WhoAmI = () => 
@@ -47,6 +56,40 @@ const WhoAmI = () =>
     {homeData[1].text} <br />  
   </>
 
+const Screenfetch = () => 
+  <pre>
+@               __                                _  __   __         __       _     <br /> 
+@   ____ ___ _ / /_  __ ___ _ ___  ___ _   ___ _ (_)/ /_ / /  __ __ / /      (_)___ <br /> 
+@  / __// _ `// /| |/ // _ `// _ \/ _ `/_ / _ `// // __// _ \/ // // _ \ _  / // _ \<br /> 
+@  \__/ \_,_//_/ |___/ \_,_//_//_/\_, /(_)\_, //_/ \__//_//_/\_,_//_.__/(_)/_/ \___/<br /> 
+@                                /___/   /___/                                      <br />
+  </pre>
+
+const Neofetch = () => 
+  <pre>
+#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/#<br />
+#                  ___                                                           __     __                __                          #<br />
+#                 /\_ \                                                      __ /\ \__ /\ \              /\ \          __             #<br />
+#    ___      __  \//\ \    __  __     __       ___       __            __  /\_\\ \ ,_\\ \ \___    __  __\ \ \____    /\_\     ___    #<br />
+#   /'___\  /'__`\  \ \ \  /\ \/\ \  /'__`\   /' _ `\   /'_ `\        /'_ `\\/\ \\ \ \/ \ \  _ `\ /\ \/\ \\ \ '__`\   \/\ \   / __`\  #<br />
+#  /\ \__/ /\ \L\.\_ \_\ \_\ \ \_/ |/\ \L\.\_ /\ \/\ \ /\ \L\ \   __ /\ \L\ \\ \ \\ \ \_ \ \ \ \ \\ \ \_\ \\ \ \L\ \ __\ \ \ /\ \L\ \ #<br />
+#  \ \____\\ \__/.\_\/\____\\ \___/ \ \__/.\_\\ \_\ \_\\ \____ \ /\_\\ \____ \\ \_\\ \__\ \ \_\ \_\\ \____/ \ \_,__//\_\\ \_\\ \____/ #<br />
+#   \/____/ \/__/\/_/\/____/ \/__/   \/__/\/_/ \/_/\/_/ \/___L\ \\/_/ \/___L\ \\/_/ \/__/  \/_/\/_/ \/___/   \/___/ \/_/ \/_/ \/___/  #<br />
+#                                                         /\____/       /\____/                                                       #<br />
+#                                                         \_/__/        \_/__/                                                        #<br />
+#                                                                                                                                     #<br />
+#/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/#<br />
+  </pre>
+
+const Spookyfetch = () =>
+  <pre>
+!   ▄▄·  ▄▄▄· ▄▄▌  ▌ ▐· ▄▄▄·  ▐ ▄  ▄▄ •  ▄▄ • ▪ ▄▄▄▄▄ ▄ .▄▄• ▄▌▄▄▄▄· ▪        <br />
+!  ▐█ ▌▪▐█ ▀█ ██• ▪█·█▌▐█ ▀█ •█▌▐█▐█ ▀ ▪▐█ ▀ ▪██•██  ██▪▐██▪██▌▐█ ▀█▪██ ▪     <br />
+!  ██ ▄▄▄█▀▀█ ██▪ ▐█▐█•▄█▀▀█ ▐█▐▐▌▄█ ▀█▄▄█ ▀█▄▐█·▐█.▪██▀▐██▌▐█▌▐█▀▀█▄▐█· ▄█▀▄ <br />
+!  ▐███▌▐█ ▪▐▌▐█▌▐▌███ ▐█ ▪▐▌██▐█▌▐█▄▪▐█▐█▄▪▐█▐█▌▐█▌·██▌▐▀▐█▄█▌██▄▪▐█▐█▌▐█▌.▐▌<br />
+!  ·▀▀▀  ▀  ▀ .▀▀▀. ▀   ▀  ▀ ▀▀ █▪·▀▀▀▀▀·▀▀▀▀ ▀▀▀▀▀▀ ▀▀▀ · ▀▀▀ ·▀▀▀▀▀▀▀▀ ▀█▄▀▪<br />
+  </pre>
+
 export default class Term extends Component<TermProps, TermState> {
   constructor(props: TermProps) {
     super(props);
@@ -54,7 +97,10 @@ export default class Term extends Component<TermProps, TermState> {
     var startupMessages: any[] = []
     for (message in props.startup) {
       startupMessages.push(
-        <><DisplayStr path="~" />{ props.startup[message] } < br /></>
+        <>
+          <Screenfetch />
+          <DisplayStr path="~" />{props.startup[message]} < br />
+        </>
       );
     }
     this.state = {
@@ -87,8 +133,23 @@ export default class Term extends Component<TermProps, TermState> {
       case "whoami":
         newHistory.push(<WhoAmI />)
         break;
+      case "Screenfetch":
+        newHistory.push(<Screenfetch />)
+        break;
+      case "neofetch":
+          newHistory.push(<Neofetch />)
+        break;
+      case "spookyfetch":
+        newHistory.push(<Spookyfetch />)
+        break;
+      case "tux":
+        newHistory.push(<img src={tux} alt="tux"/>)
+        break;
       case "help":
         newHistory.push(<HelpMsg />);
+        break;
+      case "sudo help":
+        newHistory.push(<HiddenMsg />);
         break;
       default:
         if (input.substr(0, 3) === "cd ") {

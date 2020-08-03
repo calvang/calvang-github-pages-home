@@ -91,8 +91,11 @@ export default class Term extends Component<TermProps, TermState> {
         newHistory.push(<HelpMsg />);
         break;
       default:
-        if (input.substr(0, 2) === "cd") {
+        if (input.substr(0, 3) === "cd ") {
           newDir = newDir+ "/" + input.substr(3, input.length - 3);
+        }
+        else {
+          newHistory.push(<>{input}: command not found</>);
         }
     }
     return newDir;

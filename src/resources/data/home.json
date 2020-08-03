@@ -14,8 +14,8 @@
         "markup": "HTML, XML, YAML, CSS, LaTex, Markdown, Mermaid"
       },
       "frameworks": {
-        "frontend": "NodeJS, React/React-Native, Angular, Bootstrap",
-        "backend": "Flask, JAX-RS",
+        "frontend": "React/React-Native, Angular, Bootstrap",
+        "backend": "Flask, JAX-RS, NodeJS, Rocket",
         "databases": "SQLite, MySQL, MongoDB, DynamoDB"
       },
       "infrastructures": {

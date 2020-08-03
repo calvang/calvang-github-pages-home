@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Markdown from 'markdown-to-jsx';
-import blogData from '../resources/data/blog.json';
-import '../css/Blog.css';
-import '../css/Home.css';
-import '../css/App.css';
+import blogData from '../../resources/data/blog.json';
+import '../../css/Blog.css';
+import '../../css/Home.css';
+import '../../css/App.css';
 
 interface PostProps {
   index: number,

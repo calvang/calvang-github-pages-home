@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route, HashRouter } from 'react-router-dom';
 import Home from '../views/Home';
 import Projects from '../views/Projects';
-import Blog from '../views/Blog';
-import Post from '../views/Post';
+import Blog from '../views/Blog/Blog';
+import Post from '../views/Blog/Post';
 import blogData from '../resources/data/blog.json';
 import '../css/App.css';
 

@@ -103,12 +103,15 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                               <i className="fa fa-codepen w3-xxlarge w3-hover-opacity" style={{ marginLeft: "6px" }}></i>
                             </a>
                           }
-                          <a className="plain-link" rel="noopener noreferrer" target="_blank" href={project.url}
-                            style={{ marginLeft: "20px", fontSize: 18 }}>
-                            <span style={{ bottom: "6px", position: "relative" }}>View project</span>
-                            <i className="fa fa-angle-double-right w3-xxlarge w3-hover-opacity"
-                              style={{ marginLeft: "6px" }}></i>
-                          </a>
+                          {
+                            'url' in project &&
+                            <a className="plain-link" rel="noopener noreferrer" target="_blank" href={project.url}
+                              style={{ marginLeft: "20px", fontSize: 18 }}>
+                              <span style={{ bottom: "6px", position: "relative" }}>View project</span>
+                              <i className="fa fa-angle-double-right w3-xxlarge w3-hover-opacity"
+                                style={{ marginLeft: "6px" }}></i>
+                            </a>
+                          }
                         </div>
                       </td>
                       {

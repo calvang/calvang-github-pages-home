@@ -39,25 +39,12 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
           </div> : ''}
           <div>
             <nav className="w3-bottom w3-opacity w3-hover-opacity-off"
-              style={{ width: "auto", right: "0", borderRadius: "25px 0px 0px 0px" }}
+              style={{ width: "auto", right: "0", zIndex: 3 }}
               id="mySidebar">
               <div className="w3-bar-block w3-center">
                 <button className="w3-bar-item w3-button"
                   onClick={this.toggleMenu}>
                   <i className="fa fa-cogs fa-fw w3-xlarge w3-hide-small"></i>
-                  {/* <i className="fa fa-cogs fa-fw w3-large w3-hide-medium w3-hide-large"></i> */}
-                </button> 
-                
-              </div>
-          </nav>
-          
-          <nav className="w3-bottom w3-opacity w3-hover-opacity-off"
-              style={{ width: "auto", right: "0", borderRadius: "25px 0px 0px 0px" }}
-              id="mySidebar">
-              <div className="w3-bar-block w3-center">
-                <button className="w3-bar-item w3-button"
-                  onClick={this.toggleMenu}>
-                  {/* <i className="fa fa-cogs fa-fw w3-xlarge w3-hide-small"></i> */}
                   <i className="fa fa-cogs fa-fw w3-large w3-hide-medium w3-hide-large"></i>
                 </button> 
                 

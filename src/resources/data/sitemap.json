@@ -1,0 +1,14 @@
+{
+  "path": "~",
+  "subpaths": [
+    {
+      "path": "projects"
+    },
+    {
+      "path": "blog"
+    },
+    {
+      "path": "contact"
+    }
+  ]
+}

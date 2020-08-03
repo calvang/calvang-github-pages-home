@@ -10,6 +10,23 @@
       "text": "The goal of this project is to provide an overview of the spread of Covid-19 and a projection of its predicted case counts in the form of a interpolated heat map.  Current projections hint at a grim future in this pandemic, and it is vital that we all stay vigilant even if the cases seem to dwindle. Hopefully this visual representation can convey the importance of keeping up prevention measures to slow the spread."
     },
     {
+      "name": "Integrated Website Terminal",
+      "image": "site_terminal.png",
+      "links": {
+        "github": "https://github.com/calvang/calvang-github-pages-home/tree/master/src/components/DraggableTerminal"
+      },
+      "text": "A terminal interface for navigating this website. It is completed serverless on the front-end and handles Linux-like inputs, functioning mainly as a cool way to view and explore my website. To try the terminal, hover or click on the bottom-right corner of the page where there is a hidden gear icon. Clicking on this icon will open and close the integrated terminal."
+    },
+    {
+      "name": "Markdown Blog",
+      "image": "markdown_blog.png",
+      "url": "https://calvang.github.io/#/Blog",
+      "links": {
+        "github": "https://github.com/calvang/calvang-github-pages-home/tree/master/src/views/Blog"
+      },
+      "text": "A personal blog that is automatically generated from Markdown files. Posts also feature social support through Facebook likes and comments. This is where I post tutorials and discuss technologies that excite me."
+    },
+    {
       "name": "Tubify",
       "links": {
         "github": "https://github.com/calvang/Tubify"

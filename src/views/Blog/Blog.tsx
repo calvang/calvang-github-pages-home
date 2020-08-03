@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../css/Blog.css';
-import '../css/Home.css';
-import '../css/App.css';
-import blogData from '../resources/data/blog.json';
+import '../../css/Blog.css';
+import '../../css/Home.css';
+import '../../css/App.css';
+import blogData from '../../resources/data/blog.json';
 
 interface BlogProps {}
 interface BlogState {

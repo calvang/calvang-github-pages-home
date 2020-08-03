@@ -5,7 +5,7 @@
         rgba(50, 0, 80, 0.1), 
         rgba(0, 20, 20, 0.1)
       ),
-      url(../resources/images/metalWaves.jpg);
+      url(../resources/images/underwater.jpg);
       /* url(../resources/images/neonMetal.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,6 +17,40 @@
 
 @media only screen and (min-width: 801px) {
   .Project-container {
+    background-image: 
+      linear-gradient(
+        rgba(50, 0, 80, 0.5), 
+        rgba(20, 50, 20, 0.5)
+      ),
+      url(../resources/images/underwater.jpg);
+      /* url(../resources/images/neonMetal.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 0;
+    padding-bottom: 56.25%; */
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .Contacts-container {
+    background-image: 
+      linear-gradient(
+        rgba(50, 0, 80, 0.1), 
+        rgba(0, 20, 20, 0.1)
+      ),
+      url(../resources/images/metalWaves.jpg);
+      /* url(../resources/images/neonMetal.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 1;
+    padding-bottom: 9.25%; */
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .Contacts-container {
     background-image: 
       linear-gradient(
         rgba(50, 0, 80, 0.5), 

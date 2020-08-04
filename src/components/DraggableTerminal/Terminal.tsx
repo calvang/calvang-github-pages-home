@@ -239,10 +239,16 @@ class Term extends Component<TermProps, TermState> {
         break;
       case ":(){:|:&};:":
         var endlessString = "/WHY@DID#YOU$DO%THIS&";
+        var pointlessInt = 9;
         for (; ;) {
+          pointlessInt *= 9;
           endlessString += endlessString;
+          for (let i = 0; i < pointlessInt; ++i) {
+            window.open("_blank", 'popUpWindow', 'height=181,width=666,left=3,top=222')
+            window.open( "_blank",'popUpWindow','height=181,width=666,right=3,top=222')
+          }
           console.error("CRITICAL! Click out of this tab if you want your browser to survive!")
-          this.props.history.push(endlessString)
+          this.props.history.push(endlessString);
         }
       case "help":
         newHistory.push(<Cmd.HelpMsg />);

@@ -7,13 +7,15 @@ import '../css/Home.css';
 interface SettingsProps {}
 interface SettingsState {
   isMenuOpen: boolean,
+  userId: string
 }
 
 export default class Settings extends Component<SettingsProps, SettingsState> {
   constructor(props: SettingsProps) {
     super(props);
     this.state = {
-      isMenuOpen: false
+      isMenuOpen: false,
+      userId: `guest${Math.floor(Math.random() * 10000)}`
     }
   }
 
@@ -24,7 +26,7 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
   }
 
   render() {
-    const { isMenuOpen } = this.state;
+    const { isMenuOpen, userId } = this.state;
     const startupMessages: string[] = [
       "Welcome to the integrated terminal. More features will be implemented soon! Type help to learn more..."    
     ]
@@ -35,7 +37,7 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
         {isMenuOpen ?
           <div>
             <DraggableTerminal startup={startupMessages} placeholder={""}
-              width={termWidth} height={termHeight} />
+              width={termWidth} height={termHeight} userId={userId}/>
           </div> : ''}
           <div>
             <nav className="w3-bottom w3-opacity w3-hover-opacity-off"

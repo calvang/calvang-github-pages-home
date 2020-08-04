@@ -10,7 +10,8 @@ interface TermProps extends RouteComponentProps<any> {
   startup: string[],
   placeholder: string,
   width: number,
-  height: number
+  height: number,
+  userId: string
 }
 interface TermState {
   history: any[],
@@ -21,9 +22,10 @@ interface TermState {
 
 class Term extends Component<TermProps, TermState> {
   siteMap = siteData;
+  publicIP: string = "";
   constructor(props: TermProps) {
     super(props);
-    console.log(navigator);
+
     // add blog posts to sitemap
     const posts = blogData.posts
     var blogSubpaths: any[] = [];
@@ -37,7 +39,6 @@ class Term extends Component<TermProps, TermState> {
       ...this.siteMap.subpaths[1],
       ...{ subpaths: blogSubpaths }
     };
-    console.log(this.siteMap);
 
     // get current page
     var page: string;
@@ -53,7 +54,8 @@ class Term extends Component<TermProps, TermState> {
       startupMessages.push(
         <>
           <Cmd.Screenfetch />
-          <Cmd.DisplayStr path={page} />{props.startup[message]} < br />
+          <Cmd.DisplayStr path={page} userId={this.props.userId} />
+          {props.startup[message]} < br />
         </>
       );
     }
@@ -61,25 +63,65 @@ class Term extends Component<TermProps, TermState> {
       history: startupMessages,
       bashHistory: [],
       input: "",
-      currentDir: page 
+      currentDir: page
     }
   } 
 
+  componentDidMount() {
+    fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(response => {
+      this.publicIP = response.ip;
+    });
+  }
+
   // @returns true if path found in siteTree
-  findPath = (siteTree: any, path: string) => {
-    console.log(siteTree.path);
-    console.log(path)
-    if (siteTree.path === path) return siteTree;
+  findPath = (siteTree: any, path: string): any => {
+    const { findPath } = this;
+    if (siteTree.path === path) {
+      return siteTree;
+    }
     else if (siteTree.subpaths) {
       for (let i in siteTree.subpaths) {
-        this.findPath(siteTree.subpaths[i], path);
+        let branch: any = findPath(siteTree.subpaths[i], path);
+        if (branch) {
+          return branch;
+        }
       }
     }
-    else return false;
+    else {
+      return false;
+    }
   }
 
   listSubpaths = () => {
-    
+    const { currentDir } = this.state;
+    const { siteMap, findPath } = this;
+    var currentPath = currentDir.substr(1, currentDir.length - 1);
+    if (currentPath === "") currentPath = "/";
+    var currentTree: any = findPath(siteMap, currentPath);
+    var list: string[] = [];
+    if (currentTree && currentTree.subpaths) {
+      for (let i in currentTree.subpaths) {
+        list.push(currentTree.subpaths[i].name);
+      }
+    }
+    return list;
+  }
+
+  getSubpaths = () => {
+    const { currentDir } = this.state;
+    const { siteMap, findPath } = this;
+    var currentPath = currentDir.substr(1, currentDir.length - 1);
+    if (currentPath === "") currentPath = "/";
+    var currentTree: any = findPath(siteMap, currentPath);
+    var list: any[] = [];
+    if (currentTree && currentTree.subpaths) {
+      for (let i in currentTree.subpaths) {
+        list.push(currentTree.subpaths[i]);
+      }
+    }
+    return list;
   }
 
   // navigates to destDir
@@ -88,7 +130,6 @@ class Term extends Component<TermProps, TermState> {
     const { currentDir } = this.state;
     const { siteMap, findPath } = this;
     var currentPath = currentDir.substr(1, currentDir.length - 1);
-    console.log(currentPath);
     var finalPath: string = "";
     if (destDir.trim() === "~") {
       finalPath = "/"
@@ -103,15 +144,13 @@ class Term extends Component<TermProps, TermState> {
     else if (destDir.trim() === ".") {
       return true;
     }
-    else if (findPath(siteMap, `${currentPath}/${destDir.trim()}`) !== false) {
+    else if (findPath(siteMap, `${currentPath}/${destDir.trim()}`)) {
       finalPath = `${currentPath}/${destDir.trim()}`;
     }
     else {
       return false
     }
     // jump to new page
-    console.log(finalPath);
-    //let routerHistory = useHistory();
     this.props.history.push(finalPath)
     return true;
   }
@@ -128,6 +167,12 @@ class Term extends Component<TermProps, TermState> {
         this.navigatePath("~");
         newDir = "~";
         break;
+      case "ls":
+        var list: string[] = this.listSubpaths();
+        newHistory.push(
+          <>{ list.map((item, i) => <span key={i}>{item}<br /></span>)}</>
+        );
+        break;
       case "pwd":
         newHistory.push(<>{newDir}<br /></>);
         break;
@@ -137,19 +182,31 @@ class Term extends Component<TermProps, TermState> {
         }
         break;
       case "whoami":
-        newHistory.push(<Cmd.WhoAmI />)
+        newHistory.push(<Cmd.WhoAmI />);
         break;
       case "screenfetch":
-        newHistory.push(<Cmd.Screenfetch />)
+        newHistory.push(<Cmd.Screenfetch />);
         break;
-      case "neofetch":
-          newHistory.push(<Cmd.Neofetch />)
+      case "coolfetch":
+        newHistory.push(<Cmd.Blockfetch />);
         break;
       case "spookyfetch":
-        newHistory.push(<Cmd.Spookyfetch />)
+        newHistory.push(<Cmd.Spookyfetch />);
         break;
       case "tux":
-        newHistory.push(<><img src={tux} alt="tux"/><br /></>)
+        newHistory.push(<><img src={tux} alt="tux" /><br /></>);
+        break;
+      case "neofetch":
+        newHistory.push(
+          <Cmd.Neofetch ip={this.publicIP}
+            userId={this.props.userId} />
+        );
+        break;
+      case "ip a":
+        newHistory.push(<>{this.publicIP}<br /></>)
+        break;
+      case "ip address":
+        newHistory.push(<>{this.publicIP}<br /></>)
         break;
       case "help":
         newHistory.push(<Cmd.HelpMsg />);
@@ -160,11 +217,17 @@ class Term extends Component<TermProps, TermState> {
       default:
         if (input.substr(0, 3) === "cd ") {
           let destDir = input.substr(3, input.length - 3).trim();
-          if (this.navigatePath(destDir) !== false) {
-            console.log("destDir exists")
+          if (this.navigatePath(destDir)) {
             if (destDir === "~")
               newDir = "~";
-            else if (destDir !== "." && destDir !== "..")
+            else if (destDir === "..") {
+              let dirArr = newDir.split('/');
+              let finalDir = "~";
+              dirArr.pop();
+              for (let i = 1; i < dirArr.length; ++i) finalDir += `/${dirArr[i]}`;
+              newDir = finalDir;
+            }
+            else if (destDir !== ".")
               newDir += `/${destDir}`;
           }
           else
@@ -184,7 +247,8 @@ class Term extends Component<TermProps, TermState> {
     var newHistory = history;
     var newDir = currentDir;
     newHistory.push(
-      <><Cmd.DisplayStr path={currentDir} />{input}<br /></>
+      <><Cmd.DisplayStr path={currentDir} userId={this.props.userId} />
+        {input}<br /></>
     );
 
     newDir = this.handleCommands(newHistory, newDir, input);
@@ -215,9 +279,11 @@ class Term extends Component<TermProps, TermState> {
         <span style={{ display:"flex" }}>
           <form className="form-inline"
             onSubmit={ this.handleSubmit } >
-            <label className="form-label"><Cmd.DisplayStr path={currentDir} /> </label>
+            <label className="form-label">
+              <Cmd.DisplayStr path={currentDir} userId={this.props.userId} />
+            </label>
             <input className="term-input" contentEditable="true" type="text"
-              style={{ flex: 1 }}
+              style={{ flex: 1 }} autoFocus
               placeholder={this.props.placeholder} autoComplete="false" autoCorrect="false"
               onChange={this.handleChange} value={input}/>
           </form>

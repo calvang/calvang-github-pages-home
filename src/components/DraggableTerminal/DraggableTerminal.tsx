@@ -8,7 +8,8 @@ interface DraggableTerminalProps {
   startup: string[],
   placeholder: string,
   width: number,
-  height: number
+  height: number,
+  userId: string,
 }
 interface DraggableTerminalState {
   width: number,
@@ -29,7 +30,7 @@ export default class DraggableBlock extends Component<DraggableTerminalProps, Dr
   };
 
   render() {
-    const { startup, placeholder } = this.props;
+    const { startup, placeholder, userId } = this.props;
     const { width, height } = this.state;
     return (
       <Draggable handle="strong" >
@@ -50,7 +51,7 @@ export default class DraggableBlock extends Component<DraggableTerminalProps, Dr
                 </div>
               </strong>
               <Terminal width={width} height={height}
-                startup={startup} placeholder={placeholder} />
+                startup={startup} placeholder={placeholder} userId={userId} />
             </div>
           </Resizable>
         </div>

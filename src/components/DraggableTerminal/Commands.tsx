@@ -1,36 +1,56 @@
 import React from 'react';
 import homeData from '../../resources/data/home.json';
 import BrowserDetector from './BrowserDetector';
+import manjaro from '../../resources/images/manjaro.png';
 
 const Browser = BrowserDetector();
 const OS = navigator.platform;
 const Language = navigator.language;
 const Vendor = navigator.vendor;
 
-interface DisplayStrProps {
-  path: string,
+export function getIP(): any {
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(response => {
+      return response.ip;
+    });
 }
 
-export const DisplayStr = ({ path }: DisplayStrProps) => 
-<>
-  <b style={{color:"lightgreen"}}>
-    calvin.github.io:
-  </b>
-  <b style={{color:"#0080FF"}}>
-    {`${path}$`}&nbsp;
-  </b>
-</>
+interface DisplayStrProps {
+  path: string,
+  userId: string
+}
+
+export const DisplayStr = ({ path, userId }: DisplayStrProps) => {
+  return (
+    <>
+      <b style={{ color: "lightgreen" }}>
+        {userId}@calvang.github.io:
+          </b>
+      <b style={{ color: "#0080FF" }}>
+        {`${path}$`}&nbsp;
+          </b>
+    </>
+  );
+}
+// {/* <>
+//   <b style={{color:"lightgreen"}}>
+//       {publicIP}@calvang.github.io:
+//   </b>
+//   <b style={{color:"#0080FF"}}>
+//     {`${path}$`}&nbsp;
+//   </b>
+// </> */}
 
 export const HelpMsg = () => 
 <>
   Currently supported commands: <br />
+   - help: print help message <br />
+   - whoami: print about blurb <br />
    - cd [path] (incomplete): navigate to different pages <br />
    - pwd: print current path <br />
    - history: print bash cmd history <br />
-   - whoami: print about blurb <br />
-   - help: print help message <br />
-   - ls (incomplete): list subpaths of current page <br />
-   - tree (incomplete): sitemap from current page <br />
+   - ls: list subpaths of current page <br />
    - sudo help: ??? <br />
 </>
 
@@ -54,15 +74,15 @@ export const Screenfetch = () =>
 @  / __// _ `// /| |/ // _ `// _ \/ _ `/_ / _ `// // __// _ \/ // // _ \ _  / // _ \<br /> 
 @  \__/ \_,_//_/ |___/ \_,_//_//_/\_, /(_)\_, //_/ \__//_//_/\_,_//_.__/(_)/_/ \___/<br /> 
 @                                /___/   /___/                                      <br />
-@  <b>Operating System: </b><i style={{ color: "white" }}>{OS}</i> <br />
-@  <b>Browser: </b><i style={{ color: "white" }}>{Browser}</i> <br />
-@  <b>Vendor: </b><i style={{ color: "white" }}>{Vendor}</i> <br />
-@  <b>Window: </b><i style={{ color: "white" }}>{`${window.innerWidth}x${window.innerHeight}`}</i> <br />
-@  <b>Resolution: </b><i style={{ color: "white" }}>{`${window.screen.availWidth}x${window.screen.availHeight}`}</i> <br />
-@  <b>Language: </b><i style={{ color: "white" }}>{Language}</i> <br />
+@  <b>Operating System: </b><span style={{ color: "white" }}>{OS}</span> <br />
+@  <b>Browser: </b><span style={{ color: "white" }}>{Browser}</span> <br />
+@  <b>Vendor: </b><span style={{ color: "white" }}>{Vendor}</span> <br />
+@  <b>Window: </b><span style={{ color: "white" }}>{`${window.innerWidth}x${window.innerHeight}`}</span> <br />
+@  <b>Resolution: </b><span style={{ color: "white" }}>{`${window.screen.availWidth}x${window.screen.availHeight}`}</span> <br />
+@  <b>Language: </b><span style={{ color: "white" }}>{Language}</span> <br />
 </pre>
 
-export const Neofetch = () => 
+export const Blockfetch = () => 
 <pre style={{ color:"lightsalmon" }}>
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/#<br />
 #                  ___                                                           __     __                __                          #<br />
@@ -75,12 +95,12 @@ export const Neofetch = () =>
 #                                                         /\____/       /\____/                                                       #<br />
 #                                                         \_/__/        \_/__/                                                        #<br />
 #                                                                                                                                     #<br />
-#  <b>Operating System: </b><i style={{ color: "white" }}>{OS}</i>                                                                    #<br />
-#  <b>Browser: </b><i style={{ color: "white" }}>{Browser}</i>                                                                        #<br />
-#  <b>Vendor: </b><i style={{ color: "white" }}>{Vendor}</i>                                                                          #<br />
-#  <b>Window: </b><i style={{ color: "white" }}>{`${window.innerWidth}x${window.innerHeight}`}</i>                                    #<br />
-#  <b>Resolution: </b><i style={{ color: "white" }}>{`${window.screen.availWidth}x${window.screen.availHeight}`}</i>                  #<br />
-#  <b>Language: </b><i style={{ color: "white" }}>{Language}</i>                                                                      #<br />                                               #<br />
+#  <b>Operating System: </b><span style={{ color: "white" }}>{OS}</span>                                                                    #<br />
+#  <b>Browser: </b><span style={{ color: "white" }}>{Browser}</span>                                                                        #<br />
+#  <b>Vendor: </b><span style={{ color: "white" }}>{Vendor}</span>                                                                          #<br />
+#  <b>Window: </b><span style={{ color: "white" }}>{`${window.innerWidth}x${window.innerHeight}`}</span>                                    #<br />
+#  <b>Resolution: </b><span style={{ color: "white" }}>{`${window.screen.availWidth}x${window.screen.availHeight}`}</span>                  #<br />
+#  <b>Language: </b><span style={{ color: "white" }}>{Language}</span>                                                                      #<br />                                               #<br />
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/#<br />
 </pre>
 
@@ -91,10 +111,36 @@ export const Spookyfetch = () =>
 !  ██ ▄▄▄█▀▀█ ██▪ ▐█▐█•▄█▀▀█ ▐█▐▐▌▄█ ▀█▄▄█ ▀█▄▐█·▐█.▪██▀▐██▌▐█▌▐█▀▀█▄▐█· ▄█▀▄ <br />
 !  ▐███▌▐█ ▪▐▌▐█▌▐▌███ ▐█ ▪▐▌██▐█▌▐█▄▪▐█▐█▄▪▐█▐█▌▐█▌·██▌▐▀▐█▄█▌██▄▪▐█▐█▌▐█▌.▐▌<br />
 !  ·▀▀▀  ▀  ▀ .▀▀▀. ▀   ▀  ▀ ▀▀ █▪·▀▀▀▀▀·▀▀▀▀ ▀▀▀▀▀▀ ▀▀▀ · ▀▀▀ ·▀▀▀▀▀▀▀▀ ▀█▄▀▪<br />
-!  <b>Operating System: </b><i style={{ color: "white" }}>{OS}</i> <br />
-!  <b>Browser: </b><i style={{ color: "white" }}>{Browser}</i> <br />
-!  <b>Vendor: </b><i style={{ color: "white" }}>{Vendor}</i> <br />
-!  <b>Window: </b><i style={{ color: "white" }}>{`${window.innerWidth}x${window.innerHeight}`}</i> <br />
-!  <b>Resolution: </b><i style={{ color: "white" }}>{`${window.screen.availWidth}x${window.screen.availHeight}`}</i> <br />
-!  <b>Language: </b><i style={{ color: "white" }}>{Language}</i> <br />
+!  <b>Operating System: </b><span style={{ color: "white" }}>{OS}</span> <br />
+!  <b>Browser: </b><span style={{ color: "white" }}>{Browser}</span> <br />
+!  <b>Vendor: </b><span style={{ color: "white" }}>{Vendor}</span> <br />
+!  <b>Window: </b><span style={{ color: "white" }}>{`${window.innerWidth}x${window.innerHeight}`}</span> <br />
+!  <b>Resolution: </b><span style={{ color: "white" }}>{`${window.screen.availWidth}x${window.screen.availHeight}`}</span> <br />
+!  <b>Language: </b><span style={{ color: "white" }}>{Language}</span> <br />
+</pre>
+
+interface NeofetchProps {
+  ip: string,
+  userId: string, 
+}
+
+export const Neofetch = ({ userId }: NeofetchProps) =>
+  <pre style={{ color:"lawngreen" }}>
+    <div style={{ display: "flex" }}>
+      <div style={{ flex: "left", paddingRight: "20px" }}>
+        <img src={manjaro} alt="logo" style={{ zoom: "50%" }} />
+      </div>
+      <div style={{ flex: "left" }}>
+        <b>{userId}</b><span style={{ color: "white" }}>@</span><b>calvang.github.io</b> <br />
+        <span style={{ color: "white" }}>---------------------------</span> <br />
+        <b>OS: </b><span style={{ color: "white" }}>{OS}</span> <br />
+        <b>Host: </b><span style={{ color: "white" }}>calvang.github.io</span> <br />
+        {/* <b>IP: </b><span style={{ color: "white" }}>{ip}</span> <br /> */}
+        <b>Browser: </b><span style={{ color: "white" }}>{Browser}</span> <br />
+        <b>Vendor: </b><span style={{ color: "white" }}>{Vendor}</span> <br />
+        <b>Window: </b><span style={{ color: "white" }}>{`${window.innerWidth}x${window.innerHeight}`}</span> <br />
+        <b>Resolution: </b><span style={{ color: "white" }}>{`${window.screen.availWidth}x${window.screen.availHeight}`}</span> <br />
+        <b>Language: </b><span style={{ color: "white" }}>{Language}</span> <br />
+      </div>
+    </div>
 </pre>

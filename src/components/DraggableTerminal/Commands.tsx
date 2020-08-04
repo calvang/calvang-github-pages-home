@@ -64,7 +64,14 @@ export const HiddenMsg = () =>
    - spookyfetch: 2spooky4u  <br />
    - tux: summon tux <br />
    - goose: beware the honkening <br />
-   - {":(){:|:&};:"} (don't try this at home (no seriously don't!!!!)) <br />
+   - sudo unlock: <i className="fa fa-exclamation-triangle w3-large"></i> <br />
+  </>
+
+export const ForbiddenMsg = () => 
+<>
+  Forbidden commands: <br />
+  - {":(){:|:&};:"} (don't try this at home (no seriously don't!!!!)) <br />
+   <i><b> DISCLAIMER: </b>I am not responsible for any files or damage that are affected by your choice to execute this. This is purely for experimental purposes and can crash your browser and/or computer.</i> <br />  
 </>
 
 export const WhoAmI = () => 

@@ -256,6 +256,9 @@ class Term extends Component<TermProps, TermState> {
       case "sudo help":
         newHistory.push(<Cmd.HiddenMsg />);
         break;
+      case "sudo unlock":
+        newHistory.push(<Cmd.ForbiddenMsg />);
+        break;
       default:
         if (input.substr(0, 3) === "cd ") {
           let destDir = input.substr(3, input.length - 3).trim();

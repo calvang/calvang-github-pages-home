@@ -94,23 +94,8 @@ class Term extends Component<TermProps, TermState> {
     }
   }
 
-  listSubpaths = () => {
-    const { currentDir } = this.state;
-    const { siteMap, findPath } = this;
-    var currentPath = currentDir.substr(1, currentDir.length - 1);
-    if (currentPath === "") currentPath = "/";
-    var currentTree: any = findPath(siteMap, currentPath);
-    var list: string[] = [];
-    if (currentTree && currentTree.subpaths) {
-      for (let i in currentTree.subpaths) {
-        list.push(currentTree.subpaths[i].name);
-      }
-    }
-    return list;
-  }
-
-  getSubpaths = () => {
-    const { currentDir } = this.state;
+  // @return list of subpaths
+  getSubpaths = (currentDir: string) => {
     const { siteMap, findPath } = this;
     var currentPath = currentDir.substr(1, currentDir.length - 1);
     if (currentPath === "") currentPath = "/";
@@ -122,6 +107,40 @@ class Term extends Component<TermProps, TermState> {
       }
     }
     return list;
+  }
+
+  // recursively generates path tree
+  // @return path tree in jsx format
+  formatTree = (currentDir: string, layer: number) => {
+    const { getSubpaths, formatTree } = this;
+    var currentTree = getSubpaths(currentDir);
+    var jsxTree: any[] = []; // store everything as a string first before rendering jsx
+    var layers: any[] = [];
+    for (let i = 0; i < layer; ++i) layers.push(<>|&ensp; </>);
+    console.log(layer)
+    console.log("layers", layers)
+    var index = 0;
+    for (var i in currentTree) {
+      if (index === currentTree.length - 1)
+        jsxTree.push(
+          <span>{layers.map((layer, ind) => <span key={ind}>{layer}</span>)}`-- {currentTree[i].name}</span>
+        );
+      else
+        jsxTree.push(
+          <span>{layers.map((layer, ind) => <span key={ind}>{layer}</span>)}|-- {currentTree[i].name}</span>
+        );
+      if (currentTree[i].subpaths) {
+        console.log(currentTree[i].subpaths)
+        console.log(currentTree[i].path)
+        let subTree = formatTree(`~${currentTree[i].path}`, ++layer);
+        console.log("Subtree", subTree)
+        for (let j in subTree) {
+          jsxTree.push(subTree[j]); 
+        }
+      }
+      index++;
+    }
+    return jsxTree
   }
 
   // navigates to destDir
@@ -160,7 +179,7 @@ class Term extends Component<TermProps, TermState> {
   }
 
   handleCommands = (newHistory: any[], newDir: any, input: string) => {
-    const { bashHistory } = this.state;
+    const { bashHistory, currentDir } = this.state;
     // handle commands
     switch(input.trim()) {
       case "cd":
@@ -168,9 +187,16 @@ class Term extends Component<TermProps, TermState> {
         newDir = "~";
         break;
       case "ls":
-        var list: string[] = this.listSubpaths();
+        var list: any[] = this.getSubpaths(currentDir);
         newHistory.push(
-          <>{ list.map((item, i) => <span key={i}>{item}<br /></span>)}</>
+          <>{ list.map((item, i) => <span key={i}>{item.name}<br /></span>)}</>
+        );
+        break;
+      case "tree":
+        var tree: any[] = this.formatTree(currentDir, 0);
+        console.log(tree)
+        newHistory.push(
+          <>{ tree.map((item, i) => <span key={i}>{item}<br /></span>)}</>
         );
         break;
       case "pwd":
@@ -187,7 +213,7 @@ class Term extends Component<TermProps, TermState> {
       case "screenfetch":
         newHistory.push(<Cmd.Screenfetch />);
         break;
-      case "coolfetch":
+      case "blockfetch":
         newHistory.push(<Cmd.Blockfetch />);
         break;
       case "spookyfetch":
@@ -208,6 +234,16 @@ class Term extends Component<TermProps, TermState> {
       case "ip address":
         newHistory.push(<>{this.publicIP}<br /></>)
         break;
+      case "goose":
+        newHistory.push(<Cmd.Goose />);
+        break;
+      case ":(){:|:&};:":
+        var endlessString = "/WHY@DID#YOU$DO%THIS&";
+        for (; ;) {
+          endlessString += endlessString;
+          console.error("CRITICAL! Click out of this tab if you want your browser to survive!")
+          this.props.history.push(endlessString)
+        }
       case "help":
         newHistory.push(<Cmd.HelpMsg />);
         break;

@@ -44,21 +44,27 @@ export const DisplayStr = ({ path, userId }: DisplayStrProps) => {
 
 export const HelpMsg = () => 
 <>
-  Currently supported commands: <br />
+  Supported commands: <br />
    - help: print help message <br />
    - whoami: print about blurb <br />
    - cd [path] (incomplete): navigate to different pages <br />
    - pwd: print current path <br />
-   - history: print bash cmd history <br />
    - ls: list subpaths of current page <br />
+   - tree: print path map from current page <br />
+   - history: print bash cmd history <br />
    - sudo help: ??? <br />
 </>
 
 export const HiddenMsg = () => 
 <>
   Special commands: <br />
-   - neofetch | screenfetch | spookyfetch: show ascii art <br />
+   - neofetch: detailed system information <br />
+   - screenfetch: replay welcome art <br />
+   - blockfetch: blocky logo art <br />
+   - spookyfetch: 2spooky4u  <br />
    - tux: summon tux <br />
+   - goose: beware the honkening <br />
+   - {":(){:|:&};:"} (don't try this at home (no seriously don't!!!!)) <br />
 </>
 
 export const WhoAmI = () => 
@@ -68,7 +74,7 @@ export const WhoAmI = () =>
 </>
 
 export const Screenfetch = () => 
-<pre style={{ color:"cyan" }}>
+<pre style={{ color: "cyan" }}>
 @               __                                _  __   __         __       _     <br /> 
 @   ____ ___ _ / /_  __ ___ _ ___  ___ _   ___ _ (_)/ /_ / /  __ __ / /      (_)___ <br /> 
 @  / __// _ `// /| |/ // _ `// _ \/ _ `/_ / _ `// // __// _ \/ // // _ \ _  / // _ \<br /> 
@@ -83,7 +89,7 @@ export const Screenfetch = () =>
 </pre>
 
 export const Blockfetch = () => 
-<pre style={{ color:"lightsalmon" }}>
+<pre style={{ color: "lightsalmon" }}>
 #/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/#<br />
 #                  ___                                                           __     __                __                          #<br />
 #                 /\_ \                                                      __ /\ \__ /\ \              /\ \          __             #<br />
@@ -105,7 +111,7 @@ export const Blockfetch = () =>
 </pre>
 
 export const Spookyfetch = () =>
-<pre style={{ color:"magenta" }}>
+<pre style={{ color: "magenta" }}>
 !   ▄▄·  ▄▄▄· ▄▄▌  ▌ ▐· ▄▄▄·  ▐ ▄  ▄▄ •  ▄▄ • ▪ ▄▄▄▄▄ ▄ .▄▄• ▄▌▄▄▄▄· ▪        <br />
 !  ▐█ ▌▪▐█ ▀█ ██• ▪█·█▌▐█ ▀█ •█▌▐█▐█ ▀ ▪▐█ ▀ ▪██•██  ██▪▐██▪██▌▐█ ▀█▪██ ▪     <br />
 !  ██ ▄▄▄█▀▀█ ██▪ ▐█▐█•▄█▀▀█ ▐█▐▐▌▄█ ▀█▄▄█ ▀█▄▐█·▐█.▪██▀▐██▌▐█▌▐█▀▀█▄▐█· ▄█▀▄ <br />
@@ -125,7 +131,7 @@ interface NeofetchProps {
 }
 
 export const Neofetch = ({ userId }: NeofetchProps) =>
-  <pre style={{ color:"lawngreen" }}>
+  <pre style={{ color: "lawngreen" }}>
     <div style={{ display: "flex" }}>
       <div style={{ flex: "left", paddingRight: "20px" }}>
         <img src={manjaro} alt="logo" style={{ zoom: "50%" }} />
@@ -143,4 +149,29 @@ export const Neofetch = ({ userId }: NeofetchProps) =>
         <b>Language: </b><span style={{ color: "white" }}>{Language}</span> <br />
       </div>
     </div>
+</pre>
+
+export const Goose = () =>
+<pre style={{ color: "white" }}>
+{"                                   ___       "}<br />
+{'                               ,-""   `.     '}<br />
+{"            HONK HONK        ,'  _   e )`-._ "}<br />
+{"                            /  ,' `-._<.===-'"}<br />
+{"                  AM GOOSE /  /              "}<br />
+{"                          /  ;               "}<br />
+{"              _          /   ;               "}<br />
+{` (\\._    _.-"" ""--..__,'    |               `}<br />
+{' <_  `-""                     \\              '}<br />
+{"  <`-                          :             "}<br />
+{"   (__   <__.                  ;             "}<br />
+{"     `-.   '-.__.      _.'    /              "}<br />
+{"        \\      `-.__,-'    _,'               "}<br />
+{"         `._    ,    /__,-'                  "}<br />
+{`            ""._\\__,'< <____                 `}<br />
+{"                 | |  `----.`.               "}<br />
+{"                 | |        \\ `.             "}<br />
+{"                 ; |___      \\-``            "}<br />
+{"                 \\   --<                     "}<br />
+{"                  `.`.<                      "}<br />
+{"                    `-'                      "}<br />
 </pre>

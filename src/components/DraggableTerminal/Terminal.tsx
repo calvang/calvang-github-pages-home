@@ -4,7 +4,7 @@ import * as Cmd from './Commands';
 import blogData from '../../resources/data/blog.json';
 import siteData from '../../resources/data/sitemap.json';
 import '../../css/Terminal.css';
-import tux from '../../resources/images/tux.png';
+import tux from '../../resources/images/sleepytux.png';
 
 interface TermProps extends RouteComponentProps<any> {
   startup: string[],

@@ -1,10 +1,12 @@
 import React, {Component, createRef } from 'react';
 import Portfolio from '../components/PortfolioStatic';
-//import ContactForm from '../components/ContactForm';
+import ContactForm from '../components/ContactForm';
 import homeData from '../resources/data/home.json';
 import '../css/App.css';
 
-interface HomeProps {}
+interface HomeProps {
+  startRef: number;
+}
 interface HomeState {
   isMenuOpen: boolean,
   autoscroll: boolean,
@@ -22,18 +24,21 @@ export default class Home extends Component<HomeProps, HomeState> {
   constructor(props: HomeProps) {
     super(props);
     var refs: any[] = [];
+    console.groupCollapsed();
     for (let key in homeData) {
       const newRef: any = createRef();
       console.log("Checking if section", key, "loaded");
       refs.push(newRef)
     }
+    console.groupEnd()
     this.state = {
       isMenuOpen: false,
       autoscroll: true,
       sections: refs,
-      currentSection: 0,
+      currentSection: props.startRef,
       scrollPeriod: 10000,
       timeouts: []
+      // ***FOR DYNAMIC IMPLEMENTATION***
       //url: '/api/',
       //homeData: []
     }
@@ -51,14 +56,14 @@ export default class Home extends Component<HomeProps, HomeState> {
   autoscrollSections = () => {
     const { autoscroll, sections, currentSection, scrollPeriod, timeouts } = this.state;
     let section = currentSection;
-    if (currentSection < 3)
+    if (currentSection < homeData.length - 1)
       section = currentSection + 1;
     else
       section = 0
     this.scrollToRef(sections[section], section);
     var timeout1 = timeouts.push(setTimeout(() => {
       if (autoscroll) {
-        if (section === 2 || section === 3) {
+        if (section > 1) {
           var timeout2 = setTimeout(() => {
             this.autoscrollSections();
           }, scrollPeriod * 2);
@@ -75,6 +80,7 @@ export default class Home extends Component<HomeProps, HomeState> {
     });
   }
 
+  // ***FOR DYNAMIC IMPLEMENTATION***
   // retrieveData() {
     // const { url } = this.state;
     // fetch(url, { credentials: 'same-origin' })
@@ -99,20 +105,28 @@ export default class Home extends Component<HomeProps, HomeState> {
   // }
 
   componentDidMount() {
+    const { startRef } = this.props;
     const { autoscroll, sections, scrollPeriod } = this.state;
     //console.log(window.innerWidth)
     if (window.innerWidth < 601)
       this.setState({ autoscroll: false });
-    this.scrollToRef(sections[0], 0);
+    console.log(startRef)
+    this.scrollToRef(sections[startRef], startRef);
 
     var timeout3 = setTimeout(() => {
-      console.log(autoscroll)
+      //console.log(autoscroll)
       if (autoscroll)
         this.autoscrollSections();
     }, scrollPeriod);
     this.setState({
       timeouts: [...timeouts, timeout3]
     });
+  }
+
+  componentDidUpdate() {
+    const { startRef } = this.props;
+    const { sections } = this.state;
+    this.scrollToRef(sections[startRef], startRef);
   }
 
   componentWillUnmount() {
@@ -268,7 +282,9 @@ export default class Home extends Component<HomeProps, HomeState> {
           </div>
 
           {/* contact form */}
-          {/* <ContactForm /> */}
+          <div ref={sections[4]}>
+            <ContactForm />
+          </div>
         </div>
       </>
     );

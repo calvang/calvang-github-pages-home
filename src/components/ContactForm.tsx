@@ -10,7 +10,7 @@ export default function ContactForm() {
 
   return (
     <div className="w3-container w3-text-whie
-      Project-container parallax-scroll
+      Contact-container parallax-scroll
       w3-padding-large w3-black"
             style={{ height:"auto", marginTop: "-32px"}}>
             {/* <div className="w3-padding-large w3-content w3-white w3-text-dark-gray" id="photos"> */}

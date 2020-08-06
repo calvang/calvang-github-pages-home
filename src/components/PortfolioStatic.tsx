@@ -18,6 +18,7 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
     };
   }
 
+  // ***Dynamic Implementation***
   // componentDidMount() {
   //   const { url } = this.state;
   //   //const headers = {}

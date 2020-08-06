@@ -14,9 +14,11 @@ export default class Routes extends Component {
     return (
       <HashRouter>
         <Switch>
-          <Route exact path='/' component={Home}></Route>
+          <Route exact path='/' render={(props: any) => <Home {...props} startRef={0} />}></Route>
+          <Route exact path='/Contact' render={(props: any) => <Home {...props} startRef={4} />}></Route>
           <Route exact path='/Projects' component={Projects}></Route>
           <Route exact path='/Blog' component={Blog}></Route>
+          <Route exact path='/Contacts' render={(props: any) => <Home {...props} startRef={4} />}></Route>
           {posts.map((post, i) => 
             <Route key={i} exact path={`/Blog/${post.file.slice(0,-3)}`}
               render={(props: any) => <Post {...props} index={i} />} >

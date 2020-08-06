@@ -33,7 +33,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .Contacts-container {
+  .Contact-container {
     background-image: 
       linear-gradient(
         rgba(50, 0, 80, 0.1), 
@@ -50,7 +50,7 @@
 }
 
 @media only screen and (min-width: 801px) {
-  .Contacts-container {
+  .Contact-container {
     background-image: 
       linear-gradient(
         rgba(50, 0, 80, 0.5), 

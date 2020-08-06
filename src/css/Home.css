@@ -2,7 +2,7 @@
   background-attachment: fixed;
 }
 
-@media only screen and (max-device-width: 1366px) {
+@media only screen and (max-device-width: 800px) {
   .parallax-scroll {
     background-attachment: scroll
   }

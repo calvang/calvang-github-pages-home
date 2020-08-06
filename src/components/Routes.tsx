@@ -4,6 +4,7 @@ import Home from '../views/Home';
 import Projects from '../views/Projects';
 import Blog from '../views/Blog/Blog';
 import Post from '../views/Blog/Post';
+import PrivacyPolicy from '../views/Blog/PrivacyPolicy';
 import Settings from '../components/Settings';
 import blogData from '../resources/data/blog.json';
 import '../css/App.css';
@@ -24,6 +25,7 @@ export default class Routes extends Component {
               render={(props: any) => <Post {...props} index={i} />} >
             </Route>
           )}
+          <Route exact path='/Blog/Privacy-Policy' component={PrivacyPolicy}></Route>
           <Route path='/404' component={NoMatch}></Route>
           <Route component={NoMatch}></Route>
         </Switch>

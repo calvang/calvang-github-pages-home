@@ -28,7 +28,10 @@ class Term extends Component<TermProps, TermState> {
 
     // add blog posts to sitemap
     const posts = blogData.posts
-    var blogSubpaths: any[] = [];
+    var blogSubpaths: any[] = [{
+      name: "Privacy-Policy",
+      path: "/Blog/Privacy-Policy"
+    }];
     for (let i = 0; i < posts.length; ++i) {
       blogSubpaths.push({
         name: posts[i].file.slice(0, -3),

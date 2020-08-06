@@ -5,13 +5,17 @@ Github pages personal website for Calvin Huang.
 ### Description
 
 The client-side web app built using React and Typescript. Page information and data are indexed in `src/resources/data`.
-External project data is fetched using REST API calls to a basic Flask backend that retrieves project data. The Github Pages version of this site does not have dynamic server-side processing, so it simply loads the data on rendering rather than fetching it from the API.
+The dynamic implementation uses REST API calls to a basic Flask backend that retrieves project and home page data. The Github Pages version of this site does not have dynamic server-side processing, so it simply loads the data on rendering rather than fetching it from the API.
 
 ### Features
 
 #### Integrated Terminal
 
-Draggable terminal for navigation and finding information. Currently under development.
+Draggable+resizable terminal for navigation and finding information. For this feature, I attempted to emulate the desktop Linux terminal experience with a floating terminal that allows nagivation of the website and contains a few easter eggs!
+
+#### Markdown Blog
+
+Blog generated from parsing Markdown files with the `markdown-to-jsx` library and rendering the JSX output dynamically. Formatting is adapted to fit the theme of the website. Additional support for Facebook likes and comments are included.
 
 #### Progressiveness
 

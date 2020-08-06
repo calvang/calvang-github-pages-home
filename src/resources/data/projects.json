@@ -27,6 +27,14 @@
       "text": "A personal blog that is automatically generated from Markdown files. Posts also feature social support through Facebook likes and comments. This is where I post tutorials and discuss technologies that excite me."
     },
     {
+      "name": "Resumator",
+      "image": "resumator.png",
+      "links": {
+        "github": "https://github.com/calvang/resumator"
+      },
+      "text": "An automated resume that applies Markdown input to jinja2 LaTeX templates. This application simplifies the formatting process by taking advantage of minimalistic Markdown syntax and makes dynamic changes that are carried over to a finalized LaTeX-generated pdf."
+    },
+    {
       "name": "Tubify",
       "links": {
         "github": "https://github.com/calvang/Tubify"

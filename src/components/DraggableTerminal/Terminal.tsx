@@ -157,7 +157,8 @@ class Term extends Component<TermProps, TermState> {
       // array of dirs in current path
       var pathArr = currentPath.split('/');
       pathArr.pop();
-      finalPath = "/";
+      if (currentDir === "/")
+        finalPath = "/";
       for (let i = 1; i < pathArr.length; ++i) finalPath += `/${pathArr[i]}`;
     }
     else if (destDir.trim() === ".") {

@@ -20,9 +20,9 @@ export default class TerminalDemo extends Component<DemoProps, any> {
         style={{ height: `${height}px` }}>
         {/* title page */}
         <header className="w3-content w3-center">
-          <div style={{paddingTop: "6%"}}>
+          <div style={{padding: "6%"}}>
             <h1 className="w3-jumbo"><span className="w3-hide-small">Integrated Website</span> Terminal</h1>
-      
+            <div className="w3-card w3-padding">
               <h2 className="w3-xlarge">Features:</h2>
               <ul style={{ width: "70%", maxWidth: "450px", margin: "auto", textAlign: "left"}}>
                 <li>Resizable and draggable similar to a desktop application</li>
@@ -31,9 +31,8 @@ export default class TerminalDemo extends Component<DemoProps, any> {
                 <li>Toggable via an access button on the bottom right corner</li>
                 <li>A few fun easter eggs and one not so fun one...</li>
               </ul><br />
-            <b>
-              Enter the 'help' command to get started.
-            </b>
+              <b>Enter the 'help' command to get started.</b>
+            </div>
           </div>
         </header>
       </div>

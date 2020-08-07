@@ -12,10 +12,11 @@
     {
       "name": "Integrated Website Terminal",
       "image": "site_terminal.png",
+      "url": "https://calvang.github.io/#/Terminal-Demo",
       "links": {
         "github": "https://github.com/calvang/calvang-github-pages-home/tree/master/src/components/DraggableTerminal"
       },
-      "text": "A terminal interface for navigating this website. It is completed serverless on the front-end and handles Linux-like inputs, functioning mainly as a cool way to view and explore my website. To try the terminal, hover or click on the bottom-right corner of the page where there is a hidden gear icon. Clicking on this icon will open and close the integrated terminal."
+      "text": "A terminal interface for navigating this website. It is completed serverless on the front-end and handles Linux-like inputs, functioning mainly as a cool way to view and explore my website. To open the terminal, click on the bottom-right corner of the page where there is a hidden gear icon. Clicking on this icon will open and close the integrated terminal."
     },
     {
       "name": "Markdown Blog",

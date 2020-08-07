@@ -6,7 +6,8 @@ import manjaro from '../../resources/images/manjaro.png';
 const Browser = BrowserDetector();
 const OS = navigator.platform;
 const Language = navigator.language;
-const Vendor = navigator.vendor;
+var Vendor = navigator.vendor;
+if (Vendor === "") Vendor = "Unknown"
 
 export function getIP(): any {
   fetch('https://api.ipify.org?format=json')
@@ -33,25 +34,20 @@ export const DisplayStr = ({ path, userId }: DisplayStrProps) => {
     </>
   );
 }
-// {/* <>
-//   <b style={{color:"lightgreen"}}>
-//       {publicIP}@calvang.github.io:
-//   </b>
-//   <b style={{color:"#0080FF"}}>
-//     {`${path}$`}&nbsp;
-//   </b>
-// </> */}
 
 export const HelpMsg = () => 
 <>
   Supported commands: <br />
    - help: print help message <br />
    - whoami: print about blurb <br />
-   - cd [path] (incomplete): navigate to different pages <br />
+   - cd [path(optional)]: navigate to different pages <br />
    - pwd: print current path <br />
-   - ls: list subpaths of current page <br />
-   - tree: print path map from current page <br />
+   - ls [path(optional)] list subpaths of specified page; defaults to current page <br />
+   - tree [path(optional)]: print path map from specified page; defaults to current page <br />
+   - sitemap: alias for tree ~; shows tree from home<br />
    - history: print bash cmd history <br />
+   - alias: list current aliases <br />
+   - aliases [alias]='[cmd]'': assign new alias <br />
    - sudo help: ??? <br />
 </>
 

@@ -27,8 +27,8 @@
   .Blog-container {
     background-image: 
       linear-gradient(
-        rgba(50, 0, 80, 0.5), 
-        rgba(20, 50, 20, 0.5)
+        rgba(50, 0, 80, 0.1), 
+        rgba(20, 50, 20, 0.1)
       ),
       url(../resources/images/trianglewrap.jpg);
       /* url(../resources/images/neonMetal.jpg); */

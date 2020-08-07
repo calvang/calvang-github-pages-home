@@ -4,9 +4,11 @@ import DraggableTerminal from './DraggableTerminal/DraggableTerminal';
 import '../css/App.css';
 import '../css/Home.css';
 
-interface SettingsProps {}
+interface SettingsProps {
+  isTermOpen: boolean,
+  toggleTerm: any
+}
 interface SettingsState {
-  isMenuOpen: boolean,
   userId: string
 }
 
@@ -14,19 +16,13 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
   constructor(props: SettingsProps) {
     super(props);
     this.state = {
-      isMenuOpen: false,
       userId: `guest${Math.floor(Math.random() * 10000)}`
     }
   }
 
-  toggleMenu = () => {
-    const { isMenuOpen } = this.state;
-    isMenuOpen ? this.setState({ isMenuOpen: false }) 
-    : this.setState({ isMenuOpen: true });
-  }
-
   render() {
-    const { isMenuOpen, userId } = this.state;
+    const { userId } = this.state;
+    const { isTermOpen, toggleTerm } = this.props;
     const startupMessages: string[] = [
       "Welcome to the integrated terminal. More features will be implemented soon! Type help to learn more..."    
     ]
@@ -34,7 +30,7 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
     const termHeight= Math.floor(0.48 * window.innerHeight);
     return (
       <>
-        {isMenuOpen ?
+        {isTermOpen ?
           <div>
             <DraggableTerminal startup={startupMessages} placeholder={""}
               width={termWidth} height={termHeight} userId={userId}/>
@@ -45,11 +41,10 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
               id="mySidebar">
               <div className="w3-bar-block w3-center">
                 <button className="w3-bar-item w3-button"
-                  onClick={this.toggleMenu}>
+                  onClick={toggleTerm}>
                   <i className="fa fa-cogs fa-fw w3-xlarge w3-hide-small"></i>
                   <i className="fa fa-cogs fa-fw w3-large w3-hide-medium w3-hide-large"></i>
                 </button> 
-                
               </div>
             </nav>
           </div>

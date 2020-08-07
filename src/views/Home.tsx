@@ -110,7 +110,6 @@ export default class Home extends Component<HomeProps, HomeState> {
     //console.log(window.innerWidth)
     if (window.innerWidth < 601)
       this.setState({ autoscroll: false });
-    console.log(startRef)
     this.scrollToRef(sections[startRef], startRef);
 
     var timeout3 = setTimeout(() => {

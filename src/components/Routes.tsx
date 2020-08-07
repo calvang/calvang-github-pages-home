@@ -5,13 +5,40 @@ import Projects from '../views/Projects';
 import Blog from '../views/Blog/Blog';
 import Post from '../views/Blog/Post';
 import PrivacyPolicy from '../views/Blog/PrivacyPolicy';
+import TerminalDemo from '../views/TerminalDemo';
 import Settings from '../components/Settings';
 import blogData from '../resources/data/blog.json';
 import '../css/App.css';
 
-export default class Routes extends Component {
+interface RoutesProps {};
+interface RoutesState {
+  isTermOpen: boolean;
+}
+
+export default class Routes extends Component<RoutesProps, RoutesState> {
+  constructor(props: RoutesProps) {
+    super(props);
+    this.state = {
+      isTermOpen: false
+    };
+    this.openTerm = this.openTerm.bind(this);
+  }
+
+  openTerm = () => {
+    console.log("Routes terminal update")
+    this.setState({ isTermOpen: true });
+  }
+
+  toggleTerm= () => {
+    const { isTermOpen } = this.state;
+    isTermOpen ? this.setState({ isTermOpen: false }) 
+      : this.setState({ isTermOpen: true });
+  }
+
   render() {
+    const { isTermOpen } = this.state; 
     const posts = blogData.posts;
+    var { openTerm, toggleTerm } = this;
     return (
       <HashRouter>
         <Switch>
@@ -26,10 +53,11 @@ export default class Routes extends Component {
             </Route>
           )}
           <Route exact path='/Blog/Privacy-Policy' component={PrivacyPolicy}></Route>
+          <Route exact path='/Terminal-Demo' render={(props: any) => <TerminalDemo {...props} openTerm={openTerm.bind(this)} />}></Route>
           <Route path='/404' component={NoMatch}></Route>
           <Route component={NoMatch}></Route>
         </Switch>
-        <Settings />
+        <Settings isTermOpen={isTermOpen} toggleTerm={toggleTerm.bind(this)}/>
       </HashRouter>
     );
   }

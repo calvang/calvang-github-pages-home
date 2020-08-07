@@ -13,6 +13,10 @@
     {
       "name": "Contact",
       "path": "/Contact"
+    },
+    {
+      "name": "Terminal-Demo",
+      "path": "/Terminal-Demo"
     }
   ]
 }

@@ -17,7 +17,8 @@ interface TermState {
   history: any[],
   bashHistory: string[],
   input: string,
-  currentDir: string
+  currentDir: string,
+  aliases: any[]
 }
 
 class Term extends Component<TermProps, TermState> {
@@ -66,7 +67,37 @@ class Term extends Component<TermProps, TermState> {
       history: startupMessages,
       bashHistory: [],
       input: "",
-      currentDir: page
+      currentDir: page,
+      aliases: [
+        {
+          alias: "sitemap",
+          cmd: "tree ~"
+        },
+        {
+          alias: "dir",
+          cmd: "ls"
+        },
+        {
+          alias: "ll",
+          cmd: "ls"
+        },
+        {
+          alias: "about",
+          cmd: "whoami"
+        },
+        {
+          alias: "cdproj",
+          cmd: "cd Projects"
+        },
+        {
+          alias: "cdblog",
+          cmd: "cd Blog"
+        },
+        {
+          alias: "sudo fork-bomb",
+          cmd: ":(){:|:&};:"
+        }
+      ]
     }
   } 
 
@@ -76,6 +107,34 @@ class Term extends Component<TermProps, TermState> {
     .then(response => {
       this.publicIP = response.ip;
     });
+  }
+
+  // @return cmd for alias
+  handleAlias = (input: string): any => {
+    const { aliases } = this.state;
+    for (let i in aliases) {
+      if (aliases[i].alias === input)
+        return aliases[i].cmd;
+    }
+    return false;
+  }
+
+  // @return true if alias successfully added
+  addAlias = (alias: string, cmd: string) => {
+    const aliases = this.state.aliases;
+    // if alias in already in, overwrite current alias
+    for (let i in aliases) {
+      if (aliases[i].alias === alias) {
+        aliases[i].cmd = cmd;
+        this.setState({ aliases: aliases });
+        return;
+      }
+    }
+    aliases.push({
+      alias: alias,
+      cmd: cmd
+    })
+    this.setState({ aliases: aliases });
   }
 
   // @returns true if path found in siteTree
@@ -120,8 +179,6 @@ class Term extends Component<TermProps, TermState> {
     var jsxTree: any[] = []; // store everything as a string first before rendering jsx
     var layers: any[] = [];
     for (let i = 0; i < layer; ++i) layers.push(<>|&ensp; </>);
-    console.log(layer)
-    console.log("layers", layers)
     var index = 0;
     for (var i in currentTree) {
       if (index === currentTree.length - 1)
@@ -133,10 +190,7 @@ class Term extends Component<TermProps, TermState> {
           <span>{layers.map((layer, ind) => <span key={ind}>{layer}</span>)}|-- {currentTree[i].name}</span>
         );
       if (currentTree[i].subpaths) {
-        console.log(currentTree[i].subpaths)
-        console.log(currentTree[i].path)
         let subTree = formatTree(`~${currentTree[i].path}`, ++layer);
-        console.log("Subtree", subTree)
         for (let j in subTree) {
           jsxTree.push(subTree[j]); 
         }
@@ -183,9 +237,21 @@ class Term extends Component<TermProps, TermState> {
   }
 
   handleCommands = (newHistory: any[], newDir: any, input: string) => {
-    const { bashHistory, currentDir } = this.state;
+    const { bashHistory, currentDir, aliases } = this.state;
+    // handle aliases
+    input = input.trim()
+    var alias = this.handleAlias(input);
+    if (alias !== false) {
+      console.log(alias)
+      input = alias;
+    }
     // handle commands
-    switch(input.trim()) {
+    switch (input) {
+      case "alias":
+        newHistory.push(
+          <>{aliases.map((item, i) => <span key={i}>{`alias ${item.alias}='${item.cmd}'`}<br /></span>)}</>
+        );
+        break;
       case "cd":
         this.navigatePath("~");
         newDir = "~";
@@ -197,12 +263,17 @@ class Term extends Component<TermProps, TermState> {
         );
         break;
       case "tree":
-        var tree: any[] = this.formatTree(currentDir, 0);
-        console.log(tree)
+        let tree: any[] = this.formatTree(currentDir, 0);
         newHistory.push(
           <>{ tree.map((item, i) => <span key={i}>{item}<br /></span>)}</>
         );
         break;
+      case "sitemap":
+        let siteTree: any[] = this.formatTree("~", 0);
+        newHistory.push(
+          <>{ siteTree.map((item, i) => <span key={i}>{item}<br /></span>)}</>
+        );
+          break;
       case "pwd":
         newHistory.push(<>{newDir}<br /></>);
         break;
@@ -224,7 +295,7 @@ class Term extends Component<TermProps, TermState> {
         newHistory.push(<Cmd.Spookyfetch />);
         break;
       case "tux":
-        newHistory.push(<><img src={tux} alt="tux" /><br /></>);
+        newHistory.push(<><img style={{zoom: "50%"}} src={tux} alt="tux" /><br /></>);
         break;
       case "neofetch":
         newHistory.push(
@@ -232,12 +303,12 @@ class Term extends Component<TermProps, TermState> {
             userId={this.props.userId} />
         );
         break;
-      case "ip a":
-        newHistory.push(<>{this.publicIP}<br /></>)
-        break;
-      case "ip address":
-        newHistory.push(<>{this.publicIP}<br /></>)
-        break;
+      // case "ip a":
+      //   newHistory.push(<>{this.publicIP}<br /></>)
+      //   break;
+      // case "ip address":
+      //   newHistory.push(<>{this.publicIP}<br /></>)
+      //   break;
       case "goose":
         newHistory.push(<Cmd.Goose />);
         break;
@@ -281,6 +352,54 @@ class Term extends Component<TermProps, TermState> {
           }
           else
             newHistory.push(<>cd: {destDir} : No such file or directory<br /></>)
+        }
+        else if (input.substr(0, 3) === "ls ") {
+          let destDir = input.substr(3, input.length - 3).trim();
+          if (destDir === "~") destDir = "~";
+          else if (destDir === "..") {
+            let dirArr = newDir.split('/');
+            let finalDir = "~";
+            dirArr.pop();
+            for (let i = 1; i < dirArr.length; ++i) finalDir += `/${dirArr[i]}`;
+            destDir = finalDir;
+          }
+          else if (destDir === ".") {
+            destDir = currentDir;
+          }
+          else {
+            destDir = currentDir + "/" + destDir;
+          }
+          var listDefined: any[] = this.getSubpaths(destDir);
+          newHistory.push(
+            <>{listDefined.map((item, i) => <span key={i}>{item.name}<br /></span>)}</>
+          );
+        }
+        else if (input.substr(0, 5) === "tree ") {
+          let destDir = input.substr(5, input.length - 5).trim();
+          if (destDir === "~") destDir = "~";
+          else if (destDir === "..") {
+            let dirArr = newDir.split('/');
+            let finalDir = "~";
+            dirArr.pop();
+            for (let i = 1; i < dirArr.length; ++i) finalDir += `/${dirArr[i]}`;
+            destDir = finalDir;
+          }
+          else if (destDir === ".") {
+            destDir = currentDir;
+          }
+          else {
+            destDir = currentDir + "/" + destDir;
+          }
+          let treeDefined: any[] = this.formatTree(destDir, 0);
+          newHistory.push(
+            <>{ treeDefined.map((item, i) => <span key={i}>{item}<br /></span>)}</>
+          );
+        }
+        else if (input.substr(0, 6) === "alias ") {
+          let aliasArray = input.substr(6, input.length - 6).trim().split('=');
+          let alias = aliasArray[0];
+          let cmd = aliasArray[1].substr(1, aliasArray[1].length - 2);
+          this.addAlias(alias, cmd);
         }
         else {
           newHistory.push(<>{input}: command not found <br /></>);

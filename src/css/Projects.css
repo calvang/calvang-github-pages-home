@@ -36,8 +36,8 @@
   .Contact-container {
     background-image: 
       linear-gradient(
-        rgba(50, 0, 80, 0.1), 
-        rgba(0, 20, 20, 0.1)
+        rgba(50, 0, 80, 0.5), 
+        rgba(20, 50, 20, 0.5)
       ),
       url(../resources/images/metalWaves.jpg);
       /* url(../resources/images/neonMetal.jpg); */

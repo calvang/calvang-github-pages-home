@@ -13,9 +13,13 @@ The dynamic implementation uses REST API calls to a basic Flask backend that ret
 
 Draggable+resizable terminal for navigation and finding information. For this feature, I attempted to emulate the desktop Linux terminal experience with a floating terminal that allows nagivation of the website and contains a few easter eggs!
 
+View this feature at: https://github.com/calvang/calvang-github-pages-home/tree/master/src/components/DraggableTerminal
+
 #### Markdown Blog
 
 Blog generated from parsing Markdown files with the `markdown-to-jsx` library and rendering the JSX output dynamically. Formatting is adapted to fit the theme of the website. Additional support for Facebook likes and comments are included.
+
+View this feature at: https://github.com/calvang/calvang-github-pages-home/tree/master/src/views/Blog
 
 #### Progressiveness
 

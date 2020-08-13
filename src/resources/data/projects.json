@@ -10,6 +10,15 @@
       "text": "The goal of this project is to provide an overview of the spread of Covid-19 and a projection of its predicted case counts in the form of a interpolated heat map.  Current projections hint at a grim future in this pandemic, and it is vital that we all stay vigilant even if the cases seem to dwindle. Hopefully this visual representation can convey the importance of keeping up prevention measures to slow the spread."
     },
     {
+      "name": "Better-Zoom",
+      "image": "better-zoom.png",
+      "url": "https://calvang.github.io/better-zoom",
+      "links": {
+        "github": "https://github.com/calvang/better-zoom"
+      },
+      "text": "A lightweight video chatting and messaging platform that uses public rooms that are completely customizable. Unlike other similar offerings, this web app does not store any client data and is completely unmoderated, with the philosophy of allowing easy room creation and communication between groups of friends."
+    },
+    {
       "name": "Integrated Website Terminal",
       "image": "site_terminal.png",
       "url": "https://calvang.github.io/#/Terminal-Demo",

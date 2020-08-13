@@ -10,17 +10,17 @@
     "id": "skills",
     "data": {
       "languages": {
-        "programming": "C/C++, Java, Python, JavaScript/TypeScript, MatLab, Swift, SQL",
+        "programming": "C/C++, Java, Python, JavaScript, TypeScript, MatLab, Swift, SQL",
         "markup": "HTML, XML, YAML, CSS, LaTex, Markdown, Mermaid"
       },
       "frameworks": {
         "frontend": "React/React-Native, Angular, Bootstrap",
-        "backend": "Flask, JAX-RS, NodeJS, Rocket",
+        "backend": "Flask, JAX-RS, ExpressJS, Rocket",
         "databases": "SQLite, MySQL, MongoDB, DynamoDB"
       },
       "infrastructures": {
         "cloud": "Amazon Web Services, Google Cloud",
-        "deployment": "Ansible, IBM Websphere Liberty, DynDNS",
+        "deployment": "Ansible, IBM Websphere Liberty, DynDNS, Heroku",
         "servers": "Apache 2, Nginx"
       }
     },

@@ -1,3 +1,5 @@
+/* Dynamic implementation of Portfolio */
+
 import React, { Component } from 'react';
 import codesandbox from '../resources/images/codesandbox.png';
 import '../css/Projects.css';

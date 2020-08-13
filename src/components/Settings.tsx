@@ -24,7 +24,7 @@ export default class Settings extends Component<SettingsProps, SettingsState> {
     const { userId } = this.state;
     const { isTermOpen, toggleTerm } = this.props;
     const startupMessages: string[] = [
-      "Welcome to the integrated terminal. More features will be implemented soon! Type help to learn more..."    
+      "Welcome to the integrated terminal! You can use Linux commands to navigate the site. Type help to list the commands..."    
     ]
     const termWidth = Math.floor(0.951 * window.innerWidth);
     const termHeight= Math.floor(0.48 * window.innerHeight);

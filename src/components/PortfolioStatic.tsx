@@ -17,28 +17,6 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
       projects: projectData.projects,
     };
   }
-
-  // ***Dynamic Implementation***
-  // componentDidMount() {
-  //   const { url } = this.state;
-  //   //const headers = {}
-  //   fetch(url, { credentials: 'omit' })
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         console.log(response.statusText);
-  //         throw Error(response.statusText);
-  //       }
-  //       let response_json = response.json();
-  //       console.log(response.json);
-  //       return response_json;
-  //     })
-  //     .then((data) => {
-  //       this.setState({
-  //         projects: data.projects
-  //       })
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
   
   render() {
     const { projects } = this.state;
@@ -60,7 +38,7 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
 
         <div className="w3-text-dark-grey"
           style={{ height:"auto" }}>
-          <table className="w3-content w3-hide-small"
+          <table className="w3-content w3-hide-small w3-hide-medium"
             style={{ marginTop:"-40px", marginBottom:"20px", borderCollapse:"separate", borderSpacing:"32px 64px" }}>
             <tbody>
               {
@@ -68,22 +46,12 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                   return (
                     <tr key={project.name} style={{ height: "auto" }}>
                       <td className="w3-white w3-card w3-padding-large" colSpan={ imageStatuses[i] ?  1 : 2 }
-                        style={{ height: "100%"/*, backgroundImage: `url(${projectProfiles[i]})`*/ }}>
-                        {/* <div style={{ display:"inline-block" }}> */}
-                        {/* <div style={{ position:"relative"}}> */}
+                        style={{ height: "100%" }}>
                         <h3 className="w3-text-black">{project.name}</h3>
                         <hr className="w3-opacity" style={{ width: "33%", borderTop: "1px solid black" }} />
                         <p className="w3-padding-bottom ">
                           {project.text}
-                          </p>
-                        {/* </div> */}
-                        {/* {
-                          
-                          'image' in project &&
-                          <img className="shaped" src={process.env.PUBLIC_URL + "/project_profiles/" + project.image} alt="project preview" />
-                            
-                          } */}
-                        {/* </div> */}
+                        </p>
                         <div className="" style={{}}>
                           {
                             'github' in project.links &&
@@ -118,24 +86,18 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                       {
                         'image' in project &&
                         <td className="w3-white w3-card picture-frame w3-hide-small"
-                          style={{ width: "50%", height: "100%", backgroundImage: `url(${projectProfiles[i]})` }}>
-                          {/* {
-                          
-                          'image' in project &&
-                          <img className="shaped" src={process.env.PUBLIC_URL + "/project_profiles/" + project.image} alt="project preview" />
-                            
-                          } */}
+                          style={{ width: "50%", height: "100%", backgroundImage: `url(${projectProfiles[i]})` }}
+                          onClick={() => window.location.href=project.url}>
                         </td>
                       }
                     </tr>
                   )
-
                 })
               }
             </tbody>
           </table> 
-          {/* for mobile devices */}
-          <table className="w3-content w3-hide-large w3-hide-medium"
+          {/* for mobile devices and medium screens */}
+          <table className="w3-content w3-hide-large"
             style={{ marginTop:"-40px", marginBottom:"20px", borderCollapse:"separate", borderSpacing:"0px 20px" }}>
             <tbody>
               {
@@ -143,26 +105,21 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                   return (
                     <tr key={project.name} style={{ height: "auto" }}>
                       <td className="w3-white w3-card w3-padding-large"
-                        style={{ height: "100%"/*, backgroundImage: `url(${projectProfiles[i]})`*/ }}>
-                        {/* <div style={{ display:"inline-block" }}> */}
-                        {/* <div style={{ position:"relative"}}> */}
+                        style={{ height: "100%"  }}>
                         <h3 className="w3-text-black">{project.name}</h3>
                         <hr className="w3-opacity" style={{ width: "100%", borderTop: "1px solid black" }} />
                         {
                           'image' in project &&
-                          <img style={{ width:"100%" }} src={projectProfiles[i]} alt="project preview" />
+                          <>{'url' in project ?
+                            <a rel="noopener noreferrer" target="_blank" href={project.url}>
+                              <img style={{ width:"100%" }} src={projectProfiles[i]} alt="project preview" />
+                            </a>
+                            : <img style={{ width:"100%" }} src={projectProfiles[i]} alt="project preview" />
+                          }</>
                         }
                         <p className="w3-padding-bottom ">
                           {project.text}
-                          </p>
-                        {/* </div> */}
-                        {/* {
-                          
-                          'image' in project &&
-                          <img className="shaped" src={process.env.PUBLIC_URL + "/project_profiles/" + project.image} alt="project preview" />
-                            
-                          } */}
-                        {/* </div> */}
+                        </p>
                         <div className="" style={{}}>
                           {
                             'github' in project.links &&
@@ -184,14 +141,17 @@ export default class PortfolioStatic extends Component<PortfolioStaticProps, Por
                             </a>
                           }
                         </div>
-                        <div>
-                          <a className="plain-link" rel="noopener noreferrer" target="_blank" href={project.url}
-                            style={{ fontSize: 18 }}>
-                            <span style={{ bottom: "6px", position: "relative" }}>View project</span>
-                            <i className="fa fa-angle-double-right w3-xxlarge w3-hover-opacity"
-                              style={{ marginLeft: "6px" }}></i>
-                          </a>
-                        </div>
+                        {
+                          'url' in project &&
+                          <div>
+                            <a className="plain-link" rel="noopener noreferrer" target="_blank" href={project.url}
+                              style={{ fontSize: 18 }}>
+                              <span style={{ bottom: "6px", position: "relative" }}>View project</span>
+                              <i className="fa fa-angle-double-right w3-xxlarge w3-hover-opacity"
+                                style={{ marginLeft: "6px" }}></i>
+                            </a>
+                          </div>
+                        }
                       </td>
                     </tr>
                   )

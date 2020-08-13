@@ -12,7 +12,7 @@
     {
       "name": "Better-Zoom",
       "image": "better-zoom.png",
-      "url": "https://calvang.github.io/better-zoom",
+      "url": "https://github.com/calvang/better-zoom",
       "links": {
         "github": "https://github.com/calvang/better-zoom"
       },
@@ -39,6 +39,7 @@
     {
       "name": "Resumator",
       "image": "resumator.png",
+      "url": "https://github.com/calvang/resumator",
       "links": {
         "github": "https://github.com/calvang/resumator"
       },

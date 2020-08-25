@@ -1,4 +1,8 @@
 # calvang.github.io
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fcalvang.github.io)
+![GitHub](https://img.shields.io/github/license/calvang/calvang-github-pages-home?color=blue)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/calvang/calvang-github-pages-home)
+![GitHub last commit](https://img.shields.io/github/last-commit/calvang/calvang-github-pages-home)
 
 Github pages personal website for Calvin Huang.
 
@@ -25,7 +29,7 @@ View this feature at: https://github.com/calvang/calvang-github-pages-home/tree/
 
 This web app is optimized for near-native performance on both desktop and mobile devices.
 To achieve this, the site utilizes next-gen image formats and a service worker to maximize online and offline performance.
-In accordance with Google guidelines, these are the Google Lighthouse scores: 
+In accordance with Google guidelines, these are the Google Lighthouse scores:
 
 #### Automatic and Parallax Scrolling
 

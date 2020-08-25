@@ -2,7 +2,7 @@
   "posts": [
     {
       "title": "Experimenting with Bedrock Linux",
-      "description": "Ever wanted to harness the flexibility of Pacman alongside the stability of Apt? The Bedrock Linux meta distribution offers the freedom to mix-and-match components and packages from multiple distinct Linux distributions into a single system.",
+      "description": "Ever wanted to harness the flexibility of Pacman alongside the stability of Apt? The Bedrock Linux meta distribution offers the freedom to mix-and-match components and packages from multiple distinct Linux distributions, all within a single, unified Linux system.",
       "thumbnail": "bedrock0.7.png",
       "file": "2020-08-24-Experimenting-With-Bedrock-Linux.md"
     },

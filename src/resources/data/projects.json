@@ -3,11 +3,11 @@
     {
       "name": "Covid-19 Projection Heatmap",
       "image": "covid19-heatmap.jpg",
-      "url": "https://calvang.github.io/covid19-heatmap-demo/index.html",
+      "url": "https://covid19-projection-map.herokuapp.com/",
       "links": {
         "github": "https://github.com/calvang/covid19-heatmap"
       },
-      "text": "The goal of this project is to provide an overview of the spread of Covid-19 and a projection of its predicted case counts in the form of a interpolated heat map.  Current projections hint at a grim future in this pandemic, and it is vital that we all stay vigilant even if the cases seem to dwindle. Hopefully this visual representation can convey the importance of keeping up prevention measures to slow the spread."
+      "text": "The goal of this project is to provide an overview of the spread of Covid-19 and and a comprehensive API for viewing live US county data. The back-end is written in Rust using the Rocket framework for running asynchronous update processes. The heatmap interface utilizes the Google Maps Platform and is built using server-side rendered React code."
     },
     {
       "name": "Better-Zoom",

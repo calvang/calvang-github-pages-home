@@ -28,7 +28,7 @@
     "yarn": "^1.22.4"
   },
   "scripts": {
-    "predeploy": "yarn run build",
+    "predeploy": "./bin/update_sitemap.sh; yarn run build",
     "deploy": "gh-pages -b master -d build",
     "redeploy": "gh-pages -b master -d build",
     "start": "react-scripts start",

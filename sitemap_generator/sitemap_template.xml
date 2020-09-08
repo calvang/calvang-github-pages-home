@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+		<loc>https://calvang.github.io/</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Projects</loc>
+	</url>
+    <url>
+		<loc>https://calvang.github.io/#/Terminal-Demo</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Blog</loc>
+	</url>
+{%- for post in BLOGPOSTS %}
+	<url>
+		<loc>{{ post }}</loc>
+	</url>
+{%- endfor %}
+</urlset>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+		<loc>https://calvang.github.io/</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Projects</loc>
+	</url>
+    <url>
+		<loc>https://calvang.github.io/#/Terminal-Demo</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Blog</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Blog/2020-08-24-Experimenting-With-Bedrock-Linux</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Blog/2020-07-30-Stackbit-Beta-Review</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Blog/2020-07-27-Desktop-Linux-for-Non-Linux-Users</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Blog/2020-06-13-Installing-Wine-on-Ubuntu</loc>
+	</url>
+	<url>
+		<loc>https://calvang.github.io/#/Blog/2020-06-10-Managing-Log-Files-on-Ubuntu</loc>
+	</url>
+</urlset>

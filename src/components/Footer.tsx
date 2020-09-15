@@ -10,13 +10,13 @@ export default function Footer() {
         <table className="" style={{ width:"100%" }}>  
           <tbody >
             <tr>
-              <td className = "w3-media w3-left">
+              <td className = "w3-media w3-right">
                 <div className="w3-bar-item"
                   style={{ fontSize: 23, position:"relative", top:"6px", marginRight:"-12px" }}>
                   Visit me on:
                 </div>
               </td>
-              <td className="w3-media w3-left">
+              <td className="w3-media ">
                 <div style={{ position:"relative", top:"6px", marginLeft:"-12px" }}>
                   <div className="w3-bar-item" style={{ width: "46px" }}>
                     <a rel="noopener noreferrer" target="_blank" href="https://github.com/calvang">
@@ -41,36 +41,6 @@ export default function Footer() {
                     </a>
                   </div>
                 </div>
-              </td>
-              <td className="bar-item w3-hide-small w3-media w3-right"
-                style={{ fontSize: 12, textAlign: "left", marginBottom:0}}>
-                <p style={{ position:"relative", top:"-10px", marginBottom:"-12px" }}>
-                  <i className="fa fa-phone fa-fw w3-xlarge w3-hover-opacity w3-text-darkest-teal"
-                    style={{ position:"relative", top:"3px" }}></i>
-                  {" "} Phone: +1 (513) 693-5266
-                </p>
-                <p style={{ position:"relative", top:"-10px", marginBottom:"-16px" }}>
-                  <a rel="noopener noreferrer" target="_blank" href="mailto:calvang@umich.edu"
-                  className="plain-link">
-                  <i className="fa fa-envelope fa-fw w3-xlarge w3-hover-opacity w3-text-darkest-teal"
-                    style={{ position:"relative", top:"3px" }}></i>
-                  {" "} Email: calvang@umich.edu 
-                  </a>
-                </p>
-              </td>
-              <td className="bar-item w3-hide-large w3-hide-medium w3-media w3-left"
-                style={{ fontSize: 18, textAlign: "left", alignItems: "right" }}>
-                <p style={{ position: "relative", top: "-10px" }}>
-                  <i className="fa fa-phone fa-fw w3-xlarge w3-hover-opacity w3-text-darkest-teal"
-                    style={{ position:"relative", top:"2px" }}></i>
-                  {" "} Phone: +1 (513) 693-5266
-                </p>
-                <p><a rel="noopener noreferrer" target="_blank" href="mailto:calvang@umich.edu"
-                className="plain-link">
-                  <i className="fa fa-envelope fa-fw w3-xlarge w3-hover-opacity w3-text-darkest-teal"
-                    style={{ position:"relative", top:"2px" }}></i>
-                  {" "} Email: calvang@umich.edu 
-                </a></p>
               </td>
             </tr>
           </tbody>

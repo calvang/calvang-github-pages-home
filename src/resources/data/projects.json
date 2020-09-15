@@ -44,20 +44,6 @@
         "github": "https://github.com/calvang/resumator"
       },
       "text": "An automated resume that applies Markdown input to jinja2 LaTeX templates. This application simplifies the formatting process by taking advantage of minimalistic Markdown syntax and makes dynamic changes that are carried over to a finalized LaTeX-generated pdf."
-    },
-    {
-      "name": "Tubify",
-      "links": {
-        "github": "https://github.com/calvang/Tubify"
-      },
-      "text": "A simple Python application that ports a Youtube playlist to Spotify. Utilizes the Youtube and Spotify API's to access information from registered users. Future work will include porting this into Javascript and React Native to deploy a Chromium extension or Mobile Widgets"
-    },
-    {
-      "name": "Wikipedia Table Scraper",
-      "links": {
-        "github": "https://github.com/calvang/wikipedia-table-web-scraper"
-      },
-      "text": "A web scraper application using Beautiful Soup for collect data into CSV or JSON files. Designed to scrape location data for the Covid-19 Heatmap project. Can be adapted to scrape various table formats from different static sites."
     }
   ]
 }

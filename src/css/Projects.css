@@ -1,33 +1,27 @@
 @media only screen and (max-width: 800px) {
   .Project-container {
-    background-image: 
+    background-image:
       linear-gradient(
-        rgba(50, 0, 80, 0.1), 
-        rgba(0, 20, 20, 0.1)
+        rgba(30, 15, 240, 0.1), 
+        rgba(114, 133, 11, 0.3)
       ),
-      url(../resources/images/underwater.jpg);
-      /* url(../resources/images/neonMetal.jpg); */
+      url(../resources/images/metalWaves.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 1;
-    padding-bottom: 9.25%; */
     position: relative;
   }
 }
 
 @media only screen and (min-width: 801px) {
   .Project-container {
-    background-image: 
+    background-image:
       linear-gradient(
-        rgba(50, 0, 80, 0.5), 
-        rgba(20, 50, 20, 0.5)
+        rgba(30, 15, 240, 0.1), 
+        rgba(114, 133, 11, 0.3)
       ),
-      url(../resources/images/underwater.jpg);
-      /* url(../resources/images/neonMetal.jpg); */
+      url(../resources/images/metalWaves.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 0;
-    padding-bottom: 56.25%; */
     position: relative;
   }
 }
@@ -71,24 +65,10 @@
   background-size: cover;
   position:relative;
 }
-
-/* .profile-default {
-  width: 100%;
-}
-
-.profile-no-image {
-  width: 50%;
-} */
-
 .shaped{
   float: right;
   position:relative;
   max-width: 500px;
-
-  /* shape-margin: 1rem;
-  shape-outside: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%); */
-  /* shape-outside: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); */
   shape-margin: 1rem;
   clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
   shape-margin: 20px;

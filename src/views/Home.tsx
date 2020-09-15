@@ -196,7 +196,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                     <p><a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/calvin-huang-9385ba165"
                       className="plain-link">
                       <i className="fa fa-linkedin-square fa-fw w3-text-darkest-teal w3-xxlarge w3-hover-opacity w3-margin-right"
-                        style={{ position:"relative", top:"8px" }}></i>
+                        style={{ position:"relative", top:"8px", paddingBottom: "16px"}}></i>
                       <b className="w3-hover-opacity">LinkedIn</b>
                     </a></p>
                   </td>

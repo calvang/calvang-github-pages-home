@@ -1,6 +1,15 @@
 {
   "projects": [
     {
+      "name": "Robotic Arm Simulator",
+      "image": "robotic_arm_simulator.jpg",
+      "url": "https://calvang.github.io/Robotic_Arm_Control_App/",
+      "links": {
+        "github": "https://github.com/calvang/Robotic_Arm_Control_App"
+      },
+      "text": "A 3D simulation of a 6-axis robotic arm that is powered by Three.js and React. To bring this project to life, I designed and developed everything from scratch, including the model for the arm, the kinematics engine powering the movement, and the front-end WebGL interface. Current features include both manual and location-mapped controls."
+    },
+    {
       "name": "Covid-19 Projection Heatmap",
       "image": "covid19-heatmap.jpg",
       "url": "https://covid19-projection-map.herokuapp.com/",
@@ -10,7 +19,25 @@
       "text": "The goal of this project is to provide an overview of the spread of Covid-19 and and a comprehensive API for viewing live US county data. The back-end is written in Rust using the Rocket framework for running asynchronous update processes. The heatmap interface utilizes the Google Maps Platform and is built using server-side rendered React code."
     },
     {
-      "name": "Better-Zoom",
+      "name": "Autoinstall Manager",
+      "image": "autoinstall_manager.png",
+      "url": "https://github.com/calvang/autoinstall-manager/",
+      "links": {
+        "github": "https://github.com/calvang/autoinstall-manager/"
+      },
+      "text": "A command-line utility to set up a Unix/Linux native system and automatically create symlinks and install programs. Autoinstall-Manager allows users to define installation tasks within a unified Markdown file for ease of configuration."
+    },
+    {
+      "name": "Maze Generator and Path Finder Library",
+      "image": "pathfinder.png",
+      "url": "https://github.com/calvang/maze-playground",
+      "links": {
+        "github": "https://github.com/calvang/maze-playground"
+      },
+      "text": "A C++ library of maze generation and maze solving algorithms. The current version contains classical maze generation algorithms such as randomized depth-first-search, randomized Kruskal's, randomized Prims's, and Aldous-Broder."
+    },
+    {
+      "name": "Peer-to-Peer Video Chat App",
       "image": "better-zoom.png",
       "url": "https://shrouded-crag-20600.herokuapp.com",
       "links": {

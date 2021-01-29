@@ -5,4 +5,5 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-serviceWorker.register();
+// service worker removed because of cookie lingering for sub-sites
+// serviceWorker.register();

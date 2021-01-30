@@ -1,28 +1,57 @@
 [
   {
-    "id": "hero"
+    "id": "hero",
+    "text": "Full-stack developer and student researcher."
   },
   {
     "id": "whoami",
-    "text": "A 3rd-year student studying Computer Science at the University of Michigan College of Engineering who is interested in exploring bleeding-edge web technologies and machine learning algorithms. I am experienced in web systems, database management, and desktop and mobile app development. Currently, I am conducting research under the Radiological Health Engineering Lab, where I am designing machine learning models to learn from live radiation data." 
+    "text": [
+      "I am a 3rd-year student studying Computer Science at the University of Michigan College of Engineering who is interested in exploring bleeding-edge web technologies and machine learning algorithms. I have experience in web systems, databases, machine learning, native app development.",
+      "I am currently conducting research under the Radiological Health Engineering Lab, where I am working on a data processing pipeline and designing machine learning models to learn from live radiation data.",
+      "I am also contributing to optical character recognition correction software using natural language processing techniques for a Multidisciplinary Design team sponsored by Proquest." 
+    ]
   },
   {
     "id": "skills",
     "data": {
-      "languages": {
-        "programming": "C/C++, Java, C#, Python, JavaScript, TypeScript, MatLab, Swift, SQL",
-        "markup": "HTML, XML, YAML, CSS, LaTex, Markdown, Mermaid"
-      },
-      "frameworks": {
-        "frontend": "React, Angular, Bootstrap",
-        "backend": "Flask, JAX-RS, ExpressJS, Rocket, Genie, .NET",
-        "databases": "SQLite, MySQL, MongoDB, DynamoDB"
-      },
-      "infrastructures": {
-        "cloud": "Amazon Web Services, Google Cloud, Heroku",
-        "deployment": "Ansible, IBM Websphere Liberty, DynDNS",
-        "servers": "Apache 2, Nginx"
-      }
+      "languages": [
+        {
+          "title": "Programming/Query",
+          "content": "C/C++, Java, C#, Python, JavaScript, TypeScript, Rust, Julia, MatLab, Swift, SQL"
+        },
+        {
+          "title": "Markup",
+          "content": "HTML, XML, YAML, CSS, LaTeX, Markdown, Mermaid"
+        }
+      ],
+      "frameworks": [
+        {
+          "title": "Web",
+          "content": "React, Bootstrap, Flask, JAX-RS, ExpressJS, Rocket, Genie"
+        },
+        { 
+          "title": "Machine Learning",
+          "content": "PyTorch, Tensorflow 2.0, Huggingface, OpenCV, SKLearn, Jupyter Notebook"
+        },
+        {
+          "title": "Databases",
+          "content": "SQLite, MySQL, MongoDB, DynamoDB"
+        }
+      ],
+      "infrastructures": [
+        {
+          "title": "Cloud",
+          "content": "Amazon Web Services, Google Cloud, Heroku"
+        },
+        {
+          "title": "Deployment",
+          "content": "Ansible, IBM Websphere Liberty, DynDNS, Apache 2"
+        },
+        {
+          "title": "Virtualization",
+          "content": "KVM/QEMU, VirtualBox, VMWare, Docker" 
+        }
+      ]
     },
     "resume": "https://calvang.github.io/gh-docs/resume/Resume-current.pdf"
   },

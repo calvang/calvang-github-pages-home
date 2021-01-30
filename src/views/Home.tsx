@@ -162,7 +162,7 @@ export default class Home extends Component<HomeProps, HomeState> {
           <header className="w3-container w3-center Home-container1 parallax-scroll" ref={sections[0]}>
             <div className="vertical-center">
               <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
-              <p>Full-stack and desktop student developer.</p>
+              <p>{homeData[0].text}</p>
             </div>
           </header>
 
@@ -177,7 +177,13 @@ export default class Home extends Component<HomeProps, HomeState> {
                     style={{ height:"100%" }}>
                     <h2 className="w3-text-black">whoami</h2>
                     <hr className="w3-opacity" style={{ width: "200px", borderTop: "1px solid black" }} />
-                    <p>{homeData[1].text}</p>
+                    {
+                      (homeData[1].text as string[]).map((paragraph, i) => {
+                        return (
+                          <p key={i}>{paragraph}</p>
+                        )
+                      })
+                    }
                   </td>
                   <td className="w3-mobile w3-white w3-card w3-padding"
                     style={{ width: "270px", verticalAlign:"top" }}>
@@ -219,42 +225,42 @@ export default class Home extends Component<HomeProps, HomeState> {
                     <p className="w3-wide w3-large">Languages</p>
                     <div className="w3-row w3-mobile w3-center w3-section w3-darkest-gray w3-card-4">
                       <div className="w3-half w3-section w3-padding">
-                        <span className="w3-xlarge">Programming/Query</span><br />
-                        <span className="w3-padding-large">{homeData[2].data?.languages.programming}</span>
+                        <span className="w3-xlarge">{homeData[2].data?.languages[0].title}</span><br />
+                        <span className="w3-padding-large">{homeData[2].data?.languages[0].content}</span>
                       </div>
                       <div className="w3-half w3-section w3-padding">
-                        <span className="w3-xlarge">Markup</span><br />
-                        <span className="w3-padding-large">{homeData[2].data?.languages.markup}</span>
+                        <span className="w3-xlarge">{homeData[2].data?.languages[1].title}</span><br />
+                        <span className="w3-padding-large">{homeData[2].data?.languages[1].content}</span>
                       </div>
                     </div>
                     <p className="w3-wide w3-large">Frameworks</p>
                     <div className="w3-row w3-mobile w3-center w3-section w3-darkest-gray w3-card-4">
                       <div className="w3-third w3-section w3-padding">
-                        <span className="w3-xlarge">Frontend</span><br />
-                        <span className="w3-padding">{homeData[2].data?.frameworks.frontend}</span>
+                        <span className="w3-xlarge">{homeData[2].data?.frameworks[0].title}</span><br />
+                        <span className="w3-padding">{homeData[2].data?.frameworks[0].content}</span>
                       </div>
                       <div className="w3-third w3-section w3-padding">
-                        <span className="w3-xlarge">Backend</span><br />
-                        <span className="w3-padding">{homeData[2].data?.frameworks.backend}</span>
+                        <span className="w3-xlarge">{homeData[2].data?.frameworks[1].title}</span><br />
+                        <span className="w3-padding">{homeData[2].data?.frameworks[1].content}</span>
                       </div>
                       <div className="w3-third w3-section w3-padding">
-                        <span className="w3-xlarge">Databases</span><br />
-                        <span className="w3-padding">{homeData[2].data?.frameworks.databases}</span>
+                        <span className="w3-xlarge">{homeData[2].data?.frameworks[2].title}</span><br />
+                        <span className="w3-padding">{homeData[2].data?.frameworks[2].content}</span>
                       </div>
                     </div>
                     <p className="w3-wide w3-large">Infrastructures</p>
                     <div className="w3-row w3-mobile w3-center w3-section w3-darkest-gray w3-card-4">
                       <div className="w3-third w3-section w3-padding">
-                        <span className="w3-xlarge">Cloud</span><br />
-                        <span className="w3-padding">{homeData[2].data?.infrastructures.cloud}</span>
+                        <span className="w3-xlarge">{homeData[2].data?.infrastructures[0].title}</span><br />
+                        <span className="w3-padding">{homeData[2].data?.infrastructures[0].content}</span>
                       </div>
                       <div className="w3-third w3-section w3-padding">
-                        <span className="w3-xlarge">Deployment</span><br />
-                        <span className="w3-padding">{homeData[2].data?.infrastructures.deployment}</span>
+                        <span className="w3-xlarge">{homeData[2].data?.infrastructures[1].title}</span><br />
+                        <span className="w3-padding">{homeData[2].data?.infrastructures[1].content}</span>
                       </div>
                       <div className="w3-third w3-section w3-padding">
-                        <span className="w3-xlarge">Servers</span><br />
-                        <span className="w3-padding">{homeData[2].data?.infrastructures.servers}</span>
+                        <span className="w3-xlarge">{homeData[2].data?.infrastructures[2].title}</span><br />
+                        <span className="w3-padding">{homeData[2].data?.infrastructures[2].content}</span>
                       </div>
                     </div>
                     {/* resume link */}

@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "Robotic Arm Simulator",
-      "image": "robotic_arm_simulator.jpg",
+      "image": "robotic_arm_simulator.png",
       "url": "https://calvang.github.io/Robotic_Arm_Control_App/",
       "links": {
         "github": "https://github.com/calvang/Robotic_Arm_Control_App"

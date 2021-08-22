@@ -163,7 +163,7 @@ export default class Home extends Component<HomeProps, HomeState> {
             <div className="vertical-center">
               <img className="" alt="profile" src={process.env.PUBLIC_URL + "/profile/1604274360183.jpeg"}
                 style={{ width: "200px", borderRadius: "50%", border: "5px solid white" }}/>
-              <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
+              <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang</h1>
               <p>{homeData[0].text}</p>
             </div>
           </header>

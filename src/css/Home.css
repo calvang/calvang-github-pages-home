@@ -16,7 +16,6 @@
         rgba(0, 20, 20, 0.1)
       ),
       url(../resources/images/neonMetal.webp);
-      /* url(../resources/images/neonMetal.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 1;
@@ -61,18 +60,30 @@
 }
 
 @media only screen and (min-width: 801px) {
-  .Home-container1 {
+  /* .Home-container1 {
     background-image: 
       linear-gradient(
         rgba(50, 0, 80, 0.1), 
         rgba(20, 100, 20, 0.1)
       ),
       url(../resources/images/neonMetal.webp);
-      /* url(../resources/images/neonMetal.jpg); */
     background-repeat: no-repeat;
     background-size: contain;
     height: 0;
     padding-bottom: 56.25%;
+    position: relative;
+  } */
+  .Home-container1 {
+    background-image: 
+      linear-gradient(
+        rgba(50, 0, 80, 0.1), 
+        rgba(0, 20, 20, 0.1)
+      ),
+      url(../resources/images/neonMetal.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1;
+    padding-bottom: 9.25%;
     position: relative;
   }
   
@@ -126,7 +137,11 @@
 
 @media only screen and (min-width: 1000px) {
   .Home-container1 {
+    background-repeat: no-repeat;
     background-size: cover;
+    height: 1;
+    padding-bottom: 0;
+    position: relative;
   }
 }
 

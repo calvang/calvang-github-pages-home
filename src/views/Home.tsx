@@ -33,7 +33,7 @@ export default class Home extends Component<HomeProps, HomeState> {
     console.groupEnd()
     this.state = {
       isMenuOpen: false,
-      autoscroll: true,
+      autoscroll: false,
       sections: refs,
       currentSection: props.startRef,
       scrollPeriod: 10000,
@@ -161,6 +161,8 @@ export default class Home extends Component<HomeProps, HomeState> {
           {/* title page */}
           <header className="w3-container w3-center Home-container1 parallax-scroll" ref={sections[0]}>
             <div className="vertical-center">
+              <img className="" alt="profile" src={process.env.PUBLIC_URL + "/profile/1604274360183.jpeg"}
+                style={{ width: "200px", borderRadius: "50%", border: "5px solid white" }}/>
               <h1 className="w3-jumbo"><span className="w3-hide-small">I'm</span> Calvin Huang.</h1>
               <p>{homeData[0].text}</p>
             </div>
@@ -223,7 +225,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                     <hr className="w3-opacity" style={{ width: "200px", borderTop: "1px solid grey" }} />
                     {/* skill categories */}
                     <p className="w3-wide w3-large">Languages</p>
-                    <div className="w3-row w3-mobile w3-center w3-section w3-darkest-gray w3-card-4">
+                    <div className="w3-row w3-mobile w3-center w3-section w3-light-gray w3-card-4">
                       <div className="w3-half w3-section w3-padding">
                         <span className="w3-xlarge">{homeData[2].data?.languages[0].title}</span><br />
                         <span className="w3-padding-large">{homeData[2].data?.languages[0].content}</span>
@@ -233,8 +235,9 @@ export default class Home extends Component<HomeProps, HomeState> {
                         <span className="w3-padding-large">{homeData[2].data?.languages[1].content}</span>
                       </div>
                     </div>
+
                     <p className="w3-wide w3-large">Frameworks</p>
-                    <div className="w3-row w3-mobile w3-center w3-section w3-darkest-gray w3-card-4">
+                    <div className="w3-row w3-mobile w3-center w3-section w3-light-gray w3-card-4">
                       <div className="w3-third w3-section w3-padding">
                         <span className="w3-xlarge">{homeData[2].data?.frameworks[0].title}</span><br />
                         <span className="w3-padding">{homeData[2].data?.frameworks[0].content}</span>
@@ -248,8 +251,9 @@ export default class Home extends Component<HomeProps, HomeState> {
                         <span className="w3-padding">{homeData[2].data?.frameworks[2].content}</span>
                       </div>
                     </div>
+
                     <p className="w3-wide w3-large">Infrastructures</p>
-                    <div className="w3-row w3-mobile w3-center w3-section w3-darkest-gray w3-card-4">
+                    <div className="w3-row w3-mobile w3-center w3-section w3-light-gray w3-card-4">
                       <div className="w3-third w3-section w3-padding">
                         <span className="w3-xlarge">{homeData[2].data?.infrastructures[0].title}</span><br />
                         <span className="w3-padding">{homeData[2].data?.infrastructures[0].content}</span>
@@ -263,11 +267,23 @@ export default class Home extends Component<HomeProps, HomeState> {
                         <span className="w3-padding">{homeData[2].data?.infrastructures[2].content}</span>
                       </div>
                     </div>
+
+                    <p className="w3-wide w3-large">Certifications</p>
+                    <div className="w3-row w3-mobile w3-center w3-section">
+                      <div className="">
+                        <a rel="noopener noreferrer" target="_blank" href={homeData[2].data?.certifications[0].link}>
+                          <img alt={homeData[2].data?.certifications[0].title} 
+                            src={homeData[2].data?.certifications[0].image} 
+                            style={{ width: "300px" }}/>
+                        </a>
+                      </div>
+                    </div>
+                    
                     {/* resume link */}
                     <a rel="noopener noreferrer" target="_blank" href={homeData[2].resume}
-                      className="w3-button w3-darkest-gray w3-padding-large w3-section">
+                      className="w3-button w3-light-gray w3-padding-large w3-section">
                       <i className="fa fa-download"></i> View Resume
-                    </a>
+                    </a><br/>
                   </td>
                 </tr>
               </tbody>

@@ -1,14 +1,14 @@
 [
   {
     "id": "hero",
-    "text": "Full-stack developer and student researcher."
+    "text": "Machine learning engineer, full-stack software developer, and student researcher."
   },
   {
     "id": "whoami",
     "text": [
-      "I am a 3rd-year student studying Computer Science at the University of Michigan College of Engineering who is interested in exploring bleeding-edge web technologies and machine learning algorithms. I have experience in web systems, databases, machine learning, native app development.",
-      "I am currently conducting research under the Radiological Health Engineering Lab, where I am working on a data processing pipeline and designing machine learning models to learn from live radiation data.",
-      "I am also contributing to optical character recognition correction software using natural language processing techniques for a Multidisciplinary Design team sponsored by Proquest." 
+      "I am a 4th-year student studying Computer Science at the University of Michigan College of Engineering who is interested in exploring bleeding-edge web technologies and machine learning algorithms. I have experience in web systems, databases, machine learning, and native app development.",
+      "I am currently conducting research under the Radiological Health Engineering Lab, where I am building cloud-native data pipelines and implementing machine learning models to learn from live radiation data.",
+      "I am also working on optical character recognition correction with state-of-the art models such as T5 and BERT to improve text data for Proquest." 
     ]
   },
   {
@@ -17,7 +17,7 @@
       "languages": [
         {
           "title": "Programming/Query",
-          "content": "C/C++, Java, C#, Python, JavaScript, TypeScript, Rust, Julia, MatLab, Swift, SQL"
+          "content": "C/C++, Java, C#/.NET, Python, JavaScript, TypeScript, Rust, Julia, MatLab, Swift, SQL"
         },
         {
           "title": "Markup",
@@ -45,11 +45,18 @@
         },
         {
           "title": "Deployment",
-          "content": "Ansible, IBM Websphere Liberty, DynDNS, Apache 2"
+          "content": "Jenkins, Ansible, IBM Websphere Liberty, DynDNS, Apache 2"
         },
         {
           "title": "Virtualization",
           "content": "KVM/QEMU, VirtualBox, VMWare, Docker" 
+        }
+      ],
+      "certifications": [
+        {
+          "title": "AWS Solutions Architect - Associate",
+          "image": "https://images.credly.com/size/680x680/images/4bc21d8b-4afe-4fbd-9a90-a9de8bf7b240/AWS-SolArchitect-Associate-2020.png",
+          "link": "https://www.credly.com/badges/7efc96eb-a493-431b-b3e7-2051f5e21039/embedded"
         }
       ]
     },

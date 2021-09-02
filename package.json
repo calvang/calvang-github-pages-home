@@ -19,7 +19,7 @@
     "immer": "^8.0.1",
     "markdown-to-jsx": "^6.11.4",
     "node-notifier": "^8.0.1",
-    "object-path": "^0.11.5",
+    "object-path": "^0.11.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-draggable": "^4.4.3",

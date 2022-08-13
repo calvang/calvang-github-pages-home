@@ -273,7 +273,7 @@ export default class Home extends Component<HomeProps, HomeState> {
                       <div className="">
                         <a rel="noopener noreferrer" target="_blank" href={homeData[2].data?.certifications[0].link}>
                           <img alt={homeData[2].data?.certifications[0].title} 
-                            src={homeData[2].data?.certifications[0].image} 
+                            src={process.env.PUBLIC_URL + homeData[2].data?.certifications[0].image} 
                             style={{ width: "300px" }}/>
                         </a>
                       </div>
